@@ -1,0 +1,870 @@
+[
+  {
+    "synergyId": "Set8_Admin",
+    "name": "A.D.M.I.N.",
+    "description": "A.D.M.I.N. programs a custom configuration per player each game.  On Ability cast, A.D.M.I.N.s gain 18 Ability Power On Ability cast, A.D.M.I.N.s gain 18% Attack Damage On Ability cast, A.D.M.I.N.s gain 18% Attack Speed On Ability cast, A.D.M.I.N.s heal 250 Health On Ability cast, A.D.M.I.N.s gain 18 permanent maximum Health 33% chance to drop gold  On kill, the killer gains 20 Ability Power On kill, the killer gains 20% Attack Damage On kill, the killer gains 20% Attack Speed On kill, the killer heals 400 Health On kill, the killer gains 18 permanent maximum Health 40% chance to drop gold  Every 5 seconds, A.D.M.I.N.s gain 18 Ability Power Every 5 seconds, A.D.M.I.N.s gain 18% Attack Damage Every 5 seconds, A.D.M.I.N.s gain 18% Attack Speed Every 5 seconds, A.D.M.I.N.s gain 40 Mana Every 5 seconds, A.D.M.I.N.s get 10 permanent maximum Health 25% chance to drop gold  Every 5 seconds, your team gains 15 Ability Power Every 5 seconds, your team gains 15% Attack Damage Every 5 seconds, your team gains 15% Attack Speed Every 5 seconds, your team gains 20 Mana Every 5 seconds, your team gains 6 permanent maximum Health Every 5 seconds, your team heals 150 Health 15% chance to drop gold  At 66% Health, A.D.M.I.N.s gain 60 Ability Power At 66% Health, A.D.M.I.N.s gain 60% Attack Damage At 66% health, A.D.M.I.N.s gain 60% Attack Speed At 66% Health, A.D.M.I.N.s gain 45 permanent maximum Health At 66% Health, A.D.M.I.N.s gain a 25% Health shield 60% chance to drop gold  On ally death, A.D.M.I.N.s gain 15 Ability Power On ally death, A.D.M.I.N.s gain 15% Attack Damage On ally death, A.D.M.I.N.s gain 15% Attack Speed On ally death, A.D.M.I.N.s gain 10 permanent maximum Health On ally death, A.D.M.I.N.s heal 250 Health 20% chance to drop gold  Combat start: A.D.M.I.N.s gain 40 Ability Power Combat start: A.D.M.I.N.s gain 40% Attack Damage Combat start: A.D.M.I.N.s gain 40% Attack Speed Combat start: A.D.M.I.N.s gain 30 permanent maximum Health 50% chance to drop gold  Combat start: your team gains 30 Ability Power Combat start: your team gains 30% Attack Damage Combat start: your team gains 30% Attack Speed Combat start: your team gains 20 permanent maximum Health Combat start: your team gains a 25% Health shield 25% chance to drop gold ",
+    "type": "origin",
+    "tier": "C",
+    "synergyLevel": [
+      {
+        "id": "2",
+        "units_required": "2",
+        "style": "1",
+        "description": "[Initialize ADMIN cause and effect]",
+        "maxUnits": 3,
+        "minUnits": 2
+      },
+      {
+        "id": "3",
+        "units_required": "4",
+        "style": "4",
+        "description": "[Add another effect to the program]. Boost all tiers by 25%",
+        "maxUnits": 5,
+        "minUnits": 4
+      },
+      {
+        "id": "4",
+        "units_required": "6",
+        "style": "5",
+        "description": "Boost previous tiers by 100%",
+        "maxUnits": 25000,
+        "minUnits": 6
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_AnimaSquad",
+    "name": "Anima Squad",
+    "description": "Anima Squad members pose after champion kills, increasing their fame. Each point of fame grants 5 permanent Health to each Anima Squad member.  They also gain:",
+    "type": "origin",
+    "tier": "B",
+    "synergyLevel": [
+      {
+        "id": "5",
+        "units_required": "3",
+        "style": "1",
+        "description": "15% Attack Damage and 15 Ability Power",
+        "maxUnits": 4,
+        "minUnits": 3
+      },
+      {
+        "id": "6",
+        "units_required": "5",
+        "style": "4",
+        "description": "35% Attack Damage and 35 Ability Power",
+        "maxUnits": 6,
+        "minUnits": 5
+      },
+      {
+        "id": "7",
+        "units_required": "7",
+        "style": "5",
+        "description": "60% Attack Damage and 60 Ability Power",
+        "maxUnits": 25000,
+        "minUnits": 7
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_SpaceCorps",
+    "name": "LaserCorps",
+    "description": "When a LaserCorp agent attacks or is hit by an attack, their drone deals magic damage to the agent's target (0.4 second cooldown). Drones are reassigned to another champion with a drone when the agent dies.  Drone lasers deal:",
+    "type": "origin",
+    "tier": "C",
+    "synergyLevel": [
+      {
+        "id": "8",
+        "units_required": "3",
+        "style": "1",
+        "description": "27 magic damage",
+        "maxUnits": 3,
+        "minUnits": 3
+      },
+      {
+        "id": "9",
+        "units_required": "4",
+        "style": "3",
+        "description": "35 magic damage AND all champions get a drone.",
+        "maxUnits": 4,
+        "minUnits": 4
+      },
+      {
+        "id": "10",
+        "units_required": "5",
+        "style": "4",
+        "description": "55 magic damage.",
+        "maxUnits": 5,
+        "minUnits": 5
+      },
+      {
+        "id": "11",
+        "units_required": "6",
+        "style": "5",
+        "description": "80 magic damage.",
+        "maxUnits": 25000,
+        "minUnits": 6
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Brawler",
+    "name": "Brawler",
+    "description": "Brawlers gain additional maximum Health.",
+    "type": "class",
+    "tier": "B",
+    "synergyLevel": [
+      {
+        "id": "12",
+        "units_required": "2",
+        "style": "1",
+        "description": "+20% maximum Health",
+        "maxUnits": 3,
+        "minUnits": 2
+      },
+      {
+        "id": "13",
+        "units_required": "4",
+        "style": "3",
+        "description": "+45% maximum Health",
+        "maxUnits": 5,
+        "minUnits": 4
+      },
+      {
+        "id": "14",
+        "units_required": "6",
+        "style": "4",
+        "description": "+70% maximum Health",
+        "maxUnits": 7,
+        "minUnits": 6
+      },
+      {
+        "id": "15",
+        "units_required": "8",
+        "style": "5",
+        "description": "+100% maximum Health",
+        "maxUnits": 25000,
+        "minUnits": 8
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_ExoPrime",
+    "name": "Mecha:PRIME",
+    "description": "Use the Mecha selector item to choose a PRIME. Combat start: The PRIME combines with the 2 nearest Mecha, absorbing 90% of their Base Health.",
+    "type": "origin",
+    "tier": "D",
+    "synergyLevel": [
+      {
+        "id": "16",
+        "units_required": "3",
+        "style": "1",
+        "description": "The PRIME gains 60 Ability Power and 60% Attack Damage",
+        "maxUnits": 4,
+        "minUnits": 3
+      },
+      {
+        "id": "17",
+        "units_required": "5",
+        "style": "4",
+        "description": "All Mechas gain 55 Ability Power and 55% Attack Damage; the PRIME gains double this amount",
+        "maxUnits": 25000,
+        "minUnits": 5
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Threat",
+    "name": "Threat",
+    "description": "",
+    "type": "origin",
+    "tier": "S",
+    "synergyLevel": [
+      {
+        "id": "18",
+        "units_required": "1",
+        "style": "4",
+        "description": "Threats do not have a Trait bonus, but instead have powerful Abilities and increased base stats.",
+        "maxUnits": 25000,
+        "minUnits": 1
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Mascot",
+    "name": "Mascot",
+    "description": "Your team heals a percentage of their maximum Health every 2 seconds, and Mascots heal double the amount. When Mascots die, they retreat to the sidelines to cheer on your team. Your team's healing increases by 1% for each cheering Mascot.",
+    "type": "class",
+    "tier": "A",
+    "synergyLevel": [
+      {
+        "id": "22",
+        "units_required": "2",
+        "style": "1",
+        "description": "1.5% healing",
+        "maxUnits": 3,
+        "minUnits": 2
+      },
+      {
+        "id": "23",
+        "units_required": "4",
+        "style": "3",
+        "description": "3% healing",
+        "maxUnits": 5,
+        "minUnits": 4
+      },
+      {
+        "id": "24",
+        "units_required": "6",
+        "style": "4",
+        "description": "6% healing",
+        "maxUnits": 25000,
+        "minUnits": 6
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Forecaster",
+    "name": "Forecaster",
+    "description": "Depending on the weather, The Forecaster grants a different bonus to adjacent allies. The weather changes every game.   Sunny Weather  Combat start: Grant a 400/600/2000 Health shield to adjacent allies for 10/10/45 seconds.   Windy Weather  Combat start: Grant bonus Attack Damage and Ability Power to adjacent allies, increasing 8/15/99% every 5 seconds.   Rainy Weather  Combat start: Grant 20/40/100 Mana to adjacent allies.   ",
+    "type": "origin",
+    "tier": "S",
+    "synergyLevel": [
+      {
+        "id": "25",
+        "units_required": "1",
+        "style": "4",
+        "description": "???",
+        "maxUnits": 25000,
+        "minUnits": 1
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Ace",
+    "name": "Ace",
+    "description": "This Trait is active only when you have exactly 1 or 4 unique Aces.",
+    "type": "class",
+    "tier": "S",
+    "synergyLevel": [
+      {
+        "id": "26",
+        "units_required": "1",
+        "style": "1",
+        "description": "Aces execute enemies they damage under 15% Health",
+        "maxUnits": 1,
+        "minUnits": 1
+      },
+      {
+        "id": "27",
+        "units_required": "4",
+        "style": "4",
+        "description": "Aces execute enemies they damage under 33% Health",
+        "maxUnits": 4,
+        "minUnits": 4
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Duelist",
+    "name": "Duelist",
+    "description": "Innate: Increased movement speed. Duelists' attacks grant bonus Attack Speed, up to 12 stacks.",
+    "type": "class",
+    "tier": "B",
+    "synergyLevel": [
+      {
+        "id": "28",
+        "units_required": "2",
+        "style": "1",
+        "description": "+5% Attack Speed per stack",
+        "maxUnits": 3,
+        "minUnits": 2
+      },
+      {
+        "id": "29",
+        "units_required": "4",
+        "style": "3",
+        "description": "+8% Attack Speed per stack",
+        "maxUnits": 5,
+        "minUnits": 4
+      },
+      {
+        "id": "30",
+        "units_required": "6",
+        "style": "4",
+        "description": "+10% Attack Speed per stack; Duelists take 10% less damage",
+        "maxUnits": 7,
+        "minUnits": 6
+      },
+      {
+        "id": "31",
+        "units_required": "8",
+        "style": "5",
+        "description": "+16% Attack Speed per stack; Duelists take 20% less damage",
+        "maxUnits": 25000,
+        "minUnits": 8
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_OxForce",
+    "name": "Ox Force",
+    "description": "Ox Force units gain bonus defenses. Once per combat, when they would drop below one health, they instead shield themselves for 50% of their maximum health for 1.5 seconds.",
+    "type": "origin",
+    "tier": "A",
+    "synergyLevel": [
+      {
+        "id": "33",
+        "units_required": "2",
+        "style": "1",
+        "description": "5 Armor and Magic Resist,",
+        "maxUnits": 3,
+        "minUnits": 2
+      },
+      {
+        "id": "34",
+        "units_required": "4",
+        "style": "4",
+        "description": "35 Armor and Magic Resist,",
+        "maxUnits": 5,
+        "minUnits": 4
+      },
+      {
+        "id": "35",
+        "units_required": "6",
+        "style": "5",
+        "description": "75 Armor and Magic Resist,",
+        "maxUnits": 25000,
+        "minUnits": 6
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Aegis",
+    "name": "Aegis",
+    "description": "Your team gains bonus Magic Resist, and Aegis units gain more.",
+    "type": "class",
+    "tier": "S",
+    "synergyLevel": [
+      {
+        "id": "36",
+        "units_required": "2",
+        "style": "1",
+        "description": "+20 Magic Resist, +40 for Aegis",
+        "maxUnits": 2,
+        "minUnits": 2
+      },
+      {
+        "id": "37",
+        "units_required": "3",
+        "style": "3",
+        "description": "+40 Magic Resist, +80 for Aegis",
+        "maxUnits": 3,
+        "minUnits": 3
+      },
+      {
+        "id": "38",
+        "units_required": "4",
+        "style": "4",
+        "description": "+60 Magic Resist, +120 for Aegis",
+        "maxUnits": 4,
+        "minUnits": 4
+      },
+      {
+        "id": "39",
+        "units_required": "5",
+        "style": "5",
+        "description": "+90 Magic Resist, +180 for Aegis",
+        "maxUnits": 25000,
+        "minUnits": 5
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_UndergroundThe",
+    "name": "Underground",
+    "description": "The Underground must sneak through the sewers after each player combat and crack 10 locks to open a vault. When the vault opens, you may choose to take the loot now, or attempt another heist for even better rewards.",
+    "type": "origin",
+    "tier": "D",
+    "synergyLevel": [
+      {
+        "id": "40",
+        "units_required": "3",
+        "style": "1",
+        "description": "2 locks per win, 3 per loss",
+        "maxUnits": 3,
+        "minUnits": 3
+      },
+      {
+        "id": "41",
+        "units_required": "4",
+        "style": "3",
+        "description": "2 locks per win, 4 per loss",
+        "maxUnits": 4,
+        "minUnits": 4
+      },
+      {
+        "id": "42",
+        "units_required": "5",
+        "style": "4",
+        "description": "3 locks per win, 5 per loss",
+        "maxUnits": 5,
+        "minUnits": 5
+      },
+      {
+        "id": "43",
+        "units_required": "6",
+        "style": "5",
+        "description": "4 locks per win, 7 per loss",
+        "maxUnits": 25000,
+        "minUnits": 6
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_StarGuardian",
+    "name": "Star Guardian",
+    "description": "Star Guardians gain more Mana in combat. ",
+    "type": "origin",
+    "tier": "A",
+    "synergyLevel": [
+      {
+        "id": "44",
+        "units_required": "2",
+        "style": "1",
+        "description": "35% Mana",
+        "maxUnits": 3,
+        "minUnits": 2
+      },
+      {
+        "id": "45",
+        "units_required": "4",
+        "style": "3",
+        "description": "70% Mana",
+        "maxUnits": 5,
+        "minUnits": 4
+      },
+      {
+        "id": "46",
+        "units_required": "6",
+        "style": "4",
+        "description": "120% Mana",
+        "maxUnits": 7,
+        "minUnits": 6
+      },
+      {
+        "id": "47",
+        "units_required": "8",
+        "style": "5",
+        "description": "175% Mana",
+        "maxUnits": 25000,
+        "minUnits": 8
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Prankster",
+    "name": "Prankster",
+    "description": "",
+    "type": "class",
+    "tier": "A",
+    "synergyLevel": [
+      {
+        "id": "48",
+        "units_required": "2",
+        "style": "1",
+        "description": "Once per combat at 50% Health, Pranksters spawn a target dummy, move to a safe location, and restore 150 Health.",
+        "maxUnits": 2,
+        "minUnits": 2
+      },
+      {
+        "id": "49",
+        "units_required": "3",
+        "style": "4",
+        "description": "And, Prankster dummies stun the enemy that killed them for 1.5 seconds.",
+        "maxUnits": 3,
+        "minUnits": 3
+      },
+      {
+        "id": "50",
+        "units_required": "4",
+        "style": "5",
+        "description": "The Health restore is increased to 350 Health and the stun duration becomes 2 seconds.",
+        "maxUnits": 25000,
+        "minUnits": 4
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Heart",
+    "name": "Heart",
+    "description": "When Heart units cast their Ability, your team gains stacking Ability Power for the rest of combat.",
+    "type": "class",
+    "tier": "A",
+    "synergyLevel": [
+      {
+        "id": "54",
+        "units_required": "2",
+        "style": "1",
+        "description": "+4 Ability Power",
+        "maxUnits": 3,
+        "minUnits": 2
+      },
+      {
+        "id": "55",
+        "units_required": "4",
+        "style": "3",
+        "description": "+7 Ability Power",
+        "maxUnits": 5,
+        "minUnits": 4
+      },
+      {
+        "id": "56",
+        "units_required": "6",
+        "style": "4",
+        "description": "+11 Ability Power",
+        "maxUnits": 25000,
+        "minUnits": 6
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Corrupted",
+    "name": "Corrupted",
+    "description": "",
+    "type": "origin",
+    "tier": "S",
+    "synergyLevel": [
+      {
+        "id": "57",
+        "units_required": "1",
+        "style": "4",
+        "description": "Combat start: Lie dormant while absorbing the souls of allies that die. Gain 40 Ability Power for each soul. Once per combat at 70% Health (or when your team has died), come alive and fight.",
+        "maxUnits": 1,
+        "minUnits": 1
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Supers",
+    "name": "Supers",
+    "description": "",
+    "type": "origin",
+    "tier": "C",
+    "synergyLevel": [
+      {
+        "id": "58",
+        "units_required": "3",
+        "style": "4",
+        "description": "Combat start: Strike a pose that grants your team 18% bonus damage, which increases by 3% for every 3-star champion on your team.",
+        "maxUnits": 25000,
+        "minUnits": 3
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Renegade",
+    "name": "Renegade",
+    "description": "Renegade units deal bonus damage, and the last one standing deals more.",
+    "type": "class",
+    "tier": "B",
+    "synergyLevel": [
+      {
+        "id": "59",
+        "units_required": "3",
+        "style": "1",
+        "description": "25% bonus damage, extra 20% for last alive",
+        "maxUnits": 4,
+        "minUnits": 3
+      },
+      {
+        "id": "60",
+        "units_required": "5",
+        "style": "3",
+        "description": "40% bonus damage, extra 30% for last alive",
+        "maxUnits": 6,
+        "minUnits": 5
+      },
+      {
+        "id": "61",
+        "units_required": "7",
+        "style": "4",
+        "description": "70% bonus damage, extra 40% for last alive",
+        "maxUnits": 25000,
+        "minUnits": 7
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Channeler",
+    "name": "Spellslinger",
+    "description": "Every 5 seconds, Spellslinger's next attack instead fires a magic orb at a random target, which explodes for 50% Ability Power as magic damage.  Spellslingers gain:",
+    "type": "class",
+    "tier": "A",
+    "synergyLevel": [
+      {
+        "id": "62",
+        "units_required": "2",
+        "style": "1",
+        "description": "+25 Ability Power",
+        "maxUnits": 3,
+        "minUnits": 2
+      },
+      {
+        "id": "63",
+        "units_required": "4",
+        "style": "3",
+        "description": "+45 Ability Power",
+        "maxUnits": 5,
+        "minUnits": 4
+      },
+      {
+        "id": "64",
+        "units_required": "6",
+        "style": "4",
+        "description": "+70 Ability Power",
+        "maxUnits": 7,
+        "minUnits": 6
+      },
+      {
+        "id": "65",
+        "units_required": "8",
+        "style": "5",
+        "description": "+110 Ability Power, and orbs deal 100% Ability Power",
+        "maxUnits": 25000,
+        "minUnits": 8
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Deadeye",
+    "name": "Sureshot",
+    "description": "Combat start: Sureshots gain bonus Attack Damage now, and every 4 seconds.",
+    "type": "class",
+    "tier": "B",
+    "synergyLevel": [
+      {
+        "id": "66",
+        "units_required": "2",
+        "style": "1",
+        "description": "+7% Attack Damage",
+        "maxUnits": 2,
+        "minUnits": 2
+      },
+      {
+        "id": "67",
+        "units_required": "3",
+        "style": "3",
+        "description": "+12% Attack Damage",
+        "maxUnits": 3,
+        "minUnits": 3
+      },
+      {
+        "id": "68",
+        "units_required": "4",
+        "style": "4",
+        "description": "+18% Attack Damage",
+        "maxUnits": 4,
+        "minUnits": 4
+      },
+      {
+        "id": "69",
+        "units_required": "5",
+        "style": "5",
+        "description": "+25% Attack Damage",
+        "maxUnits": 25000,
+        "minUnits": 5
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Defender",
+    "name": "Defender",
+    "description": "Your team gains bonus Armor, and Defenders gain more. ",
+    "type": "class",
+    "tier": "A",
+    "synergyLevel": [
+      {
+        "id": "70",
+        "units_required": "2",
+        "style": "1",
+        "description": "+25 Armor, +50 for Defenders",
+        "maxUnits": 3,
+        "minUnits": 2
+      },
+      {
+        "id": "71",
+        "units_required": "4",
+        "style": "3",
+        "description": "+75 Armor, +150 for Defenders",
+        "maxUnits": 5,
+        "minUnits": 4
+      },
+      {
+        "id": "72",
+        "units_required": "6",
+        "style": "4",
+        "description": "+180 Armor, +400 for Defenders",
+        "maxUnits": 25000,
+        "minUnits": 6
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_GenAE",
+    "name": "Gadgeteen",
+    "description": "Each round, Gadgeteens create random modified weapons with powerful effects that fall apart after one round. Gadgeteens also gain Damage and Damage Reduction for each item equipped to them.",
+    "type": "origin",
+    "tier": "C",
+    "synergyLevel": [
+      {
+        "id": "73",
+        "units_required": "3",
+        "style": "1",
+        "description": "Create 1 item, 4% per item.",
+        "maxUnits": 4,
+        "minUnits": 3
+      },
+      {
+        "id": "74",
+        "units_required": "5",
+        "style": "4",
+        "description": "Create 2 items, 8% per item.",
+        "maxUnits": 25000,
+        "minUnits": 5
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Hacker",
+    "name": "Hacker",
+    "description": "Hackers gain  Omnivamp  and summon a H4ckerr!m. Any unit placed in the rider hex will be sent to the enemy backline and is untargetable for the first 2 seconds of combat.",
+    "type": "class",
+    "tier": "D",
+    "synergyLevel": [
+      {
+        "id": "75",
+        "units_required": "3",
+        "style": "1",
+        "description": "+10% Omnivamp for Hackers",
+        "maxUnits": 3,
+        "minUnits": 3
+      },
+      {
+        "id": "76",
+        "units_required": "4",
+        "style": "3",
+        "description": "+20% Omnivamp for Hackers, +15% for the rider",
+        "maxUnits": 4,
+        "minUnits": 4
+      },
+      {
+        "id": "77",
+        "units_required": "5",
+        "style": "4",
+        "description": "+40% Omnivamp for Hackers, +40% for the rider  Omnivamp : heal for some of damage dealt ",
+        "maxUnits": 25000,
+        "minUnits": 5
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Pulsefire",
+    "name": "InfiniTeam",
+    "description": "The InfiniTeam opens a portal to an alternate timeline. At the start of combat, any InfiniTeam unit placed on a portal summons an alternate version of themself with different items. They get 1 for each Augment you own.   The copies have reduced Health and damage. ",
+    "type": "origin",
+    "tier": "B",
+    "synergyLevel": [
+      {
+        "id": "51",
+        "units_required": "3",
+        "style": "1",
+        "description": "1 portal opens, 40% damage and 50% HP",
+        "maxUnits": 4,
+        "minUnits": 3
+      },
+      {
+        "id": "52",
+        "units_required": "5",
+        "style": "4",
+        "description": "2 portals open, 55% damage and 55% HP",
+        "maxUnits": 6,
+        "minUnits": 5
+      },
+      {
+        "id": "53",
+        "units_required": "7",
+        "style": "5",
+        "description": "2 portals open, 90% damage and 85% HP",
+        "maxUnits": 25000,
+        "minUnits": 7
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Riftwalker",
+    "name": "Riftwalker",
+    "description": "",
+    "type": "origin",
+    "tier": "B",
+    "synergyLevel": [
+      {
+        "id": "1",
+        "units_required": "3",
+        "style": "4",
+        "description": "Riftwalkers open a gap between dimensions and summon their ally Zac, who grows in power based on the total star level of Riftwalkers.Zac gains the last-listed Trait of the closest Riftwalker.",
+        "maxUnits": 25000,
+        "minUnits": 3
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_Parallel",
+    "name": "Parallel",
+    "description": "",
+    "type": "origin",
+    "tier": "S",
+    "synergyLevel": [
+      {
+        "id": "32",
+        "units_required": "2",
+        "style": "4",
+        "description": "Ezreal learns from his older, more handsome self and joins him in future adventures.  Ezreal's Ability becomes a blast that hits all enemies in a line.  Ultimate Ezreal's Ability summons two additional temporal duplicates.",
+        "maxUnits": 2,
+        "minUnits": 2
+      }
+    ]
+  },
+  {
+    "synergyId": "Set8_GunMage",
+    "name": "Quickdraw",
+    "description": "After every 2 damaging ability projectiles, Quickdraw units fire a bonus ability projectile. Bonus shots deal:",
+    "type": "class",
+    "tier": "C",
+    "synergyLevel": [
+      {
+        "id": "19",
+        "units_required": "2",
+        "style": "1",
+        "description": "70% total damage.",
+        "maxUnits": 2,
+        "minUnits": 2
+      },
+      {
+        "id": "20",
+        "units_required": "3",
+        "style": "3",
+        "description": "140% total damage.",
+        "maxUnits": 3,
+        "minUnits": 3
+      },
+      {
+        "id": "21",
+        "units_required": "4",
+        "style": "4",
+        "description": "220% total damage.",
+        "maxUnits": 25000,
+        "minUnits": 4
+      }
+    ]
+  }
+]

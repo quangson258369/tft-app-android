@@ -1,0 +1,2873 @@
+[
+  {
+    "id": "TFT6_Augment_Ascension",
+    "name": "Ascension",
+    "description": "After 15 seconds of combat, your units deal 50% more damage.",
+    "icon": "ascension2",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_BandOfThieves2",
+    "name": "Band of Thieves II",
+    "description": "Gain 2 Thief's Gloves.",
+    "icon": "bandthieves3",
+    "level": 3,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_BinaryAirdrop",
+    "name": "Binary Airdrop",
+    "description": "Your champions equipped with 2 items temporarily gain a random completed item at the start of combat. Gain 1 random item components.",
+    "icon": "binaryairdrop3",
+    "level": 3,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_CalculatedLoss",
+    "name": "Calculated Loss",
+    "description": "After losing your combat, gain 2 gold and a free Shop refresh.",
+    "icon": "calculatedloss2",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_CelestialBlessing1",
+    "name": "Celestial Blessing I",
+    "description": "Your units heal for 10% of the damage dealt by attacks and Abilities. Excess healing is converted to a shield up to 200 Health.",
+    "icon": "celestialblessing1",
+    "level": 1,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_CelestialBlessing2",
+    "name": "Celestial Blessing II",
+    "description": "Your units heal for 15% of the damage dealt by attacks and Abilities. Excess healing is converted to a shield up to 300 Health.",
+    "icon": "celestialblessing2",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_CelestialBlessing3",
+    "name": "Celestial Blessing III",
+    "description": "Your units heal for 25% of the damage dealt by attacks and Abilities. Excess healing is converted to a shield up to 400 Health.",
+    "icon": "celestialblessing3",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_ClearMind",
+    "name": "Clear Mind",
+    "description": "If you have no champions on your bench at the end of a player combat round, gain 3 experience points.",
+    "icon": "clearmind2",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_CyberneticImplants1",
+    "name": "Cybernetic Implants I",
+    "description": "Your champions holding an item gain 80 Health and 10% bonus Attack Damage.",
+    "icon": "cybernetic1",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_CyberneticImplants2",
+    "name": "Cybernetic Implants II",
+    "description": "Your champions holding an item gain 120 Health and 20% bonus Attack Damage.",
+    "icon": "cybernetic2",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_CyberneticImplants3",
+    "name": "Cybernetic Implants III",
+    "description": "Your champions holding an item gain 200 Health and 30% bonus Attack Damage.",
+    "icon": "cybernetic3",
+    "level": 3,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Distancing",
+    "name": "Exiles I",
+    "description": "Your units that start combat with no adjacent allies gain a 25% maximum Health shield for 10 seconds.",
+    "icon": "exiles1",
+    "level": 1,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Distancing2",
+    "name": "Exiles II",
+    "description": "Your units that start combat with no adjacent allies gain a 35% maximum Health shield for 10 seconds.",
+    "icon": "exiles2",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Diversify1",
+    "name": "Stand United I",
+    "description": "Your units gain 1.5% Attack Damage and 1.5 Ability Power per Trait active across your army.",
+    "icon": "standunited1",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Diversify2",
+    "name": "Stand United II",
+    "description": "Your units gain 2.5% Attack Damage and 2.5 Ability Power per Trait active across your army.",
+    "icon": "standunited2",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Diversify3",
+    "name": "Stand United III",
+    "description": "Your units gain 3.5% Attack Damage and 3.5 Ability Power per Trait active across your army.",
+    "icon": "standunited3",
+    "level": 3,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_TriForce3",
+    "name": "Tri Force III",
+    "description": "Your Tier 3 champions gain 200 Health, 25 starting Mana, and 25% Attack Speed.",
+    "icon": "tri-force-iii",
+    "level": 3,
+    "tier": "D",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Featherweights2",
+    "name": "Featherweights II",
+    "description": "Your Tier 1 and 2 champions gain 30% Attack Speed and Move Speed.",
+    "icon": "featherweights2",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Featherweights3",
+    "name": "Featherweights III",
+    "description": "Your Tier 1 and 2 champions gain 50% Attack Speed and Move Speed.",
+    "icon": "featherweights3",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_FirstAidKit",
+    "name": "First Aid Kit I",
+    "description": "All healing and shielding on your units is increased by 25%.",
+    "icon": "firstaidkit1",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_ForceOfNature",
+    "name": "New Recruit",
+    "description": "Gain +1 maximum team size.",
+    "icon": "newrecruit3",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_GachaAddict",
+    "name": "Golden Ticket",
+    "description": "Each time your Shop is refreshed, you have a 50% chance to gain a free refresh.",
+    "icon": "goldenticket3",
+    "level": 3,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_HighEndShopping",
+    "name": "High End Shopping",
+    "description": "Champions appear in your Shop as if you were 1 level higher. Gain 3 gold.",
+    "icon": "highend3",
+    "level": 3,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_HyperRoll",
+    "name": "Hustler",
+    "description": "You earn no interest, but gain 3 gold at the start of every player combat round.",
+    "icon": "hyperroll2",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_ComponentGrabBag",
+    "name": "Component Grab Bag",
+    "description": "Gain 3 random item components.",
+    "icon": "componentgrabbag-ii",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_ItemGrabBag2",
+    "name": "Item Grab Bag II",
+    "description": "Gain 2 random completed items and 2 Reforgers.",
+    "icon": "itemgrabbag3",
+    "level": 3,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_MakeshiftArmor1",
+    "name": "Makeshift Armor I",
+    "description": "Your units without items equipped gain 30 Armor and Magic Resist.",
+    "icon": "makeshift1",
+    "level": 1,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_MakeshiftArmor2",
+    "name": "Makeshift Armor II",
+    "description": "Your units without items equipped gain 45 Armor and Magic Resist.",
+    "icon": "makeshift2",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_MaxLevel10",
+    "name": "Level Up!",
+    "description": "When you buy experience points, gain an additional 3. You can now reach level 10.",
+    "icon": "levelup3",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_MeleeStarBlade1",
+    "name": "Knife's Edge I",
+    "description": "Your units that start combat in the front 2 rows gain 25% Attack Damage.",
+    "icon": "cqctraining1",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_MeleeStarBlade2",
+    "name": "Knife's Edge II",
+    "description": "Your units that start combat in the front 2 rows gain 35% Attack Damage.",
+    "icon": "cqctraining2",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_MeleeStarBlade3",
+    "name": "Knife's Edge III",
+    "description": "Your units that start combat in the front 2 rows gain 55% Attack Damage.",
+    "icon": "cqctraining3",
+    "level": 3,
+    "tier": "D",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_MetabolicAccelerator",
+    "name": "Metabolic Accelerator",
+    "description": "Your Tactician moves faster and heals 2 Health after a PvP round.",
+    "icon": "metabolicaccel2",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_PandorasItems",
+    "name": "Pandora's Items",
+    "description": "Gain a random component. At the start of each round, items on your bench are randomized (excluding Tactician's Crown, Spatula, and consumables).",
+    "icon": "pandora1",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_PortableForge",
+    "name": "Portable Forge",
+    "description": "Open an Armory and choose 1 of 3 unique Artifacts crafted by Ornn.",
+    "icon": "portableforge2",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_RichGetRicher",
+    "name": "Rich Get Richer",
+    "description": "Gain 12 gold. Your maximum interest is increased to 7.",
+    "icon": "richgetricher2",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_SalvageBin",
+    "name": "Salvage Bin",
+    "description": "Gain a random completed item now, and a component after 7 player combats. Selling champions breaks apart their full items into components (excluding Tactician's Crown).",
+    "icon": "salvage2",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_SlowAndSteady",
+    "name": "March of Progress",
+    "description": "Gain 2 experience points now, and bonus experience points equal to your level at the start of every player combat round. You can no longer use gold to level up.",
+    "icon": "slowandsteady3",
+    "level": 3,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_TrueTwos",
+    "name": "True Twos",
+    "description": "Gain a random 2-star Tier 1 champion and a random 2-star Tier 2 champion.",
+    "icon": "true-twos-ii",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_SunfireBoard",
+    "name": "Sunfire Board",
+    "description": "At the start of combat, burn all enemies for 10% of their maximum Health over 20 seconds and reduce healing received by 33%.",
+    "icon": "sunfireboard2",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_TargetDummies",
+    "name": "Phony Frontline",
+    "description": "Gain 2 Target Dummies.",
+    "icon": "phonyfrontline2",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_ThriftShop",
+    "name": "Wise Spending",
+    "description": "When you refresh your Shop, gain 2 experience point(s).",
+    "icon": "wisespending3",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_ThrillOfTheHunt1",
+    "name": "Thrill of the Hunt I",
+    "description": "Your units heal 350 Health on kill.",
+    "icon": "thrillhunt1",
+    "level": 1,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_ThrillOfTheHunt2",
+    "name": "Thrill of the Hunt II",
+    "description": "Your units heal 550 Health on kill.",
+    "icon": "thrillhunt2",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_TomeOfTraits1",
+    "name": "Ancient Archives I",
+    "description": "Gain 1 Tome of Traits and 4 gold.",
+    "icon": "ancientarchives2",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_TradeSector",
+    "name": "Trade Sector",
+    "description": "Gain a free Shop refresh each round.",
+    "icon": "trade2",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Traitless2",
+    "name": "Built Different II",
+    "description": "Your units with no Traits active gain 190-355 Health and 40-70% Attack Speed (based on current Stage).",
+    "icon": "builtdifferent2",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Traitless3",
+    "name": "Built Different III",
+    "description": "Your units with no Traits active gain 250-600 Health and 45-80% Attack Speed (based on current Stage).",
+    "icon": "builtdifferent3",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Windfall",
+    "name": "Windfall",
+    "description": "Gain 25 gold.",
+    "icon": "windfall3",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_WoodlandCharm",
+    "name": "Woodland Charm",
+    "description": "Your highest Health champion is cloned. You cannot equip items on the clone.",
+    "icon": "woodlandcharm3",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Battlemage1",
+    "name": "Battlemage I",
+    "description": "Your units that start combat in the front 2 rows gain 15 Armor and 15 Ability Power.",
+    "icon": "battlemage-i-a",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Battlemage2",
+    "name": "Battlemage II",
+    "description": "Your units that start combat in the front 2 rows gain 25 Armor and 25 Ability Power.",
+    "icon": "battlemage-ii-a",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Recombobulator",
+    "name": "Recombobulator",
+    "description": "Champions on your board permanently transform into random champions 1 Tier higher. Gain 2 Magnetic Removers.",
+    "icon": "recombobulator-i",
+    "level": 1,
+    "tier": "D",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_RadiantRelics",
+    "name": "Radiant Relics",
+    "description": "Open an Armory and choose 1 of 5 unique Radiant items.",
+    "icon": "radiantrelic-iii",
+    "level": 3,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Electrocharge1",
+    "name": "Electrocharge I",
+    "description": "When your units receive critical strikes, they deal 30-90 (based on current Stage) magic damage  to nearby enemies (1 second cooldown).",
+    "icon": "electrocharge-i",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Electrocharge2",
+    "name": "Electrocharge II",
+    "description": "When your units receive critical strikes, they deal 50-110 (based on current Stage) magic damage  to nearby enemies (1 second cooldown).",
+    "icon": "electrocharge-ii",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Electrocharge3",
+    "name": "Electrocharge III",
+    "description": "When your units receive critical strikes, they deal 115-235 (based on current Stage) magic damage  to nearby enemies (1 second cooldown).",
+    "icon": "electrocharge-iii",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_SecondWind1",
+    "name": "Second Wind I",
+    "description": "After 40 seconds of combat, your units heal 10% of their missing Health.",
+    "icon": "second--wind-i",
+    "level": 1,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_SecondWind2",
+    "name": "Second Wind II",
+    "description": "After 10 seconds of combat, your units heal 60% of their missing Health.",
+    "icon": "second--wind-ii",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_JeweledLotus",
+    "name": "Jeweled Lotus",
+    "description": "Your units' Abilities can critically strike. Your units gain 20% Critical Strike Chance.",
+    "icon": "jeweled-lotus-ii",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_VerdantVeil",
+    "name": "Verdant Veil",
+    "description": "Your units are immune to crowd control effects for the first 20 seconds of combat and gain 15% bonus Attack Speed.",
+    "icon": "verdant-veil-iii",
+    "level": 3,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_CyberneticUplink1",
+    "name": "Cybernetic Uplink I",
+    "description": "Your champions holding an item gain 80 Health and restore 2 Mana per second.",
+    "icon": "cybernetic-uplink-i",
+    "level": 1,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_CyberneticUplink2",
+    "name": "Cybernetic Uplink II",
+    "description": "Your champions holding an item gain 120 Health and restore 2.5 Mana per second.",
+    "icon": "cybernetic-uplink-ii",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_CyberneticUplink3",
+    "name": "Cybernetic Uplink III",
+    "description": "Your champions holding an item gain 200 Health and restore 3.5 Mana per second.",
+    "icon": "cybernetic-uplink-iii",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_CyberneticShell1",
+    "name": "Cybernetic Shell I",
+    "description": "Your champions holding an item gain 80 Health and 30 Armor.",
+    "icon": "cybernetic-shell-i",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_CyberneticShell2",
+    "name": "Cybernetic Shell II",
+    "description": "Your champions holding an item gain 120 Health and 40 Armor.",
+    "icon": "cybernetic-shell-ii",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_CyberneticShell3",
+    "name": "Cybernetic Shell III",
+    "description": "Your champions holding an item gain 200 Health and 60 Armor.",
+    "icon": "cybernetic-shell-iii",
+    "level": 3,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_LudensEcho1",
+    "name": "Luden's Echo I",
+    "description": "When your units cast and deal Ability damage, the first target hit and a nearby enemy take 35-80 (based on current Stage) magic damage.",
+    "icon": "ludens-echo-i",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_LudensEcho2",
+    "name": "Luden's Echo II",
+    "description": "When your units cast and deal Ability damage, the first target hit and a nearby enemy take 50-110 (based on current Stage) magic damage.",
+    "icon": "ludens-echo-ii",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_LudensEcho3",
+    "name": "Luden's Echo III",
+    "description": "When your units cast and deal Ability damage, the first target hit and a nearby enemy take 90-210 (based on current Stage) magic damage.",
+    "icon": "ludens-echo-iii",
+    "level": 3,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_GoldenGifts2",
+    "name": "Golden Gifts II",
+    "description": "Gain 2 golden and 4 gray loot orb(s).",
+    "icon": "golden-gifts-iii",
+    "level": 3,
+    "tier": null,
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Featherweights1",
+    "name": "Featherweights I",
+    "description": "Your Tier 1 and 2 champions gain 20% Attack Speed and Move Speed.",
+    "icon": "featherweights1",
+    "level": 1,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_FuturePeepers2",
+    "name": "Future Sight II",
+    "description": "Know who you will fight next. Gain a Radiant Zephyr.",
+    "icon": "future-sight-iii",
+    "level": 3,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_TriForce2",
+    "name": "Tri Force II",
+    "description": "Your Tier 3 champions gain 125 Health, 15 starting Mana, and 15% Attack Speed.",
+    "icon": "tri-force-ii",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_FuturePeepers",
+    "name": "Future Sight I",
+    "description": "Know who you will fight next. Gain a Zephyr.",
+    "icon": "future-sight-i",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Battlemage3",
+    "name": "Battlemage III",
+    "description": "Your units that start combat in the front 2 rows gain 35 Armor and 35 Ability Power.",
+    "icon": "battlemage-iii-a",
+    "level": 3,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_TriForce1",
+    "name": "Tri Force I",
+    "description": "Your Tier 3 champions gain 75 Health, 10 starting Mana, and 10% Attack Speed.",
+    "icon": "tri-force-i",
+    "level": 1,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_TheGoldenEgg",
+    "name": "The Golden Egg",
+    "description": "Gain a massive golden egg that hatches in 11 turns. Victorious player combats accelerate the hatch timer by an additional turn.",
+    "icon": "the-golden-egg-iii",
+    "level": 3,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_ThreesCompany",
+    "name": "Three's Company",
+    "description": "Gain 4 random Tier 3 champions.",
+    "icon": "threes-company-ii",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_TinyTitans",
+    "name": "Tiny Titans",
+    "description": "Your Tactician heals 30 Health, grows larger, and has 130 maximum Health.",
+    "icon": "tiny-titans-i",
+    "level": 1,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Twins2",
+    "name": "Double Trouble II",
+    "description": "When you field exactly 2 copies of a non-threat champion, they both gain 33% Attack Damage and 33 Ability Power, Armor, and Magic Resist. When you 3-star, gain a 2-star copy.",
+    "icon": "double-trouble-ii",
+    "level": 2,
+    "tier": "D",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_Twins3",
+    "name": "Double Trouble III",
+    "description": "When you field exactly 2 copies of a non-threat champion, they both gain 44% Attack Damage and 44 Ability Power, Armor, and Magic Resist. When you 3-star, gain a 2-star copy.",
+    "icon": "double-trouble-iii",
+    "level": 3,
+    "tier": "D",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_ItemGrabBag1",
+    "name": "Item Grab Bag I",
+    "description": "Gain 1 random completed item.",
+    "icon": "itemgrabbag1",
+    "level": 1,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_ThinkFast",
+    "name": "Think Fast",
+    "description": "Shop refreshes are free until the end of this round. Traits and other augments do not benefit from these free shops. Gain 3 gold.",
+    "icon": "think-fast-iii",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_Bloodlust2",
+    "name": "Combat Training II",
+    "description": "Your champions permanently gain 2% Attack Damage every time they kill an enemy. Champions start with 4% bonus Attack Damage.",
+    "icon": "combat-training-ii",
+    "level": 2,
+    "tier": null,
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_TomeOfTraits2",
+    "name": "Ancient Archives II",
+    "description": "Gain 2 Tome of Traits and 8 gold.",
+    "icon": "ancientarchives3",
+    "level": 3,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_SacrificialPact",
+    "name": "Cruel Pact",
+    "description": "Buying XP costs 6 Health instead of gold. Heal 3 Health before each player combat.",
+    "icon": "sacrificial-pact-iii",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_PandorasBench",
+    "name": "Pandora's Bench",
+    "description": "Gain 2 gold. At the start of every round, champions on the 3 rightmost bench slots transform into random champions of the same cost.",
+    "icon": "pandoras-bench-i",
+    "level": 1,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_ClutteredMind",
+    "name": "Cluttered Mind",
+    "description": "If your bench is full at the end of a player combat round, gain 3 experience points. Gain 4 random Tier 1 champions.",
+    "icon": "dizzy-ii",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_AxiomArc2",
+    "name": "Axiom Arc II",
+    "description": "Your units gain 30 Mana on kill.",
+    "icon": "axiom-arc-ii",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_AFK",
+    "name": "AFK",
+    "description": "You cannot perform actions for the next 3 rounds. Afterwards, gain 18 gold.",
+    "icon": "afk-i",
+    "level": 1,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_UrfsGrabBag2",
+    "name": "Urf's Grab Bag II",
+    "description": "Gain 1 Spatula and 3 random item component(s).",
+    "icon": "urfs-grab-bag-iii",
+    "level": 3,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_LivingForge",
+    "name": "Living Forge",
+    "description": "Gain a random Ornn artifact now and after every 10 player combats.",
+    "icon": "living-forge-iii",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_BandOfThieves1",
+    "name": "Band of Thieves I",
+    "description": "Gain 1 Thief's Gloves.",
+    "icon": "bandthieves1",
+    "level": 1,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_LategameSpecialist",
+    "name": "Lategame Specialist",
+    "description": "When you reach Level 9, gain 44 gold.",
+    "icon": "late-game-specialist-i",
+    "level": 1,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_Preparation",
+    "name": "Preparation I",
+    "description": "Champions on your bench permanently gain 25 Health, 3% Attack Damage, and 3 Ability Power every round. Champions start with 1 stack of this effect, and can stack up to 4 times.",
+    "icon": "preparation-i",
+    "level": 1,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_CursedCrown",
+    "name": "Cursed Crown",
+    "description": "Gain +2 maximum team size, but take 100% increased player damage.",
+    "icon": "cursedcrown-iii",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_BigFriend",
+    "name": "Big Friend I",
+    "description": "Your units that start combat next to a unit with over 1600 Health take 7% less damage for the rest of combat.",
+    "icon": "big-friend-i",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_LastStand",
+    "name": "Last Stand",
+    "description": "The first time you would be eliminated or reduced to 1 Health, instead remain alive. After this effect triggers, your units permanently gain 180 Health, 18 Armor and Magic Resist, and 18% Omnivamp.",
+    "icon": "last-stand-ii",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_RichGetRicherPlus",
+    "name": "Rich Get Richer+",
+    "description": "Gain 20 gold. Your maximum interest is increased to 7.",
+    "icon": "richgetricher2",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_FirstAidKit2",
+    "name": "First Aid Kit II",
+    "description": "All healing and shielding on your units is increased by 35%.",
+    "icon": "firstaidkit2",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_WindfallPlus",
+    "name": "Windfall+",
+    "description": "Gain 35 gold.",
+    "icon": "windfall3",
+    "level": 3,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_WindfallPlusPlus",
+    "name": "Windfall++",
+    "description": "Gain 45 gold.",
+    "icon": "windfall3",
+    "level": 3,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_BigFriend2",
+    "name": "Big Friend II",
+    "description": "Your units that start combat next to a unit with over 1600 Health take 10% less damage for the rest of combat.",
+    "icon": "big-friend-ii",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_Preparation2",
+    "name": "Preparation II",
+    "description": "Champions on your bench permanently gain 35 Health, 4% Attack Damage, and 4 Ability Power every round. Champions start with 1 stack of this effect, and can stack up to 4 times.",
+    "icon": "preparation-ii",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_Preparation3",
+    "name": "Preparation III",
+    "description": "Champions on your bench permanently gain 50 Health, 7% Attack Damage, and 7 Ability Power every round. Champions start with 1 stack of this effect, and can stack up to 4 times.",
+    "icon": "preparation-iii",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_TheGoldenEggHR",
+    "name": "The Golden Egg",
+    "description": "Gain a massive golden egg that hatches in 6 turns. Victorious player combats accelerate the hatch timer by an additional turn.",
+    "icon": "the-golden-egg-iii",
+    "level": 3,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_AFKHR",
+    "name": "AFK",
+    "description": "You cannot perform actions for the next 2 rounds. Afterwards, gain 15 gold.",
+    "icon": "afk-i",
+    "level": 1,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_ComponentGrabBagPlus",
+    "name": "Component Grab Bag+",
+    "description": "Gain 3 random item components.",
+    "icon": "componentgrabbag-ii",
+    "level": 2,
+    "tier": null,
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_UrfsGrabBag2Plus",
+    "name": "Urf's Grab Bag II+",
+    "description": "Gain 1 Spatula and 3 random item component(s).",
+    "icon": "urfs-grab-bag-iii",
+    "level": 3,
+    "tier": null,
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_Preparation1HR",
+    "name": "Preparation I",
+    "description": "Champions on your bench permanently gain 35 Health, 4% Attack Damage, and 4 Ability Power every round. Champions start with 1 stack of this effect, and can stack up to 3 times.",
+    "icon": "preparation-i",
+    "level": 1,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_Preparation2HR",
+    "name": "Preparation II",
+    "description": "Champions on your bench permanently gain 50 Health, 6% Attack Damage, and 6 Ability Power every round. Champions start with 1 stack of this effect, and can stack up to 3 times.",
+    "icon": "preparation-ii",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_Preparation3HR",
+    "name": "Preparation III",
+    "description": "Champions on your bench permanently gain 70 Health, 9% Attack Damage, and 9 Ability Power every round. Champions start with 1 stack of this effect, and can stack up to 3 times.",
+    "icon": "preparation-iii",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_LivingForgeHR",
+    "name": "Living Forge",
+    "description": "Gain a random Ornn artifact now and after every 4 player combats.",
+    "icon": "living-forge-iii",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT6_Augment_TradeSectorPlus",
+    "name": "Trade Sector+",
+    "description": "Gain a free Shop refresh every round. Gain 10 gold now.",
+    "icon": "trade2",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_ScopedWeapons1",
+    "name": "Scoped Weapons I",
+    "description": "Your units that start combat in the back 2 rows gain +2 Attack Range and 12% Attack Speed.",
+    "icon": "scopedweapons2",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_LuckyGloves",
+    "name": "Lucky Gloves",
+    "description": "Thief's Gloves will always give your champions ideal items. Gain 2 Sparring Gloves.",
+    "icon": "lucky-gloves-iii",
+    "level": 3,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_Consistency",
+    "name": "Consistency",
+    "description": "Gain double win and loss streak gold.",
+    "icon": "consistency-i",
+    "level": 1,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT7_Augment_BirthdayPresents",
+    "name": "Birthday Present",
+    "description": "Gain a 2-star champion every time you level up. The champion's tier is your level minus 4 (min: Tier 1).",
+    "icon": "golden-gifts-iii",
+    "level": 3,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_ThreatMaxHealth",
+    "name": "Threat Level: Maximum",
+    "description": "Combat start: Threats gain 66 maximum Health for every Threat champion on your board.",
+    "icon": "threatlevelmaxiumum-ii",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_RammusArmor",
+    "name": "Armored-dillo",
+    "description": "Gain a Rammus. When you field him, your team gains 40 Armor, doubled for himself.",
+    "icon": "rammus",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_AurelionSolImpact",
+    "name": "Impact Velocity",
+    "description": "Gain an Aurelion Sol. Your strongest Aurelion Sol's Ability <TFTKeyword>Stuns</TFTKeyword> enemies hit for 1.75 seconds.",
+    "icon": "aurelionsol",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_BelVethVoidmother",
+    "name": "Voidmother",
+    "description": "Gain a Bel'Veth. Combat start: Your strongest Bel'Veth creates 2 Voidspawns with 60% of their normal Health in front of her.",
+    "icon": "belveth",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_NilahReflection",
+    "name": "Gifted",
+    "description": "Gain a Nilah. She gains 45 Ability Power. Combat start: Your strongest Nilah grants her nearest ally a temporary copy of one of her normal items.",
+    "icon": "nilah",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_VayneCarry",
+    "name": "Spread Shot",
+    "description": "Gain a Vayne. Your strongest Vayne's Ability also fires at 2 other nearby enemies, dealing 44% damage.",
+    "icon": "vayne",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_RivenReverberation",
+    "name": "Reverberation",
+    "description": "Gain a Riven. Your strongest Riven gains 15 Ability Power and her Ability is also cast on her lowest Health ally.",
+    "icon": "riven",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_KaisaStarCrossed",
+    "name": "Reconnaissance Team",
+    "description": "Gain a Kai'Sa. At the start of combat, Your strongest Kai'Sa and her 2 closest allied champions gain 40% Critical Strike Chance and their spells can critically strike.",
+    "icon": "kaisa",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_LeBlancGlitch",
+    "name": "Aim Assist",
+    "description": "Gain a LeBlanc. For every 3 sigils fired by her Ability, your strongest LeBlanc fires an extra sigil at the lowest Health enemy.",
+    "icon": "leblanc",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_KaisaCarry",
+    "name": "Multi-Shot",
+    "description": "Gain a Kai'Sa. Your strongest Kai'Sa gains 10 Ability Power. Every 2 projectile(s), she fires a bonus attack at a nearby enemy.",
+    "icon": "kaisa",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_RammusCarry",
+    "name": "Spiked Shell",
+    "description": "Gain a Rammus. When struck by an attack, your strongest Rammus deals magic damage equal to 150% of his Armor to all nearby enemies (once every 2 seconds).",
+    "icon": "rammus",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_LuluSupport",
+    "name": "Foster Growth",
+    "description": "Gain a Lulu. When you field her, she and allies holding an item gain 40 Ability Power.",
+    "icon": "lulu",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_WukongSupport",
+    "name": "Re-Energize",
+    "description": "Gain a Wukong. When you field him, your team restores 50% of their Mana after their first cast each combat.",
+    "icon": "wukong",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_AsheCarry",
+    "name": "Laser Focus",
+    "description": "Gain an Ashe. Your strongest Ashe gains 45% Attack Speed, doubled while her Ability is active.",
+    "icon": "ashe",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_NilahSupport",
+    "name": "Jubilant Veil",
+    "description": "Gain a Nilah. Combat start: Your strongest Nilah and her 6 nearest allies gain immunity to crowd control for 30 seconds.",
+    "icon": "nilah",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_SonaExile",
+    "name": "Power Grid",
+    "description": "Gain a Sona. Your strongest Sona gains 10 Ability Power and her Ability fires 1 additional beam.",
+    "icon": "sona",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_SonaSupport",
+    "name": "Undercurrent",
+    "description": "Gain a Sona. Combat start: Your strongest Sona grants her 3 nearest allies 50 Mana.",
+    "icon": "sona",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_JaxASCarry",
+    "name": "Relentless Assault",
+    "description": "Gain a Jax. After every 3rd attack, your strongest Jax gains 18% Attack Speed for the rest of combat (this can stack).",
+    "icon": "jax",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_VayneSupport",
+    "name": "Into The Night",
+    "description": "Gain a Vayne and an Edge of Night. When you field her, allies holding Edge of Night gain 35% Attack Speed.",
+    "icon": "vayne",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_RivenSupport",
+    "name": "Triumphant Return",
+    "description": "Gain a Riven. Combat start: Your strongest Riven grants herself and adjacent allies a shield for 15 seconds equal to 45% of their maximum Health.",
+    "icon": "riven",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_Augment_AlistarCarry",
+    "name": "The Behemoth",
+    "description": "Gain an Alistar. Your strongest Alistar has 350 bonus health. His ability now hits all adjacent enemies and deals bonus damage to the main target equal to 25% of his max health.",
+    "icon": "alistar",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_AlistarSupport",
+    "name": "Stubborn",
+    "description": "Gain an Alistar. Round Start: Your strongest Alistar 50% <TFTKeyword>Shreds</TFTKeyword> all Enemies.",
+    "icon": "alistar",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_CamilleSupport",
+    "name": "Hextech Retribution",
+    "description": "Gain a Camille. When you field her, your team deals 8% bonus damage, increasing by an additional 5% whenever an ally dies.",
+    "icon": "camille",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_CamilleCarry",
+    "name": "Adaptive Defensives",
+    "description": "Gain a Camille. Your strongest Camille gains 20% Attack Damage. The first time she drops below 50% Health, she gains a shield equal to 500% of her Attack Damage.",
+    "icon": "camille",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_LeeSinCarry",
+    "name": "Cleansing Safeguard",
+    "description": "Gain a Lee Sin. Your strongest Lee Sin's Ability costs 15 less Mana to cast. When he casts, he sheds all negative effects and heals 15% of his missing Health.",
+    "icon": "leesin",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_LeeSinSupport",
+    "name": "Invigorate",
+    "description": "Gain a Lee Sin. When you field him, your team gains 20% Attack Speed, doubled for 4 seconds after being shielded.",
+    "icon": "leesin",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_EzrealCarry",
+    "name": "Rising Spell Force",
+    "description": "Gain an Ezreal. When your strongest Ezreal casts his Ability, he gains 16% Attack Speed and 16 Ability Power for the rest of combat (this can stack).",
+    "icon": "ezreal",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_EzrealSupport",
+    "name": "Raider's Spoils",
+    "description": "Gain an Ezreal. Combat start: Your strongest Ezreal grants his nearest ally a temporary Artifact for the rest of combat.",
+    "icon": "ezreal",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_ViCarry",
+    "name": "Unrelenting Force",
+    "description": "Gain a Vi. When your strongest Vi takes or deals damage, she gains 3% Attack Damage and 3 Ability Power, Armor, and Magic Resist, stacking up to 25 times.",
+    "icon": "vi",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_ViSupport",
+    "name": "Boxing Lessons",
+    "description": "Gain a Vi. When you field her, your team gains 180 bonus Health.",
+    "icon": "vi",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_RellCarry",
+    "name": "Hold the Line",
+    "description": "Gain a Rell. Your strongest Rell gains 60 Ability Power and takes 35% less damage.",
+    "icon": "rell",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_RellSupport",
+    "name": "Channeled Ferromancy",
+    "description": "Gain a Rell. When you field her, your team gains 20 Armor and Magic Resist, and an additional 5 when they cast Abilities (this can stack).",
+    "icon": "rell",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_FioraCarry",
+    "name": "Grand Challenge",
+    "description": "Gain a Fiora. Every 4 attacks on the same unit, your strongest Fiora deals 20% of her maximum health as magic damage, and heals for 9% of her maximum health.",
+    "icon": "fiora",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_FioraSupport",
+    "name": "Vitality of the Ox",
+    "description": "Gain a Fiora. When you field her, your team heals 25% of their maximum Health every 10 attacks.",
+    "icon": "fiora",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_DravenCarry",
+    "name": "League of Draven",
+    "description": "Gain a Draven. Your strongest Draven has 25% bonus Attack Damage. When he kills an enemy, there is a 35% chance to gain 1 gold.",
+    "icon": "draven",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_DravenSupport",
+    "name": "Ruthless Blades",
+    "description": "Gain a Draven. When you field him, your team gains 75% Critical Strike Chance.",
+    "icon": "draven",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_JinxCarry",
+    "name": "Get Excited!",
+    "description": "Gain a Jinx. Your strongest Jinx gains 30% Attack Speed and Move speed. When she scores a takedown this amount is tripled for 6 seconds.",
+    "icon": "jinx",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_JinxSupport",
+    "name": "Everyone Goes BOOM!",
+    "description": "Gain a Jinx. When you field her, your team gains 9% Attack Speed, tripled after the first enemy dies each combat.",
+    "icon": "jinx",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_MalphiteCarry",
+    "name": "Rock Solid",
+    "description": "Gain a Malphite. Your strongest Malphite gains Ability Power equal to 111% of his Armor, and his Ability's Armor duration is increased by 4 seconds.",
+    "icon": "malphite",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_MalphiteSupport",
+    "name": "Guardian Spirit",
+    "description": "Gain a Malphite. When you field him, your team restores 20% of their missing Health when they cast Abilities.",
+    "icon": "malphite",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_AnnieCarry",
+    "name": "Pyromania",
+    "description": "Gain an Annie. Your strongest Annie's spell is larger and stuns all enemies hit for 2 seconds.",
+    "icon": "annie",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_AnnieSupport",
+    "name": "Burning Spirit",
+    "description": "Gain an Annie. When you field her, your team gains 15 Ability Power, tripled while they are below 50% Health.",
+    "icon": "annie",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_YasuoSupport",
+    "name": "Spirit of the Exile",
+    "description": "Gain a Yasuo. When you field him, allies who start combat with no adjacent allies gain 22% Attack Speed.",
+    "icon": "yasuo",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_NasusCarry",
+    "name": "Stacks on Stacks",
+    "description": "Gain a Nasus. Your strongest Nasus has 15% Attack Damage, which increases permanently by 2% when he casts his Ability.",
+    "icon": "nasus",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_MordekaiserCarry",
+    "name": "Not So Heavy Metal",
+    "description": "Gain a Mordekaiser. Your strongest Mordekaiser gains 20 Ability Power every 4 seconds.",
+    "icon": "mordekaiser",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_SyndraSupport",
+    "name": "Empowered Reserves",
+    "description": "Gain a Syndra. When you field her, your team gains 5 Ability Power for each occupied slot on your bench.",
+    "icon": "syndra",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_LeonaCarry",
+    "name": "Perfected Solar Flare",
+    "description": "Gain a Leona. Your strongest Leona has 40 Ability Power, and her Abilities cost 40 less Mana to cast.",
+    "icon": "leona",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_NunuSupport",
+    "name": "Contagious Laughter",
+    "description": "Gain a Nunu. When you field him, your team gains 15 Ability Power and an additional 10 every 5 seconds.",
+    "icon": "nunu",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_FiddlesticksCarry",
+    "name": "Scarier-crow",
+    "description": "Gain a Fiddlesticks. Your strongest Fiddlesticks gains Corrupted Souls even if he is no longer dormant, and if he is still dormant after 8 seconds, he casts immediately. FIddlesticks' spell can critically strike.",
+    "icon": "fiddlesticks",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_UrgotCarry",
+    "name": "Shiny",
+    "description": "Gain an Urgot. Your strongest Urgot's Ability has an extra 25% chance to dredge up treasure.",
+    "icon": "urgot",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_JannaSupport",
+    "name": "Exaggerated Reporting",
+    "description": "Gain a Janna. Forecaster's effects are increased by 100%.",
+    "icon": "janna",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_MordekaiserSupport",
+    "name": "Obliterate",
+    "description": "Gain a Mordekaiser. Combat start: Your strongest Mordekaiser 20% <TFTKeyword>Shreds</TFTKeyword> and 20% <TFTKeyword>Sunders</TFTKeyword> enemies.",
+    "icon": "mordekaiser",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_UrgotSupport",
+    "name": "Rising Tide",
+    "description": "Gain an Urgot. Combat start: Your strongest Urgot grants adjacent allies 50% Attack Speed. ",
+    "icon": "urgot",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_LeonaSupport",
+    "name": "Eclipse Prime",
+    "description": "Gain a Leona. When you field her, your team takes 20 less damage.",
+    "icon": "leona",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_SyndraCarry",
+    "name": "Not In Vain",
+    "description": "Gain a Syndra. Your strongest Syndra gains 40 starting Mana, and 50% Attack Speed every time an ally dies.",
+    "icon": "syndra",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_LeBlancSupport",
+    "name": "Mirror Image",
+    "description": "Gain a LeBlanc. Combat start: Your strongest LeBlanc duplicates her nearest ally (without items or traits at 99% Health).",
+    "icon": "leblanc",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_PoppySupport",
+    "name": "Steadfast Presence",
+    "description": "Gain a Poppy. Combat start: Your strongest Poppy grants your team a 325 Health shield.",
+    "icon": "poppy",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_RenektonCarry",
+    "name": "Reign of Anger",
+    "description": "Gain a Renekton. Your strongest Renekton gains 40% Attack Speed and an extra 5% per 100 missing Health.",
+    "icon": "renekton",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_RenektonSupport",
+    "name": "Cull the Meek",
+    "description": "Gain a Renekton. When you field him, your team deals 8% bonus damage, tripled against enemies below 50% Health.",
+    "icon": "renekton",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_NasusSupport",
+    "name": "Soul Eater",
+    "description": "Gain a Nasus. When you field him, your team heals 275 Health on takedowns.",
+    "icon": "nasus",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_ADMINTrait",
+    "name": "A.D.M.I.N. Heart",
+    "description": "Your team counts as having 1 additional A.D.M.I.N. Gain a Camille.",
+    "icon": "admin-heart",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_AnimaSquadTrait",
+    "name": "Anima Squad Heart",
+    "description": "Your team counts as having 1 additional Anima Squad. Gain a Jinx.",
+    "icon": "anima-squad-heart",
+    "level": 1,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_EkkoCarry",
+    "name": "Destructive Resonance",
+    "description": "Gain an Ekko. Your strongest Ekko's Ability hits all enemies within 3 hexes and deals 200% increased damage, but no longer slows enemies' Attack Speed.",
+    "icon": "ekko",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_ChannelerTrait",
+    "name": "Spellslinger Heart",
+    "description": "Your team counts as having 1 additional Spellslinger. Gain an Annie.",
+    "icon": "spellslinger-heart",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_DeadeyeTrait",
+    "name": "Sureshot Heart",
+    "description": "Your team counts as having 1 additional Sureshot. Gain a Sivir.",
+    "icon": "sureshot-heart",
+    "level": 1,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_DefenderTrait",
+    "name": "Defender Heart",
+    "description": "Your team counts as having 1 additional Defender. Gain a Rell.",
+    "icon": "defender-heart",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_DuelistTrait",
+    "name": "Duelist Heart",
+    "description": "Your team counts as having 1 additional Duelist. Gain a Fiora.",
+    "icon": "duelist-heart",
+    "level": 1,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_GenAETrait",
+    "name": "Gadgeteen Heart",
+    "description": "Your team counts as having 1 additional Gadgeteen. Gain a Poppy.",
+    "icon": "gadgeteens-heart-i",
+    "level": 1,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_HackerTrait",
+    "name": "Hacker Heart",
+    "description": "Your team counts as having 1 additional Hacker. Gain a Pyke.",
+    "icon": "hacker-heart",
+    "level": 1,
+    "tier": "D",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_HeartTrait",
+    "name": "Heart Heart",
+    "description": "Your team counts as having 1 additional Heart. Gain a Lee Sin.",
+    "icon": "heart-heart",
+    "level": 1,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_MascotTrait",
+    "name": "Mascot Heart",
+    "description": "Your team counts as having 1 additional Mascot. Gain a Malphite.",
+    "icon": "mascot-heart",
+    "level": 1,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_OxForceTrait",
+    "name": "Ox Force Heart",
+    "description": "Your team counts as having 1 additional Ox Force. Gain a Fiora.",
+    "icon": "ox-force-heart",
+    "level": 1,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_ReconTrait",
+    "name": "Recon Heart",
+    "description": "Your team counts as having 1 additional Recon. Gain an Ezreal.",
+    "icon": "recon-heart",
+    "level": 1,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_RenegadeTrait",
+    "name": "Renegade Heart",
+    "description": "Your team counts as having 1 additional Renegade. Gain a Camille.",
+    "icon": "renegade-heart",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_StarGuardianTrait",
+    "name": "Star Guardian Heart",
+    "description": "Your team counts as having 1 additional Star Guardian. Gain a Rell.",
+    "icon": "star-guardian-heart",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_UndergroundTheTrait",
+    "name": "Underground Heart",
+    "description": "Your team counts as having 1 additional Underground. Gain a Vi.",
+    "icon": "the-underground-heart-ii",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_AceEmblem",
+    "name": "Ace Crest",
+    "description": "Gain an Ace Emblem and a Draven.",
+    "icon": "ace-crest",
+    "level": 2,
+    "tier": "D",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_ADMINEmblem",
+    "name": "A.D.M.I.N. Crest",
+    "description": "Gain an A.D.M.I.N. Emblem and a Blitzcrank.",
+    "icon": "admin-crest",
+    "level": 2,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_BrawlerEmblem",
+    "name": "Brawler Crest",
+    "description": "Gain a Brawler Emblem and a Lee Sin.",
+    "icon": "brawler-crest",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_ChannelerEmblem",
+    "name": "Spellslinger Crest",
+    "description": "Gain a Spellslinger Emblem and an Annie.",
+    "icon": "spellslinger-crest",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_DeadeyeEmblem",
+    "name": "Sureshot Crest",
+    "description": "Gain a Sureshot Emblem and a Sivir.",
+    "icon": "sureshot-crest",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_DefenderEmblem",
+    "name": "Defender Crest",
+    "description": "Gain a Defender Emblem and a Poppy.",
+    "icon": "defender-crest",
+    "level": 2,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_DuelistEmblem",
+    "name": "Duelist Crest",
+    "description": "Gain a Duelist Emblem and a Yasuo.",
+    "icon": "duelist-crest",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_ExoPrimeEmblem",
+    "name": "Mecha: PRIME Crest",
+    "description": "Gain a Mecha: PRIME Emblem and a Draven.",
+    "icon": "mecha-prime-crest",
+    "level": 2,
+    "tier": "D",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_HackerEmblem",
+    "name": "Hacker Crest",
+    "description": "Gain a Hacker Emblem and a Pyke.",
+    "icon": "hacker-crest",
+    "level": 2,
+    "tier": "D",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_HeartEmblem",
+    "name": "Heart Crest",
+    "description": "Gain a Heart Emblem and a Lee Sin.",
+    "icon": "heart-crest",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_MascotEmblem",
+    "name": "Mascot Crest",
+    "description": "Gain a Mascot Emblem and a Malphite.",
+    "icon": "mascot-crest",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_OxForceEmblem",
+    "name": "Ox Force Crest",
+    "description": "Gain an Ox Force Emblem and an Annie.",
+    "icon": "ox-force-crest",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_PranksterEmblem",
+    "name": "Prankster Crest",
+    "description": "Gain a Prankster Emblem and a Jinx.",
+    "icon": "prankster-crest",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_ReconEmblem",
+    "name": "Recon Crest",
+    "description": "Gain a Recon Emblem.",
+    "icon": "recon-crest",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_RenegadeEmblem",
+    "name": "Renegade Crest",
+    "description": "Gain a Renegade Emblem and a Lucian.",
+    "icon": "renegade-crest",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_StarGuardianEmblem",
+    "name": "Star Guardian Crest",
+    "description": "Gain a Star Guardian Emblem and a Rell.",
+    "icon": "star-guardian-crest",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_AceEmblem2",
+    "name": "Ace in the Hole",
+    "description": "Gain an Ace Emblem, a Draven, a Miss Fortune, and a Samira.",
+    "icon": "ace-crown",
+    "level": 3,
+    "tier": "D",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_ADMINEmblem2",
+    "name": "A.D.M.I.N. Crown",
+    "description": "Gain an A.D.M.I.N. Emblem, a Hand of Justice, and a Camille.",
+    "icon": "admin-crown",
+    "level": 3,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_BrawlerEmblem2",
+    "name": "Brawler Crown",
+    "description": "Gain a Brawler Emblem, a Protector's Vow, and a Riven.",
+    "icon": "brawler-crown",
+    "level": 3,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_DeadeyeEmblem2",
+    "name": "Sureshot Crown",
+    "description": "Gain a Sureshot Emblem, an Infinity Edge, and a Sivir.",
+    "icon": "sureshot-crown",
+    "level": 3,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_ChannelerEmblem2",
+    "name": "Spellslinger Crown",
+    "description": "Gain a Spellslinger Emblem, a Tear of the Goddess, and a Sona.",
+    "icon": "spellslinger-crown",
+    "level": 3,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_DefenderEmblem2",
+    "name": "Defender Crown",
+    "description": "Gain a Defender Emblem, a Protector's Vow, and a Riven.",
+    "icon": "defender-crown",
+    "level": 3,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_DuelistEmblem2",
+    "name": "Duelist Crown",
+    "description": "Gain a Duelist Emblem, a Hand of Justice, and a Nilah.",
+    "icon": "duelist-crown",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_ExoPrimeEmblem2",
+    "name": "Mecha: PRIME Crown",
+    "description": "Gain a Mecha: PRIME Emblem, a Bloodthirster, and a Jax.",
+    "icon": "mecha-prime-crown",
+    "level": 3,
+    "tier": "D",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_HackerEmblem2",
+    "name": "Hacker Crown",
+    "description": "Gain a Hacker Emblem, a Hand of Justice, and a LeBlanc.",
+    "icon": "hacker-crown",
+    "level": 3,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_MascotEmblem2",
+    "name": "Mascot Crown",
+    "description": "Gain a Mascot Emblem, a Gargoyle Stoneplate, and a Malphite.",
+    "icon": "mascot-crown",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_OxForceEmblem2",
+    "name": "Ox Force Crown",
+    "description": "Gain an Ox Force Emblem, a Titan's Resolve, and an Alistar.",
+    "icon": "ox-force-crown",
+    "level": 3,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_PranksterEmblem2",
+    "name": "Prankster Crown",
+    "description": "Gain a Prankster Emblem, a Titan's Resolve, and a Gnar.",
+    "icon": "prankster-crown",
+    "level": 3,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_ReconEmblem2",
+    "name": "Recon Crown",
+    "description": "Gain a Recon Emblem, a Recurve Bow, and an Ezreal.",
+    "icon": "recon-crown",
+    "level": 3,
+    "tier": "?",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_RenegadeEmblem2",
+    "name": "Renegade Crown",
+    "description": "Gain a Renegade Emblem, a Bloodthirster, and a Camille.",
+    "icon": "renegade-crown",
+    "level": 3,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_StarGuardianEmblem2",
+    "name": "Star Guardian Crown",
+    "description": "Gain a Star Guardian Emblem, a Tear of the Goddess, and a Nilah.",
+    "icon": "star-guardian-crown",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_AegisEmblem",
+    "name": "Aegis Crest",
+    "description": "Gain an Aegis Emblem and a Vi.",
+    "icon": "aegis-crest",
+    "level": 2,
+    "tier": "D",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_AegisEmblem2",
+    "name": "Aegis Crown",
+    "description": "Gain an Aegis Emblem, a Redemption, and an Alistar.",
+    "icon": "aegis-crown",
+    "level": 3,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_AnimaSquadEmblem",
+    "name": "Anima Squad Crest",
+    "description": "Gain an Anima Squad Emblem and a Sylas.",
+    "icon": "anima-squad-crest",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_AnimaSquadEmblem2",
+    "name": "Anima Squad Crown",
+    "description": "Gain an Anima Squad Emblem, a Tear of the Goddess, and a Riven.",
+    "icon": "anima-squad-crown",
+    "level": 3,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_HeartEmblem2",
+    "name": "Heart Crown",
+    "description": "Gain a Heart Emblem, a Guardbreaker, and a Sona.",
+    "icon": "heart-crown",
+    "level": 3,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_FiddlesticksSupport",
+    "name": "Absolute Corruption",
+    "description": "Gain a Fiddlesticks. Combat start: Your strongest Fiddlesticks grants its nearest ally 30 Ability Power and allows them to share its Corrupted souls. Corrupted Souls are shared even if Fiddlesticks is no longer dormant.",
+    "icon": "fiddlesticks",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_JannaCarry",
+    "name": "Category Five",
+    "description": "Gain a Janna. Your strongest Janna gains 10 Ability Power and her ability does True Damage.",
+    "icon": "janna",
+    "level": 4,
+    "tier": null,
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_NunuCarry",
+    "name": "They See Me Rolling",
+    "description": "Gain a Nunu. Your strongest Nunu has 25 Ability Power and 20% movement speed.",
+    "icon": "nunu",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_HyperRollAugment_NasusCarry",
+    "name": "Stacks on Stacks",
+    "description": "Gain a Nasus. Your strongest Nasus has 20% Attack Damage, which increases permanently by 6% when he casts his Ability.",
+    "icon": "nasus",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_HyperRollAugment_GangplankSupport",
+    "name": "Get Paid",
+    "description": "Gain a Gangplank. When you field him, your team has a 66% chance to gain 2 gold on kill.",
+    "icon": "gangplank",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_HyperRollAugment_DravenCarry",
+    "name": "League of Draven",
+    "description": "Gain a Draven. Your strongest Draven has 25% bonus Attack Damage. When he kills an enemy, there is a 80% chance to gain 1 gold.",
+    "icon": "draven",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_HyperRollAugment_SamiraSupport",
+    "name": "Daredevil",
+    "description": "Gain a Samira. When you field her, your team gains 4.5% Attack Speed for each 2 Tactician Health missing.",
+    "icon": "samira",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_HyperRollAugment_MissFortuneSupport",
+    "name": "Make It Rain",
+    "description": "Gain a Miss Fortune. After every 3 player combats fielded, your strongest Miss Fortune drops 20-40 gold (based on current Stage).",
+    "icon": "missfortune",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_UndergroundTheTrait2",
+    "name": "Underground Soul",
+    "description": "Your team counts as having 1 additional Underground. Gain a Zz'Rot Portal and an Ezreal.",
+    "icon": "the-underground-crown-iii",
+    "level": 3,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_HyperRollAugment_EzrealSupport",
+    "name": "Raider's Spoils",
+    "description": "Gain an Ezreal. Combat start: Your strongest Ezreal grants his nearest ally a temporary Artifact for the rest of combat.",
+    "icon": "ezreal",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_PoppyCarry",
+    "name": "Bigger, Better Buckler",
+    "description": "Gain a Poppy. Combat start: Your strongest Poppy gains 180 Armor.",
+    "icon": "poppy",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_GangplankSupport",
+    "name": "Get Paid",
+    "description": "Gain a Gangplank. When you field him, your team has a 50% chance to gain 1 gold on kill.",
+    "icon": "gangplank",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_AsheSupport",
+    "name": "Corps Focus",
+    "description": "Gain an Ashe. When you field her, your team gains 15% Attack Speed, doubled while her Ability is active.",
+    "icon": "ashe",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_LuluCarry",
+    "name": "Growth Spurt",
+    "description": "Gain a Lulu. When your strongest Lulu casts her Ability, she gains 100 bonus Health and 18 Ability Power (this can stack).",
+    "icon": "lulu",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_GangplankCarry",
+    "name": "Flaming Ricochet",
+    "description": "Gain a Gangplank. Your strongest Gangplank's Ability bounces to a second target, dealing 80% damage. ",
+    "icon": "gangplank",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_MissFortuneSupport",
+    "name": "Make It Rain",
+    "description": "Gain a Miss Fortune. After every 3 player combats fielded, your strongest Miss Fortune drops 8-20 gold (based on current Stage).",
+    "icon": "missfortune",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_WukongCarry",
+    "name": "Cyclone",
+    "description": "Gain a Wukong. Your strongest Wukong has 18 Ability Power and +1 hex Ability range.",
+    "icon": "wukong",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_LuxCarry",
+    "name": "Illuminating Singularity",
+    "description": "Gain a Lux. Every 2nd cast, your strongest Lux's Ability deals 150% more damage.",
+    "icon": "lux",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_LuxSupport",
+    "name": "Lucent Barrier",
+    "description": "Gain a Lux. Combat start: Your strongest Lux grants her 2 nearest allies a 500 Health shield and 35 Ability Power.",
+    "icon": "lux",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_SylasCarry",
+    "name": "Kingslayer",
+    "description": "Gain a Sylas. Your strongest Sylas gains 25% maximum Health and deals 30% increased damage.",
+    "icon": "sylas",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_SylasSupport",
+    "name": "Petricite Chains",
+    "description": "Gain a Sylas. When you field him, your strongest Sylas grants your team 30 starting Mana, and his Ability 35% <TFTKeyword>Mana Reaves</TFTKeyword> enemies.<br>",
+    "icon": "sylas",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_KayleCarry",
+    "name": "Divine Ascent",
+    "description": "Gain a Kayle. Your strongest Kayle gains bonuses per star level:<br>1: 40% Attack Speed<br>2: And +3 Attack Range<br>3: And attacks fire 2 extra bolts that deal 50% damage",
+    "icon": "kayle",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_KayleSupport",
+    "name": "Righteous Range",
+    "description": "Gain a Kayle. Combat start: Your strongest Kayle and her 2 nearest allies gain +2 Attack Range and 33% Attack Speed.",
+    "icon": "kayle",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_BlitzcrankCarry",
+    "name": "Dynamic Defenses",
+    "description": "Gain a Blitzcrank and a Gargoyle Stoneplate. When your strongest Blitzcrank casts his Ability, its duration increases by 2 seconds per enemy targeting him.",
+    "icon": "blitzcrank",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_BlitzcrankSupport",
+    "name": "Rocket Grab",
+    "description": "Gain a Blitzcrank. Your strongest Blitzcrank has 400 bonus Health. Combat start: He pulls the farthest enemy and <TFTKeyword>Stuns</TFTKeyword> them for 1.5 seconds.",
+    "icon": "blitzcrank",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_BrawlerTrait",
+    "name": "Brawler Heart",
+    "description": "Your team counts as having 1 additional Brawler. Gain a Vi.",
+    "icon": "brawler-heart",
+    "level": 1,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_SupersTrait",
+    "name": "Supers Heart",
+    "description": "Your team counts as having 1 additional Super. Gain a Malphite.",
+    "icon": "supers-heart-ii",
+    "level": 2,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_SupersTrait2",
+    "name": "Supers Soul",
+    "description": "Your team counts as having 1 additional Super. Gain a Titan's Resolve and a Lee Sin.",
+    "icon": "supers-crown-iii",
+    "level": 3,
+    "tier": "D",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_EkkoSupport",
+    "name": "Chronobreak",
+    "description": "Gain an Ekko. When you field him, he <TFTKeyword>Stuns</TFTKeyword> all enemies for 2 seconds after 10 seconds of combat.",
+    "icon": "ekko",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_MissFortuneCarry",
+    "name": "Bunny Mercenary",
+    "description": "Gain a Miss Fortune. Your strongest Miss Fortune's Ability covers a wider cone. When she casts her ability,  she gains a 200 Health shield for 2 seconds.",
+    "icon": "missfortune",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_GenAEEmblem",
+    "name": "Gadgeteen Crest",
+    "description": "Gain a Gadgeteen Emblem and an Annie.",
+    "icon": "gadgeteens-crest-ii",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_GenAEEmblem2",
+    "name": "Gadgeteen Crown",
+    "description": "Gain a Gadgeteen Emblem, a Negatron Cloak, and an Annie.",
+    "icon": "gadgeteens-crown-iii",
+    "level": 3,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_RenegadePartners",
+    "name": "Partners in Crime",
+    "description": "Gain a Viego. When you field him, your team gains 12% <TFTKeyword>Omnivamp</TFTKeyword>, tripled when 2 or less allies remain.",
+    "icon": "viego",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_AurelionSolCarry",
+    "name": "Extinction Event",
+    "description": "Gain an Aurelion Sol. Your strongest Aurelion Sol has 15 Ability Power and his Ability's meteors are larger.",
+    "icon": "aurelionsol",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_ViegoCarry",
+    "name": "Heartstopper",
+    "description": "Gain a Viego. Your strongest Viego has 10 Ability Power, and his Ability deals up to 50% increased damage based on the enemy's missing Health.",
+    "icon": "viego",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_SamiraCarry",
+    "name": "Style & Flair",
+    "description": "Gain a Samira. Your strongest Samira has 30% Attack Damage. When she scores a takedown, she restores 30% of her maximum Mana.",
+    "icon": "samira",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_BelVethCarry",
+    "name": "Back for Blood",
+    "description": "Gain a Bel'Veth. Your strongest Belveth has 25% <TFTKeyword>Omnivamp</TFTKeyword>, tripled while under 50% Health.",
+    "icon": "belveth",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_Augment_SamiraSupport",
+    "name": "Daredevil",
+    "description": "Gain a Samira. When you field her, your team gains 3.5% Attack Speed for each 10 Tactician Health missing.",
+    "icon": "samira",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_Augment_AatroxCarry",
+    "name": "Deathbringer",
+    "description": "Gain an Aatrox. Your strongest Aatrox's abilities deal additional damage equal to 15% of his Maximum Health.",
+    "icon": "aatrox",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_AatroxSupport",
+    "name": "Darkin Assimilation",
+    "description": "Gain an Aatrox. When you field him, 40% of the damage your team recieves is instead dealt over 3 seconds as non-lethal damage.",
+    "icon": "aatrox",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_Augment_GarenCarry",
+    "name": "Full Power to Sword",
+    "description": "Gain a Garen. Your strongest Garen's ability costs 50 less Mana to cast and deals additional damage equal to 180% of his Attack Damage, but no longer stuns.",
+    "icon": "garen",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_GarenSupport",
+    "name": "My Sword is Your Shield",
+    "description": "Gain a Garen. Combat Start and when your strongest Garen casts his ability: Garen shields allies for 12% of their maximum health for 4 seconds.",
+    "icon": "garen",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_Augment_GnarCarry",
+    "name": "Synchronous Plating",
+    "description": "Gain a Gnar. Your strongest Gnar gains 45 Armor and Magic Resistance, plus another 5 until the end of combat every time he damages an enemy with his Ability.",
+    "icon": "gnarbig",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_GnarSupport",
+    "name": "Temper Tantrum",
+    "description": "Gain a Gnar. When you field him, enemies take 10% more damage, increased to 20% the first time they are damaged by Gnar's attacks or Ability.",
+    "icon": "gnarbig",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_HyperRollAugment_JhinCarry",
+    "name": "Rule of Four",
+    "description": "Gain a Jhin. Every 4 takedowns your strongest Jhin gets each combat, he drops 6-12 gold (based on current Stage). He occasionally also drops an item component.",
+    "icon": "jhin",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_JhinCarry",
+    "name": "Rule of Four",
+    "description": "Gain a Jhin. Every 4 takedowns your strongest Jhin gets each combat, he drops 2-4 gold (based on current Stage). He occasionally also drops an item component.",
+    "icon": "jhin",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_JhinSupport",
+    "name": "Wrath of the Rift",
+    "description": "Gain a Jhin. When you field him, your units that start combat in the back 2 rows deal 16% bonus damage.",
+    "icon": "jhin",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_HyperRollAugment_LucianCarry",
+    "name": "Hyperbolic Time Chamber",
+    "description": "Gain a Lucian. The first time your strongest Lucian casts his Ability each combat, and every 2 times afterwards, gain 2 gold.",
+    "icon": "lucian",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_LucianCarry",
+    "name": "Hyperbolic Time Chamber",
+    "description": "Gain a Lucian. The first time your strongest Lucian casts his Ability each combat, and every 3 times afterwards, gain 2 experience point.",
+    "icon": "lucian",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_MorganaCarry",
+    "name": "Fear is Freedom",
+    "description": "Gain a Morgana. Your strongest Morgana sends out 1 additional Dark Binding(s) when she casts her Ability, and her Dark Bindings stun their targets for 1 additional second(s).",
+    "icon": "morgana",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_MorganaSupport",
+    "name": "Gas Giant Slayer",
+    "description": "Gain a Morgana. When you field her, your team's abilities and attacks deal 30% more damage to enemies with more than 1600 maximum Health.",
+    "icon": "morgana",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_Augment_NeekoSupport",
+    "name": "Easy Being Green",
+    "description": "Gain a Neeko and a Spear of Shojin. When you field her, allies holding Spear of Shojin gain 35% Ability Power.",
+    "icon": "neeko",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_Augment_NeekoCarry",
+    "name": "Starlight Resonance",
+    "description": "Gain a Neeko. On combat start and when your strongest Neeko casts her Ability, she grants herself and her closest ally 15 Ability Power until the end of combat.",
+    "icon": "neeko",
+    "level": 4,
+    "tier": "C",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_PantheonCarry",
+    "name": "The Best Offense",
+    "description": "Gain a Pantheon. Your strongest Pantheon gains 40 Ability Power and 100 Magic Resistance.",
+    "icon": "pantheon",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_PantheonSupport",
+    "name": "Chronic Hallucinations",
+    "description": "Gain a Pantheon. Combat start: Your strongest Pantheon and his 4 nearest allies take 60% reduced damage for 6 seconds.",
+    "icon": "pantheon",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_Augment_PykeCarry",
+    "name": "Your Cut",
+    "description": "Gain a Pyke. After player combat rounds, gain 1 free Shop refresh(es), plus 1 free Shop refresh(es) for every 2 time(s) your strongest Pyke cast his Ability last round.",
+    "icon": "pyke",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_PykeSupport",
+    "name": "Small Game Hunter",
+    "description": "Gain a Pyke. When you field him, your team's abilities and attacks deal 10% more damage, increased to 25% against enemies with less than 1400 maximum Health.",
+    "icon": "pyke",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_Augment_ShenCarry",
+    "name": "Time Knife",
+    "description": "Gain a Shen. Your strongest Shen's spell costs 10 less Mana, and after casting his spell, his next 3 attack(s) deal bonus true damage equal to 250% of his Armor.",
+    "icon": "shen",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_ShenSupport",
+    "name": "Recursion Matrix",
+    "description": "Gain a Shen. When you field him, your team takes 7% reduced damage, tripled for 4 seconds when they cast Abilities.",
+    "icon": "shen",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_Augment_SivirCarry",
+    "name": "Time and a Half",
+    "description": "Gain a Sivir. After player combats, gain 1 gold for every 42 Attack Damage your strongest Sivir has.",
+    "icon": "sivir",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_HyperRollAugment_SivirCarry",
+    "name": "Time and a Half",
+    "description": "Gain a Sivir. After player combats, gain 2 gold for every 42 Attack Damage your strongest Sivir has.",
+    "icon": "sivir",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_HyperRollAugment_TwistedFateCarry",
+    "name": "Ante Up",
+    "description": "Gain a Twisted Fate. Your strongest Twisted Fate drops 2 gold every 20-10 cards thrown each combat (based on current Stage).",
+    "icon": "twistedfate",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_TwistedFateCarry",
+    "name": "Ante Up",
+    "description": "Gain a Twisted Fate. Your strongest Twisted Fate drops 1 gold every 20-10 cards thrown each combat (based on current Stage).",
+    "icon": "twistedfate",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_TwistedFateSupport",
+    "name": "Gear Shift",
+    "description": "Gain a Twisted Fate. When you field him, your team gains 12% Attack Speed, doubled after they cast their Ability the first time each combat.",
+    "icon": "twistedfate",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_Augment_VexCarry",
+    "name": "Joy Siphon",
+    "description": "Gain a Vex. Your strongest Vex heals the 2 lowest health units on your team for 30% of the damage she deals.",
+    "icon": "vex",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_VexSupport",
+    "name": "Endless Darkness",
+    "description": "Gain a Vex. When you field her, your team gains 20 Ability Power, and 5 when they cast Abilities (this can stack).",
+    "icon": "vex",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_Augment_WarwickSupport",
+    "name": "Big Data",
+    "description": "Gain a Warwick. When you field him, your units deal 0.65% increased damage for every 100 Health they have.",
+    "icon": "warwick",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_HyperRollAugment_WarwickCarry2",
+    "name": "Well Fed+",
+    "description": "Gain a Warwick. When you field him your team gains 230 Maximum Health. This is increased by 2 every 2 times your strongest Warwick attacks. (Current Health: ?)",
+    "icon": "warwick",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_WarwickCarry2",
+    "name": "Well Fed+",
+    "description": "Gain a Warwick. When you field him your team gains 150 Maximum Health. This is increased by 1 every 2 times your strongest Warwick attacks. (Current Health: ?)",
+    "icon": "warwick",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_LucianSupport",
+    "name": "Enchanted Ammunition",
+    "description": "Gain a Lucian. When you field him, your team gains 20 Ability Power, and 1 when they attack (this can stack).",
+    "icon": "lucian",
+    "level": 4,
+    "tier": "D",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_Augment_WarwickCarry",
+    "name": "Well Fed",
+    "description": "Gain a Warwick. When you field him your team gains 60 Maximum Health. This is increased by 1 every 3 times your strongest Warwick attacks. (Current Health: ?)",
+    "icon": "warwick",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_HyperRollAugment_WarwickCarry",
+    "name": "Well Fed",
+    "description": "Gain a Warwick. When you field him your team gains 50 Maximum Health. This is increased by 2 every 2 times your strongest Warwick attacks. (Current Health: ?)",
+    "icon": "warwick",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_EzrealFutureCarry",
+    "name": "Temporal Disruption",
+    "description": "Gain an Ultimate Ezreal. Your strongest Ezreal's Abilities cause enemies struck to burn for 2% of their Health every second and have their healing reduced by 33% for the rest of combat.",
+    "icon": "ezrealfuture",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_EzrealFutureSupport",
+    "name": "Accelerated Mentorship",
+    "description": "Gain an Ultimate Ezreal. After player combat rounds where you fielded him, gain 8 experience points.",
+    "icon": "ezrealfuture",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_HyperRollAugment_EzrealFutureSupport",
+    "name": "Accelerated Mentorship",
+    "description": "Gain an Ultimate Ezreal. After player combat rounds where you fielded him, gain 16 gold.",
+    "icon": "ezrealfuture",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_Augment_SalvageBinPlus",
+    "name": "Salvage Bin+",
+    "description": "Gain a random completed item now, and a component after 4 player combats. Selling champions breaks apart their full items into components (excluding Tactician's Crown).",
+    "icon": "salvage2",
+    "level": 2,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_InfiniteamTrait",
+    "name": "InfiniTeam Heart",
+    "description": "Your team counts as having 1 additional InfiniTeam. Gain a Sivir.",
+    "icon": "infiniteam-heart-i",
+    "level": 1,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_InfiniteamEmblem",
+    "name": "InfiniTeam Crest",
+    "description": "Gain an InfiniTeam Emblem and a Sivir.",
+    "icon": "infiniteam-crest-ii",
+    "level": 2,
+    "tier": "S",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_InfiniteamEmblem2",
+    "name": "InfiniTeam Crown",
+    "description": "Gain an InfiniTeam Emblem, a Guinsoo's Rageblade, and a Sivir.",
+    "icon": "infiniteam-crown-iii",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_QuickdrawTrait",
+    "name": "Quickdraw Heart",
+    "description": "Your team counts as having 1 additional Quickdraw. Gain an Ezreal.",
+    "icon": "quickdraw-heart-ii",
+    "level": 2,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_QuickdrawTrait2",
+    "name": "Quickdraw Soul",
+    "description": "Your team counts as having 1 additional Quickdraw. Gain a Jeweled Gauntlet and an Ezreal.",
+    "icon": "quickdraw-crown-iii",
+    "level": 3,
+    "tier": "D",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_RiftwalkerEmblem",
+    "name": "Riftwalker Crest",
+    "description": "Gain a Riftwalker Emblem and 2 gold.",
+    "icon": "riftwalker-crest-ii",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_RiftwalkerEmblem2",
+    "name": "Riftwalker Crown",
+    "description": "Gain a Riftwalker Emblem, a Sparring Gloves, and a Pyke.",
+    "icon": "riftwalker-crown-iii",
+    "level": 3,
+    "tier": "C",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_5_Augment_SivirSupport",
+    "name": "Mana Tempering",
+    "description": "Gain a Sivir. When you field her, your team gains 20% Attack Damage, and 5% when they cast Abilities (this can stack).",
+    "icon": "sivir",
+    "level": 4,
+    "tier": "A",
+    "heroAugmentType": "support"
+  },
+  {
+    "id": "TFT8_5_Augment_YasuoCarry",
+    "name": "Winds of the Wanderer",
+    "description": "Gain a Yasuo. Your strongest Yasuo's spell is larger and does 8% increased damage.",
+    "icon": "yasuo",
+    "level": 4,
+    "tier": "S",
+    "heroAugmentType": "carry"
+  },
+  {
+    "id": "TFT8_5_Augment_JaxSupport",
+    "name": "Grandmaster's Training",
+    "description": "Gain a Jax. When you field him your team gains 12 Armor and 20% Attack speed. When your strongest Jax dies these effects are doubled for the rest of combat.",
+    "icon": "jax",
+    "level": 4,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_InterPolarisEmblem",
+    "name": "LaserCorps Crest",
+    "description": "Gain an LaserCorps Emblem and a Yasuo.",
+    "icon": "lasercorps-crest",
+    "level": 2,
+    "tier": "B",
+    "heroAugmentType": null
+  },
+  {
+    "id": "TFT8_Augment_InterPolarisTrait2",
+    "name": "LaserCorps Soul",
+    "description": "Your team counts as having 1 additional LaserCorps. Gain a Hand of Justice and a Yasuo.",
+    "icon": "lasercorps-crown-iii",
+    "level": 3,
+    "tier": "A",
+    "heroAugmentType": ""
+  }
+]

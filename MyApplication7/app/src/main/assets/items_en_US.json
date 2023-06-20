@@ -1,0 +1,3087 @@
+[
+  {
+    "id": "tft_item_bfsword",
+    "name": "b.f. sword",
+    "tier": "a",
+    "description": " +10% attack damage",
+    "from": null,
+    "isbase": true,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 10
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "ad": "10" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_recurvebow",
+    "name": "recurve bow",
+    "tier": "s",
+    "description": " +10% attack speed",
+    "from": null,
+    "isbase": true,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "as",
+        "value": 10
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "as": "10" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_chainvest",
+    "name": "chain vest",
+    "tier": "c",
+    "description": " +20 armor",
+    "from": null,
+    "isbase": true,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "armor": "20" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_negatroncloak",
+    "name": "negatron cloak",
+    "tier": "c",
+    "description": " +20 magic resist",
+    "from": null,
+    "isbase": true,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "magicresist",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "magicresist": "20" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_needlesslylargerod",
+    "name": "needlessly large rod",
+    "tier": "b",
+    "description": " +10 ability power",
+    "from": null,
+    "isbase": true,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 10
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "ap": "10" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_tearofthegoddess",
+    "name": "tear of the goddess",
+    "tier": "b",
+    "description": " +15 mana",
+    "from": null,
+    "isbase": true,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "mana",
+        "value": 15
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "mana": "15" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_giantsbelt",
+    "name": "giant's belt",
+    "tier": "b",
+    "description": "%i:scalehealth% +150 health",
+    "from": null,
+    "isbase": true,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_spatula",
+    "name": "spatula",
+    "tier": "b",
+    "description": "it must do something...",
+    "from": null,
+    "isbase": true,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [],
+    "isunique": false,
+    "effectsnew": {},
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_infinityedge",
+    "name": "infinity edge",
+    "tier": "s",
+    "description": "damage from an ability can critically strike.",
+    "from": [ "tft_item_bfsword", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "critchance",
+        "value": 35
+      },
+      {
+        "type": "ad",
+        "value": 30
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "critchance": "35",
+      "ad": "30"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_guardianangel",
+    "name": "edge of night",
+    "tier": "c",
+    "description": "once per combat: at 60% health, briefly become untargetable and shed negative effects. then, gain  15% bonus attack speed.[unique - only 1 per champion]",
+    "from": [ "tft_item_bfsword", "tft_item_chainvest" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 10
+      },
+      {
+        "type": "armor",
+        "value": 20
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "ad": "10",
+      "armor": "20"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_bloodthirster",
+    "name": "bloodthirster",
+    "tier": "s",
+    "description": "grant 20% omnivamp.once per combat at 40% health, gain a 25% maximum health shield that lasts up to 5 seconds.omnivamp: heal for some of damage dealt",
+    "from": [ "tft_item_bfsword", "tft_item_negatroncloak" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 20
+      },
+      {
+        "type": "magicresist",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "20",
+      "magicresist": "20"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_hextechgunblade",
+    "name": "hextech gunblade",
+    "tier": "s",
+    "description": "grant 22% omnivamp, which also heals the lowest percent health ally.omnivamp: heal for some of damage dealt",
+    "from": [ "tft_item_bfsword", "tft_item_needlesslylargerod" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 10
+      },
+      {
+        "type": "ap",
+        "value": 10
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "10",
+      "ap": "10"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_spearofshojin",
+    "name": "spear of shojin",
+    "tier": "s",
+    "description": "every 3rd attack restores  20 additional mana. ",
+    "from": [ "tft_item_bfsword", "tft_item_tearofthegoddess" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 10
+      },
+      {
+        "type": "mana",
+        "value": 15
+      },
+      {
+        "type": "ap",
+        "value": 15
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "10",
+      "mana": "15",
+      "ap": "15"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_zekesherald",
+    "name": "zeke's herald",
+    "tier": "c",
+    "description": "combat start: grant  20% attack speed to the holder and allies within 1 hex in the same row.[aura item]",
+    "from": [ "tft_item_bfsword", "tft_item_giantsbelt" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 10
+      },
+      {
+        "type": "health",
+        "value": 250
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "10",
+      "health": "250"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_interpolarisemblemitem",
+    "name": "lasercorps emblem",
+    "tier": "?",
+    "description": "the holder gains the lasercorps trait.[unique - only 1 per champion]",
+    "from": null,
+    "isbase": false,
+    "trait": "set8_spacecorps",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_rapidfirecannon",
+    "name": "rapid firecannon",
+    "tier": "b",
+    "description": "grant %i:scalerange% 1 bonus attack range and your attacks cannot miss.",
+    "from": [ "tft_item_recurvebow", "tft_item_recurvebow" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "as",
+        "value": 55
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "as": "55" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_runaanshurricane",
+    "name": "runaan's hurricane",
+    "tier": "b",
+    "description": "attacks fire a bolt at a nearby enemy, dealing 50% attack damage  as physical damage.[direct damage item]",
+    "from": [ "tft_item_recurvebow", "tft_item_negatroncloak" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "as",
+        "value": 10
+      },
+      {
+        "type": "magicresist",
+        "value": 20
+      },
+      {
+        "type": "ad",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "as": "10",
+      "magicresist": "20",
+      "ad": "20"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_guinsoosrageblade",
+    "name": "guinsoo's rageblade",
+    "tier": "s",
+    "description": "attacks grant  5% bonus attack speed. this effect stacks.",
+    "from": [ "tft_item_recurvebow", "tft_item_needlesslylargerod" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 10
+      },
+      {
+        "type": "as",
+        "value": 10
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ap": "10",
+      "as": "10"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_statikkshiv",
+    "name": "statikk shiv",
+    "tier": "a",
+    "description": "every 3rd attack unleashes chain lightning that bounces to 4 enemies, dealing 30 magic damage and 50% shredding them for 5 seconds.[direct damage item]shred: reduce magic resist",
+    "from": [ "tft_item_recurvebow", "tft_item_tearofthegoddess" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "as",
+        "value": 10
+      },
+      {
+        "type": "mana",
+        "value": 15
+      },
+      {
+        "type": "ap",
+        "value": 15
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "as": "10",
+      "mana": "15",
+      "ap": "15"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_titanichydra",
+    "name": "zz'rot portal",
+    "tier": "c",
+    "description": "combat start: taunt.on death, a voidspawn arises, taunting nearby enemies. the voidspawn has massively reduced effectiveness when created by a summoned unit.taunt: enemies that are able and in range must attack the taunter",
+    "from": [ "tft_item_recurvebow", "tft_item_giantsbelt" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "as",
+        "value": 10
+      },
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "as": "10",
+      "health": "150"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_gargoylestoneplate",
+    "name": "gargoyle stoneplate",
+    "tier": "a",
+    "description": "grants  15 armor and  15 magic resist for each enemy targeting the holder.",
+    "from": [ "tft_item_chainvest", "tft_item_negatroncloak" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 30
+      },
+      {
+        "type": "magicresist",
+        "value": 30
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "armor": "30",
+      "magicresist": "30"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_locketoftheironsolari",
+    "name": "locket of the iron solari",
+    "tier": "b",
+    "description": "combat start: shields the holder and allies within 2 hexes in the same row for 300/350/400 damage for 15 seconds.[aura item]",
+    "from": [ "tft_item_chainvest", "tft_item_needlesslylargerod" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 10
+      },
+      {
+        "type": "armor",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ap": "10",
+      "armor": "20"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_frozenheart",
+    "name": "protector's vow",
+    "tier": "c",
+    "description": "once per combat: at 40% health, gain a 25% maximum health shield that lasts up to 5 seconds and  35 armor and  35 magic resist for the rest of combat.",
+    "from": [ "tft_item_chainvest", "tft_item_tearofthegoddess" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 20
+      },
+      {
+        "type": "mana",
+        "value": 45
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "armor": "20",
+      "mana": "45"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_redbuff",
+    "name": "sunfire cape",
+    "tier": "a",
+    "description": "every 2 seconds, an enemy within 2 hexes is 10% burned and 33% wounded for 10 seconds.[unique - only 1 per champion]burn: deals some of the target's maximum health as true damagewound: reduces healing received",
+    "from": [ "tft_item_chainvest", "tft_item_giantsbelt" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 20
+      },
+      {
+        "type": "health",
+        "value": 250
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "armor": "20",
+      "health": "250"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_animasquademblemitem",
+    "name": "anima squad emblem",
+    "tier": "?",
+    "description": "the holder gains the anima squad trait.[unique - only 1 per champion]",
+    "from": [ "tft_item_needlesslylargerod", "tft_item_spatula" ],
+    "isbase": false,
+    "trait": "set8_animasquad",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 10
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "ap": "10" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_dragonsclaw",
+    "name": "dragon's claw",
+    "tier": "a",
+    "description": "every 2 seconds, regenerate 4% maximum health.",
+    "from": [ "tft_item_negatroncloak", "tft_item_negatroncloak" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "magicresist",
+        "value": 70
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "magicresist": "70" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_ionicspark",
+    "name": "ionic spark",
+    "tier": "a",
+    "description": "50% shred enemies within 2 hexes. when enemies cast an ability, they are also zapped for magic damage equal to 185% of their maximum mana.[direct damage item]shred: reduce magic resist",
+    "from": [ "tft_item_negatroncloak", "tft_item_needlesslylargerod" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 10
+      },
+      {
+        "type": "magicresist",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ap": "10",
+      "magicresist": "20"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_chalice",
+    "name": "chalice of power",
+    "tier": "c",
+    "description": "combat start: grant  25 ability power to the holder and allies within 1 hex in the same row.[aura item]",
+    "from": [ "tft_item_negatroncloak", "tft_item_tearofthegoddess" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "magicresist",
+        "value": 20
+      },
+      {
+        "type": "mana",
+        "value": 30
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "magicresist": "20",
+      "mana": "30"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_zephyr",
+    "name": "zephyr",
+    "tier": "c",
+    "description": "combat start: summon a whirlwind on the opposite side of the arena that removes the closest enemy from combat for 5 seconds. [ignores crowd control immunity.][unique - only 1 per champion]",
+    "from": [ "tft_item_negatroncloak", "tft_item_giantsbelt" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      },
+      {
+        "type": "magicresist",
+        "value": 20
+      },
+      {
+        "type": "as",
+        "value": 15
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "health": "150",
+      "magicresist": "20",
+      "as": "15"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_heartemblemitem",
+    "name": "heart emblem",
+    "tier": "?",
+    "description": "the holder gains the heart trait.[unique - only 1 per champion]",
+    "from": [ "tft_item_tearofthegoddess", "tft_item_spatula" ],
+    "isbase": false,
+    "trait": "set8_heart",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "mana",
+        "value": 15
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "mana": "15" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_rabadonsdeathcap",
+    "name": "rabadon's deathcap",
+    "tier": "b",
+    "description": "this humble hat can help you make, or unmake, the world itself.",
+    "from": [ "tft_item_needlesslylargerod", "tft_item_needlesslylargerod" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 70
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "ap": "70" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_archangelsstaff",
+    "name": "archangel's staff",
+    "tier": "b",
+    "description": "combat start: grant  20 ability power every 5 seconds.",
+    "from": [ "tft_item_needlesslylargerod", "tft_item_tearofthegoddess" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 20
+      },
+      {
+        "type": "mana",
+        "value": 30
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ap": "20",
+      "mana": "30"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_morellonomicon",
+    "name": "morellonomicon",
+    "tier": "a",
+    "description": "magic or true damage from the holder's ability 10% burns and 33% wounds enemies for 10 seconds.[unique - only 1 per champion]burn: deals some of the target's maximum health as true damagewound: reduces healing received",
+    "from": [ "tft_item_needlesslylargerod", "tft_item_giantsbelt" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 20
+      },
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "ap": "20",
+      "health": "150"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_seraphsembrace",
+    "name": "blue buff",
+    "tier": "s",
+    "description": "abilities cost  10 less mana to cast. if the holder gets at least 1 takedown within 3 seconds of casting, gain  10 mana.[unique - only 1 per champion]",
+    "from": [ "tft_item_tearofthegoddess", "tft_item_tearofthegoddess" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 10
+      },
+      {
+        "type": "mana",
+        "value": 40
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "ap": "10",
+      "mana": "40"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_redemption",
+    "name": "redemption",
+    "tier": "s",
+    "description": "heal allies within 1 hex for 15% of their missing health every 5 seconds. they also take 25% less multi-target damage for 5 seconds (damage reduction does not stack).[aura item]",
+    "from": [ "tft_item_tearofthegoddess", "tft_item_giantsbelt" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      },
+      {
+        "type": "mana",
+        "value": 15
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "health": "150",
+      "mana": "15"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_adminemblemitem",
+    "name": "a.d.m.i.n. emblem",
+    "tier": "?",
+    "description": "the holder gains the a.d.m.i.n. trait.[unique - only 1 per champion]",
+    "from": [ "tft_item_negatroncloak", "tft_item_spatula" ],
+    "isbase": false,
+    "trait": "set8_admin",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "magicresist",
+        "value": 20
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "magicresist": "20" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_warmogsarmor",
+    "name": "warmog's armor",
+    "tier": "a",
+    "description": "tough as teak, strong as oak, and eternal as petricite.",
+    "from": [ "tft_item_giantsbelt", "tft_item_giantsbelt" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 800
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "health": "800" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_mascotemblemitem",
+    "name": "mascot emblem",
+    "tier": "?",
+    "description": "the holder gains the mascot trait.[unique - only 1 per champion]",
+    "from": [ "tft_item_giantsbelt", "tft_item_spatula" ],
+    "isbase": false,
+    "trait": "set8_mascot",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_assist_tacticianscrown",
+    "name": "tactician's crown",
+    "tier": "s",
+    "description": "tactician's crown",
+    "from": [ "tft_item_spatula", "tft_item_spatula" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [],
+    "isunique": false,
+    "effectsnew": {},
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_sparringgloves",
+    "name": "sparring gloves",
+    "tier": "a",
+    "description": "+20 critical strike chance",
+    "from": null,
+    "isbase": true,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "critchance",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "critchance": "20" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_shroud",
+    "name": "shroud of stillness",
+    "tier": "d",
+    "description": "combat start: shoot a beam that 35% mana reaves enemies.[unique - only 1 per champion]mana reave: increase maximum mana until the next cast",
+    "from": [ "tft_item_chainvest", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 20
+      },
+      {
+        "type": "health",
+        "value": 250
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "armor": "20",
+      "health": "250"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_quicksilver",
+    "name": "quicksilver",
+    "tier": "c",
+    "description": "combat start: grant immunity to crowd control for 18 seconds.[unique - only 1 per champion]",
+    "from": [ "tft_item_negatroncloak", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "magicresist",
+        "value": 30
+      },
+      {
+        "type": "critchance",
+        "value": 20
+      },
+      {
+        "type": "as",
+        "value": 30
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "magicresist": "30",
+      "critchance": "20",
+      "as": "30"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_jeweledgauntlet",
+    "name": "jeweled gauntlet",
+    "tier": "s",
+    "description": "damage from an ability can critically strike.",
+    "from": [ "tft_item_needlesslylargerod", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 25
+      },
+      {
+        "type": "critchance",
+        "value": 35
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ap": "25",
+      "critchance": "35"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_unstableconcoction",
+    "name": "hand of justice",
+    "tier": "a",
+    "description": "grant 2 effects: +15% attack damage and  +15 ability power.15% omnivamp.each round, randomly double 1 of these effects.omnivamp: heal for some of damage dealt",
+    "from": [ "tft_item_tearofthegoddess", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "critchance",
+        "value": 20
+      },
+      {
+        "type": "mana",
+        "value": 15
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "critchance": "20",
+      "mana": "15"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_powergauntlet",
+    "name": "guardbreaker",
+    "tier": "d",
+    "description": "after damaging a shielded enemy, abilities and attacks deal 30% more damage for 3 seconds.",
+    "from": [ "tft_item_giantsbelt", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      },
+      {
+        "type": "critchance",
+        "value": 20
+      },
+      {
+        "type": "ad",
+        "value": 20
+      },
+      {
+        "type": "ap",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "health": "150",
+      "critchance": "20",
+      "ad": "20",
+      "ap": "20"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_thiefsgloves",
+    "name": "thief's gloves",
+    "tier": "a",
+    "description": "each round: equip 2 random items.[consumes 3 item slots.]",
+    "from": [ "tft_item_sparringgloves", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 2,
+    "effects": [
+      {
+        "type": "critchance",
+        "value": 40
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "critchance": "40" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_deathblade",
+    "name": "deathblade",
+    "tier": "b",
+    "description": "perfect peace and calm for the holder - and all who face it.",
+    "from": [ "tft_item_bfsword", "tft_item_bfsword" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 66
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "ad": "66" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_madredsbloodrazor",
+    "name": "giant slayer",
+    "tier": "s",
+    "description": "abilities and attacks deal 25% more damage to enemies with more than 1600 maximum health.",
+    "from": [ "tft_item_bfsword", "tft_item_recurvebow" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 20
+      },
+      {
+        "type": "ad",
+        "value": 30
+      },
+      {
+        "type": "as",
+        "value": 10
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ap": "20",
+      "ad": "30",
+      "as": "10"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_lastwhisper",
+    "name": "last whisper",
+    "tier": "s",
+    "description": "any physical damage dealt 50% sunders the target for 5 seconds. this effect does not stack.[unique - only 1 per champion]sunder: reduce armor",
+    "from": [ "tft_item_recurvebow", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "as",
+        "value": 10
+      },
+      {
+        "type": "critchance",
+        "value": 20
+      },
+      {
+        "type": "ad",
+        "value": 10
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "as": "10",
+      "critchance": "20",
+      "ad": "10"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_titansresolve",
+    "name": "titan's resolve",
+    "tier": "a",
+    "description": "grants  2% attack damage and  2 ability power when attacking or taking damage, stacking up to 25 times.  at full stacks, grant  25 armor and  25 magic resist.",
+    "from": [ "tft_item_recurvebow", "tft_item_chainvest" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "as",
+        "value": 10
+      },
+      {
+        "type": "armor",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "as": "10",
+      "armor": "20"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_bramblevest",
+    "name": "bramble vest",
+    "tier": "a",
+    "description": "negates 75% bonus damage from incoming critical strikes. when struck by an attack, deal 75/100/150 magic damage to all nearby enemies (once every 2.5 seconds).[direct damage item]",
+    "from": [ "tft_item_chainvest", "tft_item_chainvest" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 70
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "armor": "70" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_consumable_neekoshelp",
+    "name": "champion duplicator",
+    "tier": null,
+    "description": "use on a champion to create a 1-star copy on your bench.[consumable - this item disappears when used.]",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 3,
+    "effects": [],
+    "isunique": false,
+    "effectsnew": {},
+    "isshadow": false
+  },
+  {
+    "id": "tft_consumable_shopreroller",
+    "name": "loaded dice",
+    "tier": null,
+    "description": "use on a champion to reroll a special shop that contains only champions sharing a trait with the source champion. [consumable - this item disappears when used.]",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 3,
+    "effects": [],
+    "isunique": false,
+    "effectsnew": {},
+    "isshadow": false
+  },
+  {
+    "id": "tft_consumable_itemreroller",
+    "name": "reforger",
+    "tier": null,
+    "description": "use on a champion to unequip all items and randomly transform them into different new ones.  [same quality: reforging will grant a new item of a similar type and quality. cannot be used on champions in combat, or on tactician's crown. consumable - this item disappears when used.]",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 3,
+    "effects": [],
+    "isunique": false,
+    "effectsnew": {},
+    "isshadow": false
+  },
+  {
+    "id": "tft_consumable_itemremover",
+    "name": "magnetic remover",
+    "tier": null,
+    "description": "use on a champion to unequip all items.  [cannot be used on champions in combat.][consumable - this item disappears when used.]",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 3,
+    "effects": [],
+    "isunique": false,
+    "effectsnew": {},
+    "isshadow": false
+  },
+  {
+    "id": "tft_consumable_trainingdummy",
+    "name": "target dummy",
+    "tier": null,
+    "description": "use on a champion to spawn a movable target dummy nearby.  [cannot be used in combat. consumable - this item disappears when used.]",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 3,
+    "effects": [],
+    "isunique": false,
+    "effectsnew": {},
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_deathbladeradiant",
+    "name": "luminous deathblade",
+    "tier": null,
+    "description": "it glows in the presence of enemies. or friends. or anything alive, really.",
+    "from": [ "tft_item_bfsword", "tft_item_bfsword" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 120
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "ad": "120" },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_giantslayerradiant",
+    "name": "demonslayer",
+    "tier": null,
+    "description": "abilities and attacks deal 70% more damage to enemies with more than 1600 maximum health.",
+    "from": [ "tft_item_bfsword", "tft_item_recurvebow" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 40
+      },
+      {
+        "type": "ad",
+        "value": 50
+      },
+      {
+        "type": "as",
+        "value": 10
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ap": "40",
+      "ad": "50",
+      "as": "10"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_hextechgunbladeradiant",
+    "name": "hextech lifeblade",
+    "tier": null,
+    "description": "grant 35% omnivamp, which also heals the lowest percent health ally.omnivamp: heal for some of damage dealt",
+    "from": [ "tft_item_bfsword", "tft_item_needlesslylargerod" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 10
+      },
+      {
+        "type": "ap",
+        "value": 40
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "10",
+      "ap": "40"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_spearofshojinradiant",
+    "name": "spear of hirana",
+    "tier": null,
+    "description": "every 3rd attack restores  40 additional mana.",
+    "from": [ "tft_item_bfsword", "tft_item_tearofthegoddess" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 10
+      },
+      {
+        "type": "mana",
+        "value": 15
+      },
+      {
+        "type": "ap",
+        "value": 50
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "10",
+      "mana": "15",
+      "ap": "50"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_guardianangelradiant",
+    "name": "brink of dawn",
+    "tier": null,
+    "description": "once per combat: at 60% health and again at 30% health, briefly become untargetable and shed negative effects. then, gain  40% bonus attack speed. this effect stacks.[unique - only 1 per champion]",
+    "from": [ "tft_item_bfsword", "tft_item_chainvest" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 30
+      },
+      {
+        "type": "armor",
+        "value": 30
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "ad": "30",
+      "armor": "30"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_bloodthirsterradiant",
+    "name": "blessed bloodthirster",
+    "tier": null,
+    "description": "grant 35% omnivamp.once per combat: at 40% health, gain a 35% maximum health shield that lasts up to 5 seconds.omnivamp: heal for some of damage dealt",
+    "from": [ "tft_item_bfsword", "tft_item_negatroncloak" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 40
+      },
+      {
+        "type": "magicresist",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "40",
+      "magicresist": "20"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_zekesheraldradiant",
+    "name": "zeke's harmony",
+    "tier": null,
+    "description": "combat start: grant  50% attack speed and 10% omnivamp to the holder and allies within 1 hex in the same row.[aura item]omnivamp: heal for some of damage dealt",
+    "from": [ "tft_item_bfsword", "tft_item_giantsbelt" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 10
+      },
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "10",
+      "health": "150"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_infinityedgeradiant",
+    "name": "zenith edge",
+    "tier": null,
+    "description": "damage from an ability can critically strike.",
+    "from": [ "tft_item_bfsword", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 55
+      },
+      {
+        "type": "critchance",
+        "value": 75
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "ad": "55",
+      "critchance": "75"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_rapidfirecannonradiant",
+    "name": "rapid lightcannon",
+    "tier": null,
+    "description": "grant %i:scalerange% 2 bonus attack range and your attacks cannot miss.",
+    "from": [ "tft_item_recurvebow", "tft_item_recurvebow" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "as",
+        "value": 125
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "as": "125" },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_guinsoosragebladeradiant",
+    "name": "guinsoo's reckoning",
+    "tier": null,
+    "description": "attacks grant  10% bonus attack speed. this effect stacks.",
+    "from": [ "tft_item_recurvebow", "tft_item_needlesslylargerod" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 10
+      },
+      {
+        "type": "as",
+        "value": 25
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ap": "10",
+      "as": "25"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_statikkshivradiant",
+    "name": "statikk's favor",
+    "tier": null,
+    "description": "every 3rd attack unleashes chain lightning that bounces to 8 enemies, dealing 65 magic damage and  50% shredding them for 5 seconds.[direct damage item]shred: reduce magic resist",
+    "from": [ "tft_item_recurvebow", "tft_item_tearofthegoddess" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "as",
+        "value": 10
+      },
+      {
+        "type": "mana",
+        "value": 15
+      },
+      {
+        "type": "ap",
+        "value": 40
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "as": "10",
+      "mana": "15",
+      "ap": "40"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_titansresolveradiant",
+    "name": "titan's vow",
+    "tier": null,
+    "description": "grant  3% attack damage and  3 ability power when attacking or taking damage, stacking up to 25 times.at full stacks, gain  50 armor and  50 magic resist.",
+    "from": [ "tft_item_recurvebow", "tft_item_chainvest" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "as",
+        "value": 30
+      },
+      {
+        "type": "armor",
+        "value": 30
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "as": "30",
+      "armor": "30"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_runaanshurricaneradiant",
+    "name": "runaan's tempest",
+    "tier": null,
+    "description": "attacks fire a bolt at a nearby enemy, dealing 100% attack damage  as physical damage.[direct damage item]",
+    "from": [ "tft_item_recurvebow", "tft_item_negatroncloak" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 20
+      },
+      {
+        "type": "as",
+        "value": 20
+      },
+      {
+        "type": "magicresist",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "20",
+      "as": "20",
+      "magicresist": "20"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_zzrotportalradiant",
+    "name": "zz'rots invitation",
+    "tier": null,
+    "description": "combat start: a radiant voidmother with bonus health and attack damage arises and taunts nearby enemies.taunt: enemies that are able and in range must attack the taunter",
+    "from": [ "tft_item_recurvebow", "tft_item_giantsbelt" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "as",
+        "value": 10
+      },
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "as": "10",
+      "health": "150"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_lastwhisperradiant",
+    "name": "eternal whisper",
+    "tier": null,
+    "description": "any physical damage dealt 50% sunders the target for the rest of combat. this effect does not stack.[unique - only one per champion]sunder: reduce armor",
+    "from": [ "tft_item_recurvebow", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "as",
+        "value": 10
+      },
+      {
+        "type": "critchance",
+        "value": 55
+      },
+      {
+        "type": "ad",
+        "value": 35
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "as": "10",
+      "critchance": "55",
+      "ad": "35"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_rabadonsdeathcapradiant",
+    "name": "rabadon's ascended deathcap",
+    "tier": null,
+    "description": "it's witnessed - and unleashed - miracles and calamities both.",
+    "from": [ "tft_item_needlesslylargerod", "tft_item_needlesslylargerod" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 125
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "ap": "125" },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_archangelsstaffradiant",
+    "name": "urf-angel's staff",
+    "tier": null,
+    "description": "combat start: gain  30 ability power every 4 seconds.",
+    "from": [ "tft_item_needlesslylargerod", "tft_item_tearofthegoddess" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 50
+      },
+      {
+        "type": "mana",
+        "value": 30
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ap": "50",
+      "mana": "30"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_locketoftheironsolariradiant",
+    "name": "locket of targon prime",
+    "tier": null,
+    "description": "combat start: shields the holder and allies within 3 hexes in the same row for 350/400/450 damage for 60 seconds.Your team gains %i:scalehealth% 200 health.[aura item]",
+    "from": [ "tft_item_chainvest", "tft_item_needlesslylargerod" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 10
+      },
+      {
+        "type": "armor",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ap": "10",
+      "armor": "20"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_ionicsparkradiant",
+    "name": "covalent spark",
+    "tier": null,
+    "description": "50% shred enemies within 3 hexes. when enemies cast an ability, they are also zapped for magic damage equal to 250% of their maximum mana.also, regenerate 1% maximum health per second.[direct damage item]shred: reduce magic resist",
+    "from": [ "tft_item_negatroncloak", "tft_item_needlesslylargerod" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 10
+      },
+      {
+        "type": "magicresist",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ap": "10",
+      "magicresist": "20"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_morellonomiconradiant",
+    "name": "more more-ellonomicon",
+    "tier": null,
+    "description": "magic or true damage from the holder's ability 60% burns and 33% wounds enemies for 30 seconds.[unique - only 1 per champion]burn: deals some of the target's maximum health as true damagewound: reduces healing received",
+    "from": [ "tft_item_needlesslylargerod", "tft_item_giantsbelt" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 45
+      },
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "ap": "45",
+      "health": "150"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_jeweledgauntletradiant",
+    "name": "glamorous gauntlet",
+    "tier": null,
+    "description": "damage from an ability can critically strike.",
+    "from": [ "tft_item_needlesslylargerod", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 50
+      },
+      {
+        "type": "critchance",
+        "value": 75
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ap": "50",
+      "critchance": "75"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_bluebuffradiant",
+    "name": "blue blessing",
+    "tier": null,
+    "description": "abilities cost  10 less mana to cast. if the holder gets at least 1 takedown within 3 seconds of casting, gain  20 mana.[unique - only 1 per champion]",
+    "from": [ "tft_item_tearofthegoddess", "tft_item_tearofthegoddess" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 50
+      },
+      {
+        "type": "mana",
+        "value": 40
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "ap": "50",
+      "mana": "40"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_frozenheartradiant",
+    "name": "bulwark's oath",
+    "tier": null,
+    "description": "once per combat: at 40% health, gain  70 armor and  70 magic resist for the rest of combat, and a 50% maximum health shield that lasts up to 10 seconds.",
+    "from": [ "tft_item_chainvest", "tft_item_tearofthegoddess" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 20
+      },
+      {
+        "type": "mana",
+        "value": 60
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "armor": "20",
+      "mana": "60"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_chaliceofpowerradiant",
+    "name": "chalice of charity",
+    "tier": null,
+    "description": "combat start: grant  45 ability power and 10% omnivamp to the holder and allies within 1 hex in the same row.[aura item]omnivamp: heal for some of damage dealt",
+    "from": [ "tft_item_negatroncloak", "tft_item_tearofthegoddess" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "magicresist",
+        "value": 20
+      },
+      {
+        "type": "mana",
+        "value": 15
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "magicresist": "20",
+      "mana": "15"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_redemptionradiant",
+    "name": "absolution",
+    "tier": null,
+    "description": "heal allies within 2 hexes for 25% of their missing health every 5 seconds. they take 25% less multi-target damage for 5 seconds (damage reduction does not stack).[aura item]",
+    "from": [ "tft_item_tearofthegoddess", "tft_item_giantsbelt" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "health",
+        "value": 300
+      },
+      {
+        "type": "mana",
+        "value": 15
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "health": "300",
+      "mana": "15"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_handofjusticeradiant",
+    "name": "fist of fairness",
+    "tier": null,
+    "description": "grant 2 effects: 50% attack damage and  50 ability power.30% omnivamp.omnivamp: heal for some of damage dealt",
+    "from": [ "tft_item_tearofthegoddess", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "critchance",
+        "value": 20
+      },
+      {
+        "type": "mana",
+        "value": 15
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "critchance": "20",
+      "mana": "15"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_bramblevestradiant",
+    "name": "rosethorn vest",
+    "tier": null,
+    "description": "negates all bonus damage from incoming critical strikes. on being hit by an attack, deal 125/175/225 magic damage to all nearby enemies (once every 1.5 seconds).[direct damage item]",
+    "from": [ "tft_item_chainvest", "tft_item_chainvest" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 120
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "armor": "120" },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_gargoylestoneplateradiant",
+    "name": "dvarapala stoneplate",
+    "tier": null,
+    "description": "grant  30 armor and  30 magic resist for each enemy targeting the holder.also, regenerate 2% maximum health each second.",
+    "from": [ "tft_item_chainvest", "tft_item_negatroncloak" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 20
+      },
+      {
+        "type": "magicresist",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "armor": "20",
+      "magicresist": "20"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_sunfirecaperadiant",
+    "name": "sunlight cape",
+    "tier": null,
+    "description": "every 1.5 seconds, an enemy within 3 hexes is 60% burned and 33% wounded for 30 seconds.[unique - only 1 per champion]burn: deals some of the target's maximum health as true damagewound: reduces healing received",
+    "from": [ "tft_item_chainvest", "tft_item_giantsbelt" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 20
+      },
+      {
+        "type": "health",
+        "value": 350
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "armor": "20",
+      "health": "350"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_shroudofstillnessradiant",
+    "name": "shroud of reverence",
+    "tier": null,
+    "description": "combat start: shoot a wider beam that 50% mana reaves enemies.Your team gains  15 starting mana.[unique - only 1 per champion]mana reave: increase maximum mana until the next cast",
+    "from": [ "tft_item_chainvest", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 20
+      },
+      {
+        "type": "critchance",
+        "value": 20
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "armor": "20",
+      "critchance": "20"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_dragonsclawradiant",
+    "name": "dragon's will",
+    "tier": null,
+    "description": "every 1.5 seconds, regenerate 8% maximum health.",
+    "from": [ "tft_item_negatroncloak", "tft_item_negatroncloak" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "magicresist",
+        "value": 140
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "magicresist": "140" },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_zephyrradiant",
+    "name": "mistral",
+    "tier": null,
+    "description": "combat start: summon a whirlwind on the opposite side of the arena that removes the closest enemy from combat for 8 seconds.Your team gains  15% attack speed.[ignores crowd control immunity.][unique - only 1 per champion]",
+    "from": [ "tft_item_negatroncloak", "tft_item_giantsbelt" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      },
+      {
+        "type": "magicresist",
+        "value": 20
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "health": "150",
+      "magicresist": "20"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_quicksilverradiant",
+    "name": "quickestsilver",
+    "tier": null,
+    "description": "combat start: grant immunity to crowd control for 30 seconds.[unique - only 1 per champion]",
+    "from": [ "tft_item_negatroncloak", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "as",
+        "value": 70
+      },
+      {
+        "type": "magicresist",
+        "value": 40
+      },
+      {
+        "type": "critchance",
+        "value": 40
+      }
+    ],
+    "isunique": true,
+    "effectsnew": {
+      "as": "70",
+      "magicresist": "40",
+      "critchance": "40"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_warmogsarmorradiant",
+    "name": "warmog's pride",
+    "tier": null,
+    "description": "regenerate 1% maximum health per second.",
+    "from": [ "tft_item_giantsbelt", "tft_item_giantsbelt" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "health",
+        "value": 1300
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "health": "1300" },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_trapclawradiant",
+    "name": "willbreaker",
+    "tier": null,
+    "description": "after damaging a shielded enemy, abilities and attacks deal 70% more damage for 3 seconds.",
+    "from": [ "tft_item_giantsbelt", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 40
+      },
+      {
+        "type": "critchance",
+        "value": 20
+      },
+      {
+        "type": "ap",
+        "value": 40
+      },
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "40",
+      "critchance": "20",
+      "ap": "40",
+      "health": "150"
+    },
+    "isshadow": true
+  },
+  {
+    "id": "tft_item_thiefsglovesradiant",
+    "name": "rascal's gloves",
+    "tier": null,
+    "description": "each round: equip 2 random radiant items.[consumes 3 item slots.]",
+    "from": [ "tft_item_sparringgloves", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 1,
+    "effects": [
+      {
+        "type": "critchance",
+        "value": 40
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "critchance": "40" },
+    "isshadow": true
+  },
+  {
+    "id": "tft_consumable_exoprime_primemarker",
+    "name": "prime selector",
+    "tier": null,
+    "description": "use this on a mecha to make it the prime",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 3,
+    "effects": [],
+    "isunique": false,
+    "effectsnew": {},
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_starguardianemblemitem",
+    "name": "star guardian emblem",
+    "tier": "?",
+    "description": "the holder gains the star guardian trait.[unique - only 1 per championelusive - cannot be crafted.]",
+    "from": null,
+    "isbase": false,
+    "trait": "set8_starguardian",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_oxforceemblemitem",
+    "name": "ox force emblem",
+    "tier": "?",
+    "description": "the holder gains the ox force trait.[unique - only 1 per champion]",
+    "from": [ "tft_item_chainvest", "tft_item_spatula" ],
+    "isbase": false,
+    "trait": "set8_oxforce",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 20
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "armor": "20" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_undergroundtheemblemitem",
+    "name": "the underground emblem",
+    "tier": "?",
+    "description": "the holder gains the underground trait.[unique - only 1 per championelusive - cannot be crafted.]",
+    "from": null,
+    "isbase": false,
+    "trait": "set8_undergroundthe",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_genaeemblemitem",
+    "name": "gadgeteen emblem",
+    "tier": "?",
+    "description": "the holder gains the gadgeteen trait.[unique - only 1 per championelusive - cannot be crafted.]",
+    "from": null,
+    "isbase": false,
+    "trait": "set8_genae",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_defenderemblemitem",
+    "name": "defender emblem",
+    "tier": "?",
+    "description": "the holder gains the defender trait.[unique - only 1 per championelusive - cannot be crafted.]",
+    "from": null,
+    "isbase": false,
+    "trait": "set8_defender",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_channeleremblemitem",
+    "name": "spellslinger emblem",
+    "tier": "?",
+    "description": "the holder gains the spellslinger trait.[unique - only 1 per championelusive - cannot be crafted.]",
+    "from": null,
+    "isbase": false,
+    "trait": "set8_channeler",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_renegadeemblemitem",
+    "name": "renegade emblem",
+    "tier": "?",
+    "description": "the holder gains the renegade trait.[unique - only 1 per champion]",
+    "from": [ "tft_item_spatula", "tft_item_sparringgloves" ],
+    "isbase": false,
+    "trait": "set8_renegade",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "critchance",
+        "value": 20
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "critchance": "20" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_brawleremblemitem",
+    "name": "brawler emblem",
+    "tier": "?",
+    "description": "the holder gains the brawler trait.[unique - only 1 per championelusive - cannot be crafted.]",
+    "from": null,
+    "isbase": false,
+    "trait": "set8_brawler",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_duelistemblemitem",
+    "name": "duelist emblem",
+    "tier": "?",
+    "description": "the holder gains the duelist trait.[unique - only 1 per champion]",
+    "from": [ "tft_item_recurvebow", "tft_item_spatula" ],
+    "isbase": false,
+    "trait": "set8_duelist",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "as",
+        "value": 10
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "as": "10" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_hackeremblemitem",
+    "name": "hacker emblem",
+    "tier": "?",
+    "description": "the holder gains the hacker trait.[unique - only 1 per champion]",
+    "from": null,
+    "isbase": false,
+    "trait": "set8_hacker",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_pranksteremblemitem",
+    "name": "prankster emblem",
+    "tier": "?",
+    "description": "the holder gains the prankster trait.[unique - only 1 per championelusive - cannot be crafted.]",
+    "from": null,
+    "isbase": false,
+    "trait": "set8_prankster",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_deadeyeemblemitem",
+    "name": "sureshot emblem",
+    "tier": "?",
+    "description": "the holder gains the sureshot trait.[unique - only 1 per championelusive - cannot be crafted.]",
+    "from": null,
+    "isbase": false,
+    "trait": "set8_deadeye",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_exoprimeemblemitem",
+    "name": "mecha: prime emblem",
+    "tier": "?",
+    "description": "the holder gains the mecha: prime trait.[unique - only 1 per championelusive - cannot be crafted.]",
+    "from": null,
+    "isbase": false,
+    "trait": "set8_exoprime",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_aceemblemitem",
+    "name": "ace emblem",
+    "tier": "?",
+    "description": "the holder gains the ace trait.[unique - only 1 per championelusive - cannot be crafted.]",
+    "from": null,
+    "isbase": false,
+    "trait": "set8_ace",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_aegisemblemitem",
+    "name": "aegis emblem",
+    "tier": "?",
+    "description": "the holder gains the aegis trait.[unique - only 1 per championelusive - cannot be crafted.]",
+    "from": null,
+    "isbase": false,
+    "trait": "set8_aegis",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft4_item_ornnanimavisage",
+    "name": "anima visage",
+    "tier": null,
+    "description": "regenerate 2.5% maximum health each second.",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 4,
+    "effects": [
+      {
+        "type": "health",
+        "value": 250
+      },
+      {
+        "type": "magicresist",
+        "value": 25
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "health": "250",
+      "magicresist": "25"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft4_item_ornndeathsdefiance",
+    "name": "death's defiance",
+    "tier": null,
+    "description": "grant 25% omnivamp. 50% of the damage the holder receives is instead dealt over 4 seconds as non-lethal damage.[unique - only 1 per champion]omnivamp: heal for some of damage dealt",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 4,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 10
+      },
+      {
+        "type": "as",
+        "value": 30
+      },
+      {
+        "type": "armor",
+        "value": 30
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "10",
+      "as": "30",
+      "armor": "30"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft4_item_ornneternalwinter",
+    "name": "eternal winter",
+    "tier": null,
+    "description": "enemies who damage the holder are 20% chilled for 1.5 seconds. after 7 chills from this item, the attacker is stunned instead, but only once every 15 seconds.[unique - only 1 per champion]chill: reduce attack speedstun: cannot move, attack, or cast abilities",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 4,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 25
+      },
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "armor": "25",
+      "health": "150"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft4_item_ornninfinityforce",
+    "name": "infinity force",
+    "tier": null,
+    "description": "tons of everYthing!",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 4,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 25
+      },
+      {
+        "type": "ap",
+        "value": 25
+      },
+      {
+        "type": "as",
+        "value": 25
+      },
+      {
+        "type": "armor",
+        "value": 25
+      },
+      {
+        "type": "magicresist",
+        "value": 25
+      },
+      {
+        "type": "health",
+        "value": 25
+      },
+      {
+        "type": "mana",
+        "value": 25
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "25",
+      "ap": "25",
+      "as": "25",
+      "armor": "25",
+      "magicresist": "25",
+      "health": "25",
+      "mana": "25"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft4_item_ornnmuramana",
+    "name": "manazane",
+    "tier": null,
+    "description": "once per combat: after casting an ability, restore  120 mana over 5 seconds.[unique - only 1 per champion]",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 4,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 15
+      },
+      {
+        "type": "as",
+        "value": 15
+      },
+      {
+        "type": "mana",
+        "value": 30
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "15",
+      "as": "15",
+      "mana": "30"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft4_item_ornnobsidiancleaver",
+    "name": "obsidian cleaver",
+    "tier": null,
+    "description": "attacks and abilities 50% shred and 50% sunder enemies for 5 seconds.[unique - only 1 per champion]shred: reduce magic resistsunder: reduce armor",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 4,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 25
+      },
+      {
+        "type": "health",
+        "value": 250
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "25",
+      "health": "250"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft4_item_ornnranduinssanctum",
+    "name": "randuin's sanctum",
+    "tier": null,
+    "description": "combat start: grant  40 armor and  40 magic resistance to the holder and their adjacent allies.[aura item]",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 4,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft4_item_ornnrocketpropelledfist",
+    "name": "rocket-propelled fist",
+    "tier": null,
+    "description": "combat start: the farthest enemy is pulled into melee range and stunned for 1.5 seconds. allies within range will prioritize attacking that enemy.[unique - only 1 per champion]stun: cannot move, attack, or cast abilities",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 4,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      },
+      {
+        "type": "mana",
+        "value": 15
+      },
+      {
+        "type": "armor",
+        "value": 25
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "health": "150",
+      "mana": "15",
+      "armor": "25"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft4_item_ornnthecollector",
+    "name": "gold collector",
+    "tier": null,
+    "description": "attacks and abilities execute enemies below 12% of their maximum health. executions have a 40% chance to drop  1 gold.[unique - only 1 per champion]",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 4,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 20
+      },
+      {
+        "type": "critchance",
+        "value": 30
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "20",
+      "critchance": "30"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft4_item_ornnzhonyasparadox",
+    "name": "zhonya's paradox",
+    "tier": null,
+    "description": "once per combat: at 40% health, become invulnerable and untargetable for 3 seconds.[unique - only 1 per champion]",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 4,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 30
+      },
+      {
+        "type": "magicresist",
+        "value": 30
+      },
+      {
+        "type": "ap",
+        "value": 30
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "armor": "30",
+      "magicresist": "30",
+      "ap": "30"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_giantslayer_genae",
+    "name": "overflow_error // giant slayer ",
+    "tier": null,
+    "description": "if the target has more than 1 maximum health, deal 30% more damage with abilities and attacks.self-destructs after 2 round of player combat. ",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 5,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 20
+      },
+      {
+        "type": "ad",
+        "value": 30
+      },
+      {
+        "type": "as",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ap": "20",
+      "ad": "30",
+      "as": "20"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_handofjustice_genae",
+    "name": "hand of nondeterministic justice",
+    "tier": null,
+    "description": "grant 2 effects: 25% attack damage and  25 ability power.20% omnivamp.self-destructs after 2 round of player combat. omnivamp: heal for some of damage dealt",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 5,
+    "effects": [
+      {
+        "type": "critchance",
+        "value": 20
+      },
+      {
+        "type": "mana",
+        "value": 15
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "critchance": "20",
+      "mana": "15"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_titansresolve_genae",
+    "name": "gadgeteen titan's resolve",
+    "tier": null,
+    "description": "grants  2% attack damage,  2 ability power, and  2% attack speed when attacking or taking damage, stacking up to 30 times.  at full stacks, grant  30 armor and  30 magic resist.self-destructs after 2 round of player combat. ",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 5,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 20
+      },
+      {
+        "type": "as",
+        "value": 10
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "armor": "20",
+      "as": "10"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_shojin_genae",
+    "name": "jump-started spear of shojin",
+    "tier": null,
+    "description": "every 3rd attack restores  20 additional mana. self-destructs after 2 round of player combat. ",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 5,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 20
+      },
+      {
+        "type": "mana",
+        "value": 45
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "20",
+      "mana": "45"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_shroud_genae",
+    "name": "shroud of even still-erness",
+    "tier": null,
+    "description": "combat start: shoot a beam that 35% mana reaves, 20% chills, and reduces the movement speed of enemies by 20% for 3 seconds.self-destructs after 2 round of player combat. [unique - only 1 per champion]mana reave: increase maximum mana until the next castchill: reduce attack speed",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 5,
+    "effects": [
+      {
+        "type": "health",
+        "value": 250
+      },
+      {
+        "type": "armor",
+        "value": 20
+      },
+      {
+        "type": "critchance",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "health": "250",
+      "armor": "20",
+      "critchance": "20"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_sunfire_genae",
+    "name": "overclocked sunfire cape",
+    "tier": null,
+    "description": "every 1 second, 10% burn and 33% wound an enemy within 3 hexes for 10 seconds.self-destructs after 2 round of player combat. [unique - only 1 per champion]burn: deals some of the target's maximum health as true damagewound: reduces healing received",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 5,
+    "effects": [
+      {
+        "type": "armor",
+        "value": 20
+      },
+      {
+        "type": "health",
+        "value": 300
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "armor": "20",
+      "health": "300"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_warmogs_genae",
+    "name": "induction-powered warmog's armor",
+    "tier": null,
+    "description": "regenerate 0.5% maximum health per second.self-destructs after 2 round of player combat. ",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 5,
+    "effects": [
+      {
+        "type": "health",
+        "value": 900
+      }
+    ],
+    "isunique": false,
+    "effectsnew": { "health": "900" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_ionicspark_genae",
+    "name": "magnetized ionic spark",
+    "tier": null,
+    "description": "50% shred enemies within 2 hexes. when they cast an ability, they are zapped for magic damage equal to 250% of their maximum mana. the holder taunts every 4 seconds.self-destructs after 2 round of player combat. [direct damage item]shred: reduce magic resist taunt: enemies that are able and in range must attack the taunter",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 5,
+    "effects": [
+      {
+        "type": "ap",
+        "value": 10
+      },
+      {
+        "type": "magicresist",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ap": "10",
+      "magicresist": "20"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_bloodthirster_genae",
+    "name": "chainsword bloodthirster",
+    "tier": null,
+    "description": "grant 25% omnivamp.once per combat at 40% health, gain a 25% maximum health shield that lasts up to 8 seconds. while the shield is active, the holder gains 50% attack damage.self-destructs after 2 round of player combat.omnivamp: heal for some of damage dealt",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 5,
+    "effects": [
+      {
+        "type": "ad",
+        "value": 30
+      },
+      {
+        "type": "magicresist",
+        "value": 20
+      }
+    ],
+    "isunique": false,
+    "effectsnew": {
+      "ad": "30",
+      "magicresist": "20"
+    },
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_infiniteamemblemitem",
+    "name": "infiniteam emblem",
+    "tier": "?",
+    "description": "the holder gains the infiniteam trait.[unique - only 1 per champion]",
+    "from": [ "tft_item_bfsword", "tft_item_spatula" ],
+    "isbase": false,
+    "trait": "set8_pulsefire",
+    "specialstatus": null,
+    "effects": [],
+    "isunique": true,
+    "effectsnew": {},
+    "isshadow": false
+  },
+  {
+    "id": "tft_item_riftwalkeremblemitem",
+    "name": "riftwalker emblem",
+    "tier": "?",
+    "description": "the holder gains the riftwalker trait.[unique - only 1 per champion]",
+    "from": null,
+    "isbase": false,
+    "trait": "set8_riftwalker",
+    "specialstatus": null,
+    "effects": [
+      {
+        "type": "health",
+        "value": 150
+      }
+    ],
+    "isunique": true,
+    "effectsnew": { "health": "150" },
+    "isshadow": false
+  },
+  {
+    "id": "tft_consumable_championduplicator_iii",
+    "name": "lesser champion duplicator",
+    "tier": null,
+    "description": "use on a champion of tier 3 or less to create a 1-star copy on your bench.[consumable - this item disappears when used.]",
+    "from": null,
+    "isbase": false,
+    "trait": null,
+    "specialstatus": 3,
+    "effects": [],
+    "isunique": false,
+    "effectsnew": {},
+    "isshadow": false
+  }
+]
