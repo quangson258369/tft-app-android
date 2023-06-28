@@ -2041,7 +2041,7 @@
     "isshadow": false
   },
   {
-    "id": "tft_item_channeleremblemitem",
+    "id": "tft_item_spellslingeremblemitem",
     "name": "spellslinger emblem",
     "tier": "?",
     "description": "the holder gains the spellslinger trait.[unique - only 1 per championelusive - cannot be crafted.]",
@@ -2221,7 +2221,7 @@
     "isshadow": false
   },
   {
-    "id": "tft4_item_ornnanimavisage",
+    "id": "tft_item_ornnanimavisage",
     "name": "anima visage",
     "tier": null,
     "description": "regenerate 2.5% maximum health each second.",
@@ -2243,7 +2243,7 @@
     "isshadow": false
   },
   {
-    "id": "tft4_item_ornndeathsdefiance",
+    "id": "tft_item_ornndeathsdefiance",
     "name": "death's defiance",
     "tier": null,
     "description": "grant 25% omnivamp. 50% of the damage the holder receives is instead dealt over 4 seconds as non-lethal damage.[unique - only 1 per champion]omnivamp: heal for some of damage dealt",
@@ -2269,7 +2269,7 @@
     "isshadow": false
   },
   {
-    "id": "tft4_item_ornneternalwinter",
+    "id": "tft_item_ornneternalwinter",
     "name": "eternal winter",
     "tier": null,
     "description": "enemies who damage the holder are 20% chilled for 1.5 seconds. after 7 chills from this item, the attacker is stunned instead, but only once every 15 seconds.[unique - only 1 per champion]chill: reduce attack speedstun: cannot move, attack, or cast abilities",
@@ -2291,7 +2291,7 @@
     "isshadow": false
   },
   {
-    "id": "tft4_item_ornninfinityforce",
+    "id": "tft_item_ornninfinityforce",
     "name": "infinity force",
     "tier": null,
     "description": "tons of everYthing!",
@@ -2333,7 +2333,7 @@
     "isshadow": false
   },
   {
-    "id": "tft4_item_ornnmuramana",
+    "id": "tft_item_ornnmuramana",
     "name": "manazane",
     "tier": null,
     "description": "once per combat: after casting an ability, restore  120 mana over 5 seconds.[unique - only 1 per champion]",
@@ -2359,7 +2359,7 @@
     "isshadow": false
   },
   {
-    "id": "tft4_item_ornnobsidiancleaver",
+    "id": "tft_item_ornnobsidiancleaver",
     "name": "obsidian cleaver",
     "tier": null,
     "description": "attacks and abilities 50% shred and 50% sunder enemies for 5 seconds.[unique - only 1 per champion]shred: reduce magic resistsunder: reduce armor",
@@ -2381,7 +2381,7 @@
     "isshadow": false
   },
   {
-    "id": "tft4_item_ornnranduinssanctum",
+    "id": "tft_item_ornnranduinssanctum",
     "name": "randuin's sanctum",
     "tier": null,
     "description": "combat start: grant  40 armor and  40 magic resistance to the holder and their adjacent allies.[aura item]",
@@ -2399,7 +2399,7 @@
     "isshadow": false
   },
   {
-    "id": "tft4_item_ornnrocketpropelledfist",
+    "id": "tft_item_ornnrocketpropelledfist",
     "name": "rocket-propelled fist",
     "tier": null,
     "description": "combat start: the farthest enemy is pulled into melee range and stunned for 1.5 seconds. allies within range will prioritize attacking that enemy.[unique - only 1 per champion]stun: cannot move, attack, or cast abilities",
@@ -2425,7 +2425,7 @@
     "isshadow": false
   },
   {
-    "id": "tft4_item_ornnthecollector",
+    "id": "tft_item_ornnthecollector",
     "name": "gold collector",
     "tier": null,
     "description": "attacks and abilities execute enemies below 12% of their maximum health. executions have a 40% chance to drop  1 gold.[unique - only 1 per champion]",
@@ -2447,7 +2447,7 @@
     "isshadow": false
   },
   {
-    "id": "tft4_item_ornnzhonyasparadox",
+    "id": "tft_item_ornnzhonyasparadox",
     "name": "zhonya's paradox",
     "tier": null,
     "description": "once per combat: at 40% health, become invulnerable and untargetable for 3 seconds.[unique - only 1 per champion]",

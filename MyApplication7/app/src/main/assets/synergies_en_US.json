@@ -33,7 +33,7 @@
     ]
   },
   {
-    "synergyId": "set8_animaSquad",
+    "synergyId": "set8_animasquad",
     "name": "Anima Squad",
     "description": "Anima Squad members pose after champion kills, increasing their fame. Each point of fame grants 5 permanent Health to each Anima Squad member.  They also gain:",
     "type": "origin",
@@ -66,7 +66,7 @@
     ]
   },
   {
-    "synergyId": "set8_spacecorps",
+    "synergyId": "set8_lasercorps",
     "name": "LaserCorps",
     "description": "When a LaserCorp agent attacks or is hit by an attack, their drone deals magic damage to the agent's target (0.4 second cooldown). Drones are reassigned to another champion with a drone when the agent dies.  Drone lasers deal:",
     "type": "origin",

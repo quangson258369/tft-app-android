@@ -73,7 +73,7 @@
     "tier": "a",
     "cost": 2,
     "origin": "set8_genae,set8_oxforce",
-    "classunit": "set8_channeler",
+    "classunit": "set8_spellslinger",
     "health": "750 / 1350 / 2430",
     "mana": "90.0",
     "startingmana": 30,
@@ -93,7 +93,7 @@
       "set8_oxforce"
     ],
     "classes": [
-      "set8_channeler"
+      "set8_spellslinger"
     ],
     "tierorder": 2,
     "health_value": 750,
@@ -105,8 +105,8 @@
     "name": "ashe",
     "tier": "b",
     "cost": 1,
-    "origin": "set8_shacecorps",
-    "classunit": "set8_deadeye",
+    "origin": "set8_infiniteam",
+    "classunit": "set8_quickdraw",
     "health": "500 / 900 / 1620",
     "mana": "50.0",
     "startingmana": 0,
@@ -122,10 +122,10 @@
     "statusdescriptions": [],
     "costreal": 1,
     "origins": [
-      "set8_shacecorps"
+      "set8_infiniteam"
     ],
     "classes": [
-      "set8_deadeye"
+      "set8_quickdraw"
     ],
     "tierorder": 3,
     "health_value": 500,
@@ -332,8 +332,8 @@
     "name": "ezreal",
     "tier": "c",
     "cost": 2,
-    "origin": "set8_undergroundthe,set8_harallel",
-    "classunit": "set8_gunmage",
+    "origin": "set8_underground,set8_harallel",
+    "classunit": "set8_quickdraw",
     "health": "550 / 990 / 1782",
     "mana": "55.0",
     "startingmana": 0,
@@ -349,11 +349,11 @@
     "statusdescriptions": [],
     "costreal": 2,
     "origins": [
-      "set8_undergroundthe",
+      "set8_underground",
       "set8_harallel"
     ],
     "classes": [
-      "set8_gunmage"
+      "set8_quickdraw"
     ],
     "tierorder": 4,
     "health_value": 550,
@@ -365,8 +365,8 @@
     "name": "ultimate ezreal",
     "tier": "s",
     "cost": 5,
-    "origin": "set8_pulsefire,set8_harallel",
-    "classunit": "set8_deadeye",
+    "origin": "set8_lasercorps,set8_harallel",
+    "classunit": "set8_quickdraw",
     "health": "800 / 1440 / 2592",
     "mana": "150.0",
     "startingmana": 50,
@@ -382,11 +382,11 @@
     "statusdescriptions": [],
     "costreal": 5,
     "origins": [
-      "set8_pulsefire",
+      "set8_lasercorps",
       "set8_harallel"
     ],
     "classes": [
-      "set8_deadeye"
+      "set8_quickdraw"
     ],
     "tierorder": 1,
     "health_value": 800,
@@ -560,7 +560,7 @@
     "tier": "s",
     "cost": 5,
     "origin": "set8_forecaster",
-    "classunit": "set8_channeler",
+    "classunit": "set8_spellslinger",
     "health": "800 / 1440 / 2592",
     "mana": "120.0",
     "startingmana": 40,
@@ -579,7 +579,7 @@
       "set8_forecaster"
     ],
     "classes": [
-      "set8_channeler"
+      "set8_spellslinger"
     ],
     "tierorder": 1,
     "health_value": 800,
@@ -690,7 +690,7 @@
     "tier": "b",
     "cost": 3,
     "origin": "set8_starguardian",
-    "classunit": "set8_gunmage",
+    "classunit": "set8_quickdraw",
     "health": "600 / 1080 / 1944",
     "mana": "105.0",
     "startingmana": 20,
@@ -709,7 +709,7 @@
       "set8_starguardian"
     ],
     "classes": [
-      "set8_gunmage"
+      "set8_quickdraw"
     ],
     "tierorder": 3,
     "health_value": 600,
@@ -721,7 +721,7 @@
     "name": "kayle",
     "tier": "c",
     "cost": 1,
-    "origin": "set8_undergroundthe",
+    "origin": "set8_underground",
     "classunit": "set8_duelist",
     "health": "500 / 900 / 1620",
     "mana": "30.0",
@@ -738,7 +738,7 @@
     "statusdescriptions": [],
     "costreal": 1,
     "origins": [
-      "set8_undergroundthe"
+      "set8_underground"
     ],
     "classes": [
       "set8_duelist"
@@ -754,7 +754,7 @@
     "tier": "b",
     "cost": 3,
     "origin": "set8_admin",
-    "classunit": "set8_channeler,set8_hacker",
+    "classunit": "set8_spellslinger,set8_hacker",
     "health": "650 / 1170 / 2106",
     "mana": "60.0",
     "startingmana": 0,
@@ -773,7 +773,7 @@
       "set8_admin"
     ],
     "classes": [
-      "set8_channeler",
+      "set8_spellslinger",
       "set8_hacker"
     ],
     "tierorder": 3,
@@ -852,8 +852,8 @@
     "name": "lucian",
     "tier": "b",
     "cost": 1,
-    "origin": "set8_pulsefire",
-    "classunit": "set8_gunmage,set8_renegade",
+    "origin": "set8_lasercorps",
+    "classunit": "set8_quickdraw,set8_renegade",
     "health": "500 / 900 / 1620",
     "mana": "40.0",
     "startingmana": 0,
@@ -869,10 +869,10 @@
     "statusdescriptions": [],
     "costreal": 1,
     "origins": [
-      "set8_pulsefire"
+      "set8_lasercorps"
     ],
     "classes": [
-      "set8_gunmage",
+      "set8_quickdraw",
       "set8_renegade"
     ],
     "tierorder": 3,
@@ -918,7 +918,7 @@
     "tier": "c",
     "cost": 1,
     "origin": "set8_starguardian",
-    "classunit": "set8_channeler",
+    "classunit": "set8_spellslinger",
     "health": "500 / 900 / 1620",
     "mana": "70",
     "startingmana": 0,
@@ -937,7 +937,7 @@
       "set8_starguardian"
     ],
     "classes": [
-      "set8_channeler"
+      "set8_spellslinger"
     ],
     "tierorder": 4,
     "health_value": 500,
@@ -982,7 +982,7 @@
     "tier": "a",
     "cost": 4,
     "origin": "set8_animasquad",
-    "classunit": "set8_ace,set8_gunmage",
+    "classunit": "set8_ace,set8_quickdraw",
     "health": "750 / 1350 / 2430",
     "mana": "120.0",
     "startingmana": 0,
@@ -1002,7 +1002,7 @@
     ],
     "classes": [
       "set8_ace",
-      "set8_gunmage"
+      "set8_quickdraw"
     ],
     "tierorder": 2,
     "health_value": 750,
@@ -1014,7 +1014,7 @@
     "name": "mordekaiser",
     "tier": "s",
     "cost": 5,
-    "origin": "set8_shacecorps",
+    "origin": "set8_infiniteam",
     "classunit": "set8_ace",
     "health": "1200 / 2160 / 3888",
     "mana": "150.0",
@@ -1031,7 +1031,7 @@
     "statusdescriptions": [],
     "costreal": 5,
     "origins": [
-      "set8_shacecorps"
+      "set8_infiniteam"
     ],
     "classes": [
       "set8_ace"
@@ -1111,7 +1111,7 @@
     "tier": "a",
     "cost": 4,
     "origin": "set8_starguardian",
-    "classunit": "set8_channeler",
+    "classunit": "set8_spellslinger",
     "health": "750 / 1350 / 2430",
     "mana": "80.0",
     "startingmana": 0,
@@ -1130,7 +1130,7 @@
       "set8_starguardian"
     ],
     "classes": [
-      "set8_channeler"
+      "set8_spellslinger"
     ],
     "tierorder": 2,
     "health_value": 750,
@@ -1206,7 +1206,7 @@
     "name": "phantheon",
     "tier": "b",
     "cost": 1,
-    "origin": "set8_pulsefire",
+    "origin": "set8_lasercorps",
     "classunit": "set8_heart",
     "health": "650 / 1170 / 2106",
     "mana": "60.0",
@@ -1225,7 +1225,7 @@
     ],
     "costreal": 1,
     "origins": [
-      "set8_pulsefire"
+      "set8_lasercorps"
     ],
     "classes": [
       "set8_heart"
@@ -1368,7 +1368,7 @@
     "name": "renekton",
     "tier": "c",
     "cost": 1,
-    "origin": "set8_shacecorps",
+    "origin": "set8_infiniteam",
     "classunit": "set8_brawler",
     "health": "650 / 1170 / 2106",
     "mana": "50.0",
@@ -1385,7 +1385,7 @@
     "statusdescriptions": [],
     "costreal": 1,
     "origins": [
-      "set8_shacecorps"
+      "set8_infiniteam"
     ],
     "classes": [
       "set8_brawler"
@@ -1433,8 +1433,8 @@
     "name": "samira",
     "tier": "b",
     "cost": 4,
-    "origin": "set8_undergroundthe",
-    "classunit": "set8_deadeye,set8_ace",
+    "origin": "set8_underground",
+    "classunit": "set8_quickdraw,set8_ace",
     "health": "700 / 1260 / 2268",
     "mana": "65",
     "startingmana": 0,
@@ -1450,10 +1450,10 @@
     "statusdescriptions": [],
     "costreal": 4,
     "origins": [
-      "set8_undergroundthe"
+      "set8_underground"
     ],
     "classes": [
-      "set8_deadeye",
+      "set8_quickdraw",
       "set8_ace"
     ],
     "tierorder": 3,
@@ -1466,7 +1466,7 @@
     "name": "shen",
     "tier": "a",
     "cost": 3,
-    "origin": "set8_pulsefire",
+    "origin": "set8_lasercorps",
     "classunit": "set8_defender,set8_hacker",
     "health": "750 / 1350 / 2430",
     "mana": "100",
@@ -1483,7 +1483,7 @@
     "statusdescriptions": [],
     "costreal": 3,
     "origins": [
-      "set8_pulsefire"
+      "set8_lasercorps"
     ],
     "classes": [
       "set8_defender",
@@ -1499,8 +1499,8 @@
     "name": "sona",
     "tier": "b",
     "cost": 3,
-    "origin": "set8_undergroundthe",
-    "classunit": "set8_channeler,set8_heart",
+    "origin": "set8_underground",
+    "classunit": "set8_spellslinger,set8_heart",
     "health": "650 / 1170 / 2106",
     "mana": "40.0",
     "startingmana": 0,
@@ -1516,10 +1516,10 @@
     "statusdescriptions": [],
     "costreal": 3,
     "origins": [
-      "set8_undergroundthe"
+      "set8_underground"
     ],
     "classes": [
-      "set8_channeler",
+      "set8_spellslinger",
       "set8_heart"
     ],
     "tierorder": 3,
@@ -1596,8 +1596,8 @@
     "name": "twisted fate",
     "tier": "s",
     "cost": 4,
-    "origin": "set8_pulsefire",
-    "classunit": "set8_duelist,set8_channeler",
+    "origin": "set8_lasercorps",
+    "classunit": "set8_duelist,set8_spellslinger",
     "health": "750 / 1350 / 2430",
     "mana": "30.0",
     "startingmana": 0,
@@ -1613,11 +1613,11 @@
     "statusdescriptions": [],
     "costreal": 4,
     "origins": [
-      "set8_pulsefire"
+      "set8_lasercorps"
     ],
     "classes": [
       "set8_duelist",
-      "set8_channeler"
+      "set8_spellslinger"
     ],
     "tierorder": 1,
     "health_value": 750,
@@ -1725,7 +1725,7 @@
     "name": "vi",
     "tier": "a",
     "cost": 2,
-    "origin": "set8_undergroundthe",
+    "origin": "set8_underground",
     "classunit": "set8_brawler,set8_aegis",
     "health": "700 / 1260 / 2268",
     "mana": "80.0",
@@ -1742,7 +1742,7 @@
     "statusdescriptions": [],
     "costreal": 2,
     "origins": [
-      "set8_undergroundthe"
+      "set8_underground"
     ],
     "classes": [
       "set8_brawler",
@@ -1791,7 +1791,7 @@
     "name": "warwick",
     "tier": "a",
     "cost": 4,
-    "origin": "set8_admin,set8_shacecorps",
+    "origin": "set8_admin,set8_infiniteam",
     "classunit": "set8_brawler",
     "health": "950 / 1710 / 3078",
     "mana": "90.0",
@@ -1809,7 +1809,7 @@
     "costreal": 4,
     "origins": [
       "set8_admin",
-      "set8_shacecorps"
+      "set8_infiniteam"
     ],
     "classes": [
       "set8_brawler"
@@ -1856,7 +1856,7 @@
     "name": "yasuo",
     "tier": "b",
     "cost": 2,
-    "origin": "set8_shacecorps",
+    "origin": "set8_infiniteam",
     "classunit": "set8_duelist",
     "health": "750 / 1350 / 2430",
     "mana": "70.0",
@@ -1873,7 +1873,7 @@
     "statusdescriptions": [],
     "costreal": 2,
     "origins": [
-      "set8_shacecorps"
+      "set8_infiniteam"
     ],
     "classes": [
       "set8_duelist"
@@ -1884,12 +1884,12 @@
     "attack_damage_value": 45
   },
   {
-    "id": "tft8b_sivir",
+    "id": "tft8_sivir",
     "name": "sivir",
     "tier": "b",
     "cost": 2,
-    "origin": "set8_pulsefire",
-    "classunit": "set8_deadeye",
+    "origin": "set8_lasercorps",
+    "classunit": "set8_quickdraw",
     "health": "550 / 990 / 1782",
     "mana": "50.0",
     "startingmana": 0,
@@ -1905,10 +1905,10 @@
     "statusdescriptions": [],
     "costreal": 2,
     "origins": [
-      "set8_pulsefire"
+      "set8_lasercorps"
     ],
     "classes": [
-      "set8_deadeye"
+      "set8_quickdraw"
     ],
     "tierorder": 3,
     "health_value": 550,
