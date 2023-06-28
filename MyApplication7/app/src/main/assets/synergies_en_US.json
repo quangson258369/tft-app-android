@@ -1,6 +1,6 @@
 [
   {
-    "synergyId": "Set8_Admin",
+    "synergyId": "set8_admin",
     "name": "A.D.M.I.N.",
     "description": "A.D.M.I.N. programs a custom configuration per player each game.  On Ability cast, A.D.M.I.N.s gain 18 Ability Power On Ability cast, A.D.M.I.N.s gain 18% Attack Damage On Ability cast, A.D.M.I.N.s gain 18% Attack Speed On Ability cast, A.D.M.I.N.s heal 250 Health On Ability cast, A.D.M.I.N.s gain 18 permanent maximum Health 33% chance to drop gold  On kill, the killer gains 20 Ability Power On kill, the killer gains 20% Attack Damage On kill, the killer gains 20% Attack Speed On kill, the killer heals 400 Health On kill, the killer gains 18 permanent maximum Health 40% chance to drop gold  Every 5 seconds, A.D.M.I.N.s gain 18 Ability Power Every 5 seconds, A.D.M.I.N.s gain 18% Attack Damage Every 5 seconds, A.D.M.I.N.s gain 18% Attack Speed Every 5 seconds, A.D.M.I.N.s gain 40 Mana Every 5 seconds, A.D.M.I.N.s get 10 permanent maximum Health 25% chance to drop gold  Every 5 seconds, your team gains 15 Ability Power Every 5 seconds, your team gains 15% Attack Damage Every 5 seconds, your team gains 15% Attack Speed Every 5 seconds, your team gains 20 Mana Every 5 seconds, your team gains 6 permanent maximum Health Every 5 seconds, your team heals 150 Health 15% chance to drop gold  At 66% Health, A.D.M.I.N.s gain 60 Ability Power At 66% Health, A.D.M.I.N.s gain 60% Attack Damage At 66% health, A.D.M.I.N.s gain 60% Attack Speed At 66% Health, A.D.M.I.N.s gain 45 permanent maximum Health At 66% Health, A.D.M.I.N.s gain a 25% Health shield 60% chance to drop gold  On ally death, A.D.M.I.N.s gain 15 Ability Power On ally death, A.D.M.I.N.s gain 15% Attack Damage On ally death, A.D.M.I.N.s gain 15% Attack Speed On ally death, A.D.M.I.N.s gain 10 permanent maximum Health On ally death, A.D.M.I.N.s heal 250 Health 20% chance to drop gold  Combat start: A.D.M.I.N.s gain 40 Ability Power Combat start: A.D.M.I.N.s gain 40% Attack Damage Combat start: A.D.M.I.N.s gain 40% Attack Speed Combat start: A.D.M.I.N.s gain 30 permanent maximum Health 50% chance to drop gold  Combat start: your team gains 30 Ability Power Combat start: your team gains 30% Attack Damage Combat start: your team gains 30% Attack Speed Combat start: your team gains 20 permanent maximum Health Combat start: your team gains a 25% Health shield 25% chance to drop gold ",
     "type": "origin",
@@ -33,7 +33,7 @@
     ]
   },
   {
-    "synergyId": "Set8_AnimaSquad",
+    "synergyId": "set8_animaSquad",
     "name": "Anima Squad",
     "description": "Anima Squad members pose after champion kills, increasing their fame. Each point of fame grants 5 permanent Health to each Anima Squad member.  They also gain:",
     "type": "origin",
@@ -66,7 +66,7 @@
     ]
   },
   {
-    "synergyId": "Set8_SpaceCorps",
+    "synergyId": "set8_spacecorps",
     "name": "LaserCorps",
     "description": "When a LaserCorp agent attacks or is hit by an attack, their drone deals magic damage to the agent's target (0.4 second cooldown). Drones are reassigned to another champion with a drone when the agent dies.  Drone lasers deal:",
     "type": "origin",
@@ -107,7 +107,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Brawler",
+    "synergyId": "set8_brawler",
     "name": "Brawler",
     "description": "Brawlers gain additional maximum Health.",
     "type": "class",
@@ -148,7 +148,7 @@
     ]
   },
   {
-    "synergyId": "Set8_ExoPrime",
+    "synergyId": "set8_exoprime",
     "name": "Mecha:PRIME",
     "description": "Use the Mecha selector item to choose a PRIME. Combat start: The PRIME combines with the 2 nearest Mecha, absorbing 90% of their Base Health.",
     "type": "origin",
@@ -173,7 +173,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Threat",
+    "synergyId": "set8_threat",
     "name": "Threat",
     "description": "",
     "type": "origin",
@@ -190,7 +190,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Mascot",
+    "synergyId": "set8_mascot",
     "name": "Mascot",
     "description": "Your team heals a percentage of their maximum Health every 2 seconds, and Mascots heal double the amount. When Mascots die, they retreat to the sidelines to cheer on your team. Your team's healing increases by 1% for each cheering Mascot.",
     "type": "class",
@@ -223,7 +223,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Forecaster",
+    "synergyId": "set8_forecaster",
     "name": "Forecaster",
     "description": "Depending on the weather, The Forecaster grants a different bonus to adjacent allies. The weather changes every game.   Sunny Weather  Combat start: Grant a 400/600/2000 Health shield to adjacent allies for 10/10/45 seconds.   Windy Weather  Combat start: Grant bonus Attack Damage and Ability Power to adjacent allies, increasing 8/15/99% every 5 seconds.   Rainy Weather  Combat start: Grant 20/40/100 Mana to adjacent allies.   ",
     "type": "origin",
@@ -240,7 +240,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Ace",
+    "synergyId": "set8_ace",
     "name": "Ace",
     "description": "This Trait is active only when you have exactly 1 or 4 unique Aces.",
     "type": "class",
@@ -265,7 +265,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Duelist",
+    "synergyId": "set8_duelist",
     "name": "Duelist",
     "description": "Innate: Increased movement speed. Duelists' attacks grant bonus Attack Speed, up to 12 stacks.",
     "type": "class",
@@ -306,7 +306,7 @@
     ]
   },
   {
-    "synergyId": "Set8_OxForce",
+    "synergyId": "set8_oxforce",
     "name": "Ox Force",
     "description": "Ox Force units gain bonus defenses. Once per combat, when they would drop below one health, they instead shield themselves for 50% of their maximum health for 1.5 seconds.",
     "type": "origin",
@@ -339,7 +339,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Aegis",
+    "synergyId": "set8_aegis",
     "name": "Aegis",
     "description": "Your team gains bonus Magic Resist, and Aegis units gain more.",
     "type": "class",
@@ -380,7 +380,7 @@
     ]
   },
   {
-    "synergyId": "Set8_UndergroundThe",
+    "synergyId": "set8_undergroundthe",
     "name": "Underground",
     "description": "The Underground must sneak through the sewers after each player combat and crack 10 locks to open a vault. When the vault opens, you may choose to take the loot now, or attempt another heist for even better rewards.",
     "type": "origin",
@@ -421,7 +421,7 @@
     ]
   },
   {
-    "synergyId": "Set8_StarGuardian",
+    "synergyId": "set8_starguardian",
     "name": "Star Guardian",
     "description": "Star Guardians gain more Mana in combat. ",
     "type": "origin",
@@ -462,7 +462,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Prankster",
+    "synergyId": "set8_prankster",
     "name": "Prankster",
     "description": "",
     "type": "class",
@@ -495,7 +495,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Heart",
+    "synergyId": "set8_heart",
     "name": "Heart",
     "description": "When Heart units cast their Ability, your team gains stacking Ability Power for the rest of combat.",
     "type": "class",
@@ -528,7 +528,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Corrupted",
+    "synergyId": "set8_corrupted",
     "name": "Corrupted",
     "description": "",
     "type": "origin",
@@ -545,7 +545,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Supers",
+    "synergyId": "set8_supers",
     "name": "Supers",
     "description": "",
     "type": "origin",
@@ -562,7 +562,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Renegade",
+    "synergyId": "set8_renegade",
     "name": "Renegade",
     "description": "Renegade units deal bonus damage, and the last one standing deals more.",
     "type": "class",
@@ -595,7 +595,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Channeler",
+    "synergyId": "set8_spellslinger",
     "name": "Spellslinger",
     "description": "Every 5 seconds, Spellslinger's next attack instead fires a magic orb at a random target, which explodes for 50% Ability Power as magic damage.  Spellslingers gain:",
     "type": "class",
@@ -636,7 +636,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Deadeye",
+    "synergyId": "set8_sureshot",
     "name": "Sureshot",
     "description": "Combat start: Sureshots gain bonus Attack Damage now, and every 4 seconds.",
     "type": "class",
@@ -677,7 +677,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Defender",
+    "synergyId": "set8_defender",
     "name": "Defender",
     "description": "Your team gains bonus Armor, and Defenders gain more. ",
     "type": "class",
@@ -710,7 +710,7 @@
     ]
   },
   {
-    "synergyId": "Set8_GenAE",
+    "synergyId": "set8_genae",
     "name": "Gadgeteen",
     "description": "Each round, Gadgeteens create random modified weapons with powerful effects that fall apart after one round. Gadgeteens also gain Damage and Damage Reduction for each item equipped to them.",
     "type": "origin",
@@ -735,7 +735,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Hacker",
+    "synergyId": "set8_hacker",
     "name": "Hacker",
     "description": "Hackers gain  Omnivamp  and summon a H4ckerr!m. Any unit placed in the rider hex will be sent to the enemy backline and is untargetable for the first 2 seconds of combat.",
     "type": "class",
@@ -768,7 +768,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Pulsefire",
+    "synergyId": "set8_infiniteam",
     "name": "InfiniTeam",
     "description": "The InfiniTeam opens a portal to an alternate timeline. At the start of combat, any InfiniTeam unit placed on a portal summons an alternate version of themself with different items. They get 1 for each Augment you own.   The copies have reduced Health and damage. ",
     "type": "origin",
@@ -801,7 +801,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Riftwalker",
+    "synergyId": "set8_riftwalker",
     "name": "Riftwalker",
     "description": "",
     "type": "origin",
@@ -818,7 +818,7 @@
     ]
   },
   {
-    "synergyId": "Set8_Parallel",
+    "synergyId": "set8_parallel",
     "name": "Parallel",
     "description": "",
     "type": "origin",
@@ -835,7 +835,7 @@
     ]
   },
   {
-    "synergyId": "Set8_GunMage",
+    "synergyId": "set8_quickdraw",
     "name": "Quickdraw",
     "description": "After every 2 damaging ability projectiles, Quickdraw units fire a bonus ability projectile. Bonus shots deal:",
     "type": "class",

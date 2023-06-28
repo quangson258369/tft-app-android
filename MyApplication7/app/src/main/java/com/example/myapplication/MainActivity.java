@@ -2,21 +2,34 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewTreeObserver;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Adapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.example.myapplication.Models.Champion;
+import com.example.myapplication.Models.ChampionDescription;
 import com.example.myapplication.Models.Item;
+import com.example.myapplication.Models.Suggestion;
+import com.example.myapplication.Models.TeamComp;
+import com.example.myapplication.adapter.Suggestion_Adapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -25,6 +38,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -172,15 +186,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final long DOUBLE_CLICK_TIME_DELTA = 300;
     private boolean isSearchViewVisible = false;
     private long lastClickTime = 0;
-
+    private List<TeamComp> teamCompList;
+    private List<ChampionDescription> champDes;
+    private TeamComp newTeamComposition = new TeamComp();
+    private List<ChampionDescription> newTeamCompDesc = new ArrayList<ChampionDescription>();
+    private DatabaseHelper myDB;
+    private List<String> items = new ArrayList<String>();
+    private EditText teamName;
+    private Suggestion_Adapter Sadapter;
+    private List<Suggestion> suggestions= new ArrayList<Suggestion>();
+    private RecyclerView rcvlistView;
+    private AutoCompleteTextView editTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
-        searchView = findViewById(R.id.searchView);
 
+
+        teamName = findViewById(R.id.TeamCompName);
         mImageView = findViewById(R.id.imageView);
         mImageView2 = findViewById(R.id.imageView2);
         mImageView3 = findViewById(R.id.imageView3);
@@ -352,15 +377,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mImageView27.setOnClickListener(this);
         mImageView28.setOnClickListener(this);
 
-        if (selectedImageViewId == 0) {
-            searchView.setVisibility(View.GONE);
-        }
 
-readJsonFile();
+        teamCompList = new ArrayList<>();
+        champDes = new ArrayList<>();
+        myDB = new DatabaseHelper(MainActivity.this);
+        readJsonFile();
+        readDataChampionDes();
+        readDataTeampComp();
+
+        rcvlistView = findViewById(R.id.rcv_suggestion);
+         editTextView = findViewById(R.id.searchText);
+        editTextView.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
+        editTextView.setSingleLine(true);
     }
 
-    private List<Champion> ListChampions;
-    private List<Item> ListItems;
+
+    private List<Champion> ListChampions= new ArrayList<>();
+    private List<Item> ListItems= new ArrayList<>();
 
     private void readJsonFile() {
         try {
@@ -401,6 +434,39 @@ readJsonFile();
         }
     }
 
+    private void readDataTeampComp() {
+        Cursor cursor = myDB.readTeamCompData();
+        if (cursor.getCount() == 0) {
+            Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
+        } else {
+            while (cursor.moveToNext()) {
+                String id = cursor.getString(0);
+                String nameOfTeamComp = cursor.getString(1);
+                TeamComp team = new TeamComp(id, nameOfTeamComp);
+                teamCompList.add(team);
+            }
+        }
+    }
+
+    private void readDataChampionDes() {
+        Cursor cursor = myDB.readChampionDesData();
+        if (cursor.getCount() == 0) {
+            Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
+        } else {
+            while (cursor.moveToNext()) {
+                String teamCompId = cursor.getString(0);
+                String ChampName = cursor.getString(1);
+                String ChampionPlaceID = cursor.getString(2);
+                String FirstItemName = cursor.getString(3);
+                String SecondItemName = cursor.getString(4);
+                String ThirdItemName = cursor.getString(5);
+                ChampionDescription description =
+                        new ChampionDescription(teamCompId, ChampName, ChampionPlaceID, FirstItemName, SecondItemName, ThirdItemName);
+                champDes.add(description);
+            }
+        }
+    }
+
     private Bitmap GetChampionImageByName(String name) {
         int count = ListChampions.size();
         for (int i = 0; i < count; i++) {
@@ -435,6 +501,41 @@ readJsonFile();
         return null;
     }
 
+    public void AddChampionDescription(String name, String placeId) {
+        ChampionDescription desc = new ChampionDescription();
+        desc.setChampionName(name);
+        desc.setChampionPlaceID(placeId);
+        desc.setTeamCompID("");
+        desc.setFirstItemName("");
+        desc.setSecondItemName("");
+        desc.setThirdItemName("");
+        newTeamCompDesc.add(desc);
+    }
+
+
+    public void AddItemEachChampionDescription(String itemName, String placeID) {
+        for (int i = 0; i < newTeamCompDesc.size(); i++) {
+            if (newTeamCompDesc.get(i).getChampionPlaceID() == placeID) {
+                if (newTeamCompDesc.get(i).getFirstItemName() == "") {
+                    newTeamCompDesc.get(i).setFirstItemName(itemName);
+                } else if (newTeamCompDesc.get(i).getFirstItemName() != "") {
+                    newTeamCompDesc.get(i).setSecondItemName(itemName);
+                } else if (newTeamCompDesc.get(i).getFirstItemName() != "" && newTeamCompDesc.get(i).getSecondItemName() != "") {
+                    newTeamCompDesc.get(i).setThirdItemName(itemName);
+                }
+            }
+        }
+    }
+
+
+    public void RemoveChampionDescription(String placeId) {
+        for (int i = 0; i < newTeamCompDesc.size(); i++) {
+            if (newTeamCompDesc.get(i).getChampionPlaceID().equals(placeId)) {
+                newTeamCompDesc.remove(i);
+            }
+        }
+    }
+
     public void onClick(View v) {
         long clickTime = System.currentTimeMillis();
         int viewId = v.getId();
@@ -460,7 +561,7 @@ readJsonFile();
             if (clickTime - lastClickTime < DOUBLE_CLICK_TIME_DELTA) {
                 // Double click occurred, make the searchView GONE
                 selectedImageViewId = viewId;
-                searchView.setVisibility(View.GONE);
+                editTextView.setVisibility(View.GONE);
                 performSearch("");
 
             }
@@ -468,25 +569,29 @@ readJsonFile();
             lastClickTime = clickTime;
 
             selectedImageViewId = viewId;
-            searchView.setVisibility(View.VISIBLE);
+            boolean check= isCHampion(selectedImageViewId);
+            if(check) {
+                conditionFilter(ListChampions,ListItems,"champion");
+            }
+            else{
+                conditionFilter(ListChampions,ListItems,"item");
+            }
+            editTextView.setVisibility(View.VISIBLE);
 
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String query) {
-                    performSearch(query);
-                    searchView.setQuery("", false);
-                    searchView.clearFocus();
-                    searchView.setVisibility(View.GONE);
-                    return true;
-                }
+            editTextView.setOnEditorActionListener((textView, actionId, event) ->
+                    {
+                        if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                            performSearch(textView.getText().toString());
 
-                @Override
-                public boolean onQueryTextChange(String newText) {
-                    // Handle search query text changes here
+                            return true;
+                        }
+                        editTextView.setText("");
 
-                    return false;
-                }
-            });
+                        editTextView.setVisibility(View.GONE);
+                        return false;
+                    }
+                    );
+
         }
 
         ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
@@ -511,7 +616,7 @@ readJsonFile();
                             && v.getId() != R.id.imageView25 && v.getId() != R.id.imageView26
                             // ... add the remaining image view IDs here ...
                             && v.getId() != R.id.imageView27 && v.getId() != R.id.imageView28) {
-                        searchView.setVisibility(View.GONE);
+                        editTextView.setVisibility(View.GONE);
 
                     }
 
@@ -521,11 +626,47 @@ readJsonFile();
         });
     }
 
+    public void conditionFilter(List<Champion>championList,List<Item>itemList,String type){
+        List<Suggestion>suggestionList = new ArrayList<Suggestion>();
+       if(type.equals("champion")){
+          for(Champion item : championList){
+
+           Bitmap championImg= GetChampionImageByName(item.getName());
+           Suggestion suggestion = new Suggestion(championImg,item.getName());
+           suggestionList.add(suggestion);
+          }
+       }
+       else{
+           for(Item item : itemList){
+               if(item.getEffects().size() > 0){
+                   Bitmap itemImg=GetItemByName(item.getName());
+                   Suggestion suggestion = new Suggestion(itemImg,item.getName());
+                   suggestionList.add(suggestion);
+               }
+
+           }
+       }
+       Suggestion_Adapter adapter = new Suggestion_Adapter(this,suggestionList);
+       editTextView.setAdapter(adapter);
+    }
+    public boolean isCHampion(int id) {
+        ImageView chamionImg=findViewById(id);
+        Drawable chamimg= chamionImg.getDrawable();
+        Drawable imgDefault = getDrawable(R.drawable.none);
+        if(chamimg.getConstantState().equals(imgDefault.getConstantState())){
+            return true;
+        }
+        return false;
+    }
+
+
     private void performSearch(String query) {
 
         String search = "tft8_" + query;
+
+
         if (selectedImageViewId == R.id.imageView) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem.setVisibility(View.GONE);
                 imgFirstItem.setImageResource(R.drawable.none);
                 imgSecondItem.setVisibility(View.GONE);
@@ -543,11 +684,13 @@ readJsonFile();
             if (champImg.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
+
                     mImageView.setImageBitmap(bitmapChampionImage);
+                    AddChampionDescription(query, "imageView");
 
                 } else {
                     mImageView.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -556,6 +699,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem.setVisibility(View.VISIBLE);
                     imgFirstItem.setImageBitmap(bitmapFirstItems);
+                    AddItemEachChampionDescription(query, "imageView");
 
                 } else {
                     imgFirstItem.setImageResource(R.drawable.none);
@@ -569,6 +713,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem.setVisibility(View.VISIBLE);
                     imgSecondItem.setImageBitmap(bitmapSecondItems);
+                    AddItemEachChampionDescription(query, "imageView");
 
                 } else {
                     imgSecondItem.setImageResource(R.drawable.none);
@@ -582,6 +727,7 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem.setVisibility(View.VISIBLE);
                     imgThirdItem.setImageBitmap(bitmapThirdItems);
+                    AddItemEachChampionDescription(query, "imageView");
 
                 } else {
                     imgThirdItem.setImageResource(R.drawable.none);
@@ -591,7 +737,7 @@ readJsonFile();
             // Change image for imageView1 based on search query
 
         } else if (selectedImageViewId == R.id.imageView2) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem2.setVisibility(View.GONE);
                 imgFirstItem2.setImageResource(R.drawable.none);
                 imgSecondItem2.setVisibility(View.GONE);
@@ -610,10 +756,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView2.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView2");
                 } else {
                     mImageView2.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView2");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -622,6 +768,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem2.setImageBitmap(bitmapFirstItems);
                     imgFirstItem2.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView2");
                 } else {
                     imgFirstItem2.setImageResource(R.drawable.none);
 
@@ -634,6 +781,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem2.setImageBitmap(bitmapSecondItems);
                     imgSecondItem2.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView2");
                 } else {
                     imgSecondItem2.setImageResource(R.drawable.none);
 
@@ -646,13 +794,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem2.setImageBitmap(bitmapThirdItems);
                     imgThirdItem2.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView2");
                 } else {
                     imgThirdItem2.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView3) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem3.setVisibility(View.GONE);
                 imgFirstItem3.setImageResource(R.drawable.none);
                 imgSecondItem3.setVisibility(View.GONE);
@@ -671,10 +820,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView3.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView3");
                 } else {
                     mImageView3.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView3");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -683,6 +832,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem3.setImageBitmap(bitmapFirstItems);
                     imgFirstItem3.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView3");
                 } else {
                     imgFirstItem3.setImageResource(R.drawable.none);
 
@@ -695,6 +845,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem3.setImageBitmap(bitmapSecondItems);
                     imgSecondItem3.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView3");
                 } else {
                     imgSecondItem3.setImageResource(R.drawable.none);
 
@@ -707,13 +858,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem3.setImageBitmap(bitmapThirdItems);
                     imgThirdItem3.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView3");
                 } else {
                     imgThirdItem3.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView4) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem4.setVisibility(View.GONE);
                 imgFirstItem4.setImageResource(R.drawable.none);
                 imgSecondItem4.setVisibility(View.GONE);
@@ -732,10 +884,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView4.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView4");
                 } else {
                     mImageView4.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView4");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -744,6 +896,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem4.setImageBitmap(bitmapFirstItems);
                     imgFirstItem4.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView4");
                 } else {
                     imgFirstItem4.setImageResource(R.drawable.none);
 
@@ -756,6 +909,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem4.setImageBitmap(bitmapSecondItems);
                     imgSecondItem4.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView4");
                 } else {
                     imgSecondItem4.setImageResource(R.drawable.none);
 
@@ -768,13 +922,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem4.setImageBitmap(bitmapThirdItems);
                     imgThirdItem4.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView4");
                 } else {
                     imgThirdItem4.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView5) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem5.setVisibility(View.GONE);
                 imgFirstItem5.setImageResource(R.drawable.none);
                 imgSecondItem5.setVisibility(View.GONE);
@@ -793,10 +948,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView5.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView5");
                 } else {
                     mImageView5.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView5");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -805,6 +960,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem5.setImageBitmap(bitmapFirstItems);
                     imgFirstItem5.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView5");
                 } else {
                     imgFirstItem5.setImageResource(R.drawable.none);
 
@@ -817,6 +973,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem5.setImageBitmap(bitmapSecondItems);
                     imgSecondItem5.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView5");
                 } else {
                     imgSecondItem5.setImageResource(R.drawable.none);
 
@@ -829,13 +986,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem5.setImageBitmap(bitmapThirdItems);
                     imgThirdItem5.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView5");
                 } else {
                     imgThirdItem5.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView6) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem6.setVisibility(View.GONE);
                 imgFirstItem6.setImageResource(R.drawable.none);
                 imgSecondItem6.setVisibility(View.GONE);
@@ -854,10 +1012,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView6.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView6");
                 } else {
                     mImageView6.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView6");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -866,6 +1024,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem6.setImageBitmap(bitmapFirstItems);
                     imgFirstItem6.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView6");
                 } else {
                     imgFirstItem6.setImageResource(R.drawable.none);
 
@@ -878,6 +1037,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem6.setImageBitmap(bitmapSecondItems);
                     imgSecondItem6.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView6");
                 } else {
                     imgSecondItem6.setImageResource(R.drawable.none);
 
@@ -890,13 +1050,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem6.setImageBitmap(bitmapThirdItems);
                     imgThirdItem6.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView6");
                 } else {
                     imgThirdItem6.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView7) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem7.setVisibility(View.GONE);
                 imgFirstItem7.setImageResource(R.drawable.none);
                 imgSecondItem7.setVisibility(View.GONE);
@@ -915,10 +1076,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView7.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView7");
                 } else {
                     mImageView7.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView7");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -927,6 +1088,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem7.setImageBitmap(bitmapFirstItems);
                     imgFirstItem7.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView7");
                 } else {
                     imgFirstItem7.setImageResource(R.drawable.none);
 
@@ -939,6 +1101,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem7.setImageBitmap(bitmapSecondItems);
                     imgSecondItem7.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView7");
                 } else {
                     imgSecondItem7.setImageResource(R.drawable.none);
 
@@ -951,13 +1114,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem7.setImageBitmap(bitmapThirdItems);
                     imgThirdItem7.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView7");
                 } else {
                     imgThirdItem7.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView8) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem8.setVisibility(View.GONE);
                 imgFirstItem8.setImageResource(R.drawable.none);
                 imgSecondItem8.setVisibility(View.GONE);
@@ -976,10 +1140,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView8.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView8");
                 } else {
                     mImageView8.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView8");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -988,6 +1152,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem8.setImageBitmap(bitmapFirstItems);
                     imgFirstItem8.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView8");
                 } else {
                     imgFirstItem8.setImageResource(R.drawable.none);
                 }
@@ -999,6 +1164,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem8.setImageBitmap(bitmapSecondItems);
                     imgSecondItem8.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView8");
                 } else {
                     imgSecondItem8.setImageResource(R.drawable.none);
 
@@ -1011,13 +1177,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem8.setImageBitmap(bitmapThirdItems);
                     imgThirdItem8.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView8");
                 } else {
                     imgThirdItem8.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView9) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem9.setVisibility(View.GONE);
                 imgFirstItem9.setImageResource(R.drawable.none);
                 imgSecondItem9.setVisibility(View.GONE);
@@ -1036,10 +1203,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView9.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView9");
                 } else {
                     mImageView9.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView9");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1048,6 +1215,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem9.setImageBitmap(bitmapFirstItems);
                     imgFirstItem9.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView9");
                 } else {
                     imgFirstItem9.setImageResource(R.drawable.none);
 
@@ -1060,6 +1228,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem9.setImageBitmap(bitmapSecondItems);
                     imgSecondItem9.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView9");
                 } else {
                     imgSecondItem9.setImageResource(R.drawable.none);
 
@@ -1072,13 +1241,15 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem9.setImageBitmap(bitmapThirdItems);
                     imgThirdItem9.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView9");
+
                 } else {
                     imgThirdItem9.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView10) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem10.setVisibility(View.GONE);
                 imgFirstItem10.setImageResource(R.drawable.none);
                 imgSecondItem10.setVisibility(View.GONE);
@@ -1097,10 +1268,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView10.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView10");
                 } else {
                     mImageView10.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView10");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1109,6 +1280,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem10.setImageBitmap(bitmapFirstItems);
                     imgFirstItem10.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView10");
                 } else {
                     imgFirstItem10.setImageResource(R.drawable.none);
 
@@ -1121,6 +1293,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem10.setImageBitmap(bitmapSecondItems);
                     imgSecondItem10.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView10");
                 } else {
                     imgSecondItem10.setImageResource(R.drawable.none);
 
@@ -1133,13 +1306,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem10.setImageBitmap(bitmapThirdItems);
                     imgThirdItem10.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView10");
                 } else {
                     imgThirdItem10.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView11) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem11.setVisibility(View.GONE);
                 imgFirstItem11.setImageResource(R.drawable.none);
                 imgSecondItem11.setVisibility(View.GONE);
@@ -1158,10 +1332,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView11.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView11");
                 } else {
                     mImageView11.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView11");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1170,6 +1344,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem11.setImageBitmap(bitmapFirstItems);
                     imgFirstItem11.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView11");
                 } else {
                     imgFirstItem11.setImageResource(R.drawable.none);
 
@@ -1182,6 +1357,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem11.setImageBitmap(bitmapSecondItems);
                     imgSecondItem11.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView11");
                 } else {
                     imgSecondItem11.setImageResource(R.drawable.none);
 
@@ -1194,13 +1370,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem11.setImageBitmap(bitmapThirdItems);
                     imgThirdItem11.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView11");
                 } else {
                     imgThirdItem11.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView12) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem12.setVisibility(View.GONE);
                 imgFirstItem12.setImageResource(R.drawable.none);
                 imgSecondItem12.setVisibility(View.GONE);
@@ -1219,10 +1396,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView12.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView12");
                 } else {
                     mImageView12.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView12");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1231,6 +1408,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem12.setImageBitmap(bitmapFirstItems);
                     imgFirstItem12.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView12");
                 } else {
                     imgFirstItem12.setImageResource(R.drawable.none);
 
@@ -1243,6 +1421,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem12.setImageBitmap(bitmapSecondItems);
                     imgSecondItem12.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView12");
                 } else {
                     imgSecondItem12.setImageResource(R.drawable.none);
 
@@ -1255,13 +1434,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem12.setImageBitmap(bitmapThirdItems);
                     imgThirdItem12.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView12");
                 } else {
                     imgThirdItem12.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView13) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem13.setVisibility(View.GONE);
                 imgFirstItem13.setImageResource(R.drawable.none);
                 imgSecondItem13.setVisibility(View.GONE);
@@ -1280,10 +1460,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView13.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView13");
                 } else {
                     mImageView13.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView13");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1292,6 +1472,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem13.setImageBitmap(bitmapFirstItems);
                     imgFirstItem13.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView13");
                 } else {
                     imgFirstItem13.setImageResource(R.drawable.none);
 
@@ -1304,6 +1485,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem13.setImageBitmap(bitmapSecondItems);
                     imgSecondItem13.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView13");
                 } else {
                     imgSecondItem13.setImageResource(R.drawable.none);
 
@@ -1316,13 +1498,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem13.setImageBitmap(bitmapThirdItems);
                     imgThirdItem13.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView13");
                 } else {
                     imgThirdItem13.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView14) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem14.setVisibility(View.GONE);
                 imgFirstItem14.setImageResource(R.drawable.none);
                 imgSecondItem14.setVisibility(View.GONE);
@@ -1341,10 +1524,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView14.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView14");
                 } else {
                     mImageView14.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView14");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1353,6 +1536,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem14.setImageBitmap(bitmapFirstItems);
                     imgFirstItem14.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView14");
                 } else {
                     imgFirstItem14.setImageResource(R.drawable.none);
 
@@ -1365,6 +1549,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem14.setImageBitmap(bitmapSecondItems);
                     imgSecondItem14.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView14");
                 } else {
                     imgSecondItem14.setImageResource(R.drawable.none);
 
@@ -1377,13 +1562,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem14.setImageBitmap(bitmapThirdItems);
                     imgThirdItem14.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView14");
                 } else {
                     imgThirdItem14.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView15) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem15.setVisibility(View.GONE);
                 imgFirstItem15.setImageResource(R.drawable.none);
                 imgSecondItem15.setVisibility(View.GONE);
@@ -1402,10 +1588,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView15.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView15");
                 } else {
                     mImageView15.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView15");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1414,6 +1600,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem15.setImageBitmap(bitmapFirstItems);
                     imgFirstItem15.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView15");
                 } else {
                     imgFirstItem15.setImageResource(R.drawable.none);
 
@@ -1426,6 +1613,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem15.setImageBitmap(bitmapSecondItems);
                     imgSecondItem15.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView15");
                 } else {
                     imgSecondItem15.setImageResource(R.drawable.none);
 
@@ -1438,13 +1626,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem15.setImageBitmap(bitmapThirdItems);
                     imgThirdItem15.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView15");
                 } else {
                     imgThirdItem15.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView16) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem16.setVisibility(View.GONE);
                 imgFirstItem16.setImageResource(R.drawable.none);
                 imgSecondItem16.setVisibility(View.GONE);
@@ -1463,10 +1652,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView16.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView16");
                 } else {
                     mImageView16.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView16");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1475,6 +1664,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem16.setImageBitmap(bitmapFirstItems);
                     imgFirstItem16.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView16");
                 } else {
                     imgFirstItem16.setImageResource(R.drawable.none);
 
@@ -1487,6 +1677,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem16.setImageBitmap(bitmapSecondItems);
                     imgSecondItem16.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView16");
                 } else {
                     imgSecondItem16.setImageResource(R.drawable.none);
 
@@ -1499,13 +1690,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem16.setImageBitmap(bitmapThirdItems);
                     imgThirdItem16.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView16");
                 } else {
                     imgThirdItem16.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView17) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem17.setVisibility(View.GONE);
                 imgFirstItem17.setImageResource(R.drawable.none);
                 imgSecondItem17.setVisibility(View.GONE);
@@ -1524,10 +1716,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView17.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView17");
                 } else {
                     mImageView17.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView17");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1536,6 +1728,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem17.setImageBitmap(bitmapFirstItems);
                     imgFirstItem17.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView17");
                 } else {
                     imgFirstItem17.setImageResource(R.drawable.none);
 
@@ -1548,6 +1741,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem17.setImageBitmap(bitmapSecondItems);
                     imgSecondItem17.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView17");
                 } else {
                     imgSecondItem17.setImageResource(R.drawable.none);
 
@@ -1560,13 +1754,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem17.setImageBitmap(bitmapThirdItems);
                     imgThirdItem17.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView17");
                 } else {
                     imgThirdItem17.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView18) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem18.setVisibility(View.GONE);
                 imgFirstItem18.setImageResource(R.drawable.none);
                 imgSecondItem18.setVisibility(View.GONE);
@@ -1585,10 +1780,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView18.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView18");
                 } else {
                     mImageView18.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView18");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1597,6 +1792,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem18.setImageBitmap(bitmapFirstItems);
                     imgFirstItem18.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView18");
                 } else {
                     imgFirstItem18.setImageResource(R.drawable.none);
 
@@ -1609,6 +1805,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem18.setImageBitmap(bitmapSecondItems);
                     imgSecondItem18.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView18");
                 } else {
                     imgSecondItem18.setImageResource(R.drawable.none);
 
@@ -1621,13 +1818,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem18.setImageBitmap(bitmapThirdItems);
                     imgThirdItem18.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView18");
                 } else {
                     imgThirdItem18.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView19) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem19.setVisibility(View.GONE);
                 imgFirstItem19.setImageResource(R.drawable.none);
                 imgSecondItem19.setVisibility(View.GONE);
@@ -1646,10 +1844,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView19.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView19");
                 } else {
                     mImageView19.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView19");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1658,6 +1856,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem19.setImageBitmap(bitmapFirstItems);
                     imgFirstItem19.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView19");
                 } else {
                     imgFirstItem19.setImageResource(R.drawable.none);
 
@@ -1670,6 +1869,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem19.setImageBitmap(bitmapSecondItems);
                     imgSecondItem19.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView19");
                 } else {
                     imgSecondItem19.setImageResource(R.drawable.none);
 
@@ -1682,13 +1882,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem19.setImageBitmap(bitmapThirdItems);
                     imgThirdItem19.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView19");
                 } else {
                     imgThirdItem19.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView20) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem20.setVisibility(View.GONE);
                 imgFirstItem20.setImageResource(R.drawable.none);
                 imgSecondItem20.setVisibility(View.GONE);
@@ -1707,10 +1908,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView20.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView20");
                 } else {
                     mImageView20.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView20");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1719,6 +1920,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem20.setImageBitmap(bitmapFirstItems);
                     imgFirstItem20.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView20");
                 } else {
                     imgFirstItem20.setImageResource(R.drawable.none);
 
@@ -1731,6 +1933,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem20.setImageBitmap(bitmapSecondItems);
                     imgSecondItem20.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView20");
                 } else {
                     imgSecondItem20.setImageResource(R.drawable.none);
 
@@ -1743,13 +1946,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem20.setImageBitmap(bitmapThirdItems);
                     imgThirdItem20.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView20");
                 } else {
                     imgThirdItem20.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView21) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem21.setVisibility(View.GONE);
                 imgFirstItem21.setImageResource(R.drawable.none);
                 imgSecondItem21.setVisibility(View.GONE);
@@ -1768,10 +1972,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView21.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView21");
                 } else {
                     mImageView21.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView21");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1780,6 +1984,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem21.setImageBitmap(bitmapFirstItems);
                     imgFirstItem21.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView21");
                 } else {
                     imgFirstItem21.setImageResource(R.drawable.none);
 
@@ -1792,6 +1997,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem21.setImageBitmap(bitmapSecondItems);
                     imgSecondItem21.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView21");
                 } else {
                     imgSecondItem21.setImageResource(R.drawable.none);
 
@@ -1804,13 +2010,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem21.setImageBitmap(bitmapThirdItems);
                     imgThirdItem21.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView21");
                 } else {
                     imgThirdItem21.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView22) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem22.setVisibility(View.GONE);
                 imgFirstItem22.setImageResource(R.drawable.none);
                 imgSecondItem22.setVisibility(View.GONE);
@@ -1829,10 +2036,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView22.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView22");
                 } else {
                     mImageView22.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView22");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1841,6 +2048,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem22.setImageBitmap(bitmapFirstItems);
                     imgFirstItem22.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView22");
                 } else {
                     imgFirstItem22.setImageResource(R.drawable.none);
 
@@ -1853,6 +2061,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem22.setImageBitmap(bitmapSecondItems);
                     imgSecondItem22.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView22");
                 } else {
                     imgSecondItem22.setImageResource(R.drawable.none);
 
@@ -1865,13 +2074,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem22.setImageBitmap(bitmapThirdItems);
                     imgThirdItem22.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView22");
                 } else {
                     imgThirdItem22.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView23) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem23.setVisibility(View.GONE);
                 imgFirstItem23.setImageResource(R.drawable.none);
                 imgSecondItem23.setVisibility(View.GONE);
@@ -1890,10 +2100,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView23.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView23");
                 } else {
                     mImageView23.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView23");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1902,6 +2112,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem23.setImageBitmap(bitmapFirstItems);
                     imgFirstItem23.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView23");
                 } else {
                     imgFirstItem23.setImageResource(R.drawable.none);
 
@@ -1914,6 +2125,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem23.setImageBitmap(bitmapSecondItems);
                     imgSecondItem23.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView23");
                 } else {
                     imgSecondItem23.setImageResource(R.drawable.none);
 
@@ -1926,13 +2138,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem23.setImageBitmap(bitmapThirdItems);
                     imgThirdItem23.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView23");
                 } else {
                     imgThirdItem23.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView24) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem24.setVisibility(View.GONE);
                 imgFirstItem24.setImageResource(R.drawable.none);
                 imgSecondItem24.setVisibility(View.GONE);
@@ -1951,10 +2164,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView24.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView24");
                 } else {
                     mImageView24.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView24");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -1963,6 +2176,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem24.setImageBitmap(bitmapFirstItems);
                     imgFirstItem24.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView24");
                 } else {
                     imgFirstItem24.setImageResource(R.drawable.none);
 
@@ -1975,6 +2189,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem24.setImageBitmap(bitmapSecondItems);
                     imgSecondItem24.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView24");
                 } else {
                     imgSecondItem24.setImageResource(R.drawable.none);
 
@@ -1987,13 +2202,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem24.setImageBitmap(bitmapThirdItems);
                     imgThirdItem24.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView24");
                 } else {
                     imgThirdItem24.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView25) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem25.setVisibility(View.GONE);
                 imgFirstItem25.setImageResource(R.drawable.none);
                 imgSecondItem25.setVisibility(View.GONE);
@@ -2012,10 +2228,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView25.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView25");
                 } else {
                     mImageView25.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView25");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -2024,6 +2240,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem25.setImageBitmap(bitmapFirstItems);
                     imgFirstItem25.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView25");
                 } else {
                     imgFirstItem25.setImageResource(R.drawable.none);
 
@@ -2036,6 +2253,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem25.setImageBitmap(bitmapSecondItems);
                     imgSecondItem25.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView25");
                 } else {
                     imgSecondItem25.setImageResource(R.drawable.none);
 
@@ -2048,13 +2266,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem25.setImageBitmap(bitmapThirdItems);
                     imgThirdItem25.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView25");
                 } else {
                     imgThirdItem25.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView26) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem26.setVisibility(View.GONE);
                 imgFirstItem26.setImageResource(R.drawable.none);
                 imgSecondItem26.setVisibility(View.GONE);
@@ -2073,10 +2292,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView26.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView26");
                 } else {
                     mImageView26.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView26");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -2085,6 +2304,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem26.setImageBitmap(bitmapFirstItems);
                     imgFirstItem26.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView26");
                 } else {
                     imgFirstItem26.setImageResource(R.drawable.none);
 
@@ -2097,6 +2317,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem26.setImageBitmap(bitmapSecondItems);
                     imgSecondItem26.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView26");
                 } else {
                     imgSecondItem26.setImageResource(R.drawable.none);
 
@@ -2109,13 +2330,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem26.setImageBitmap(bitmapThirdItems);
                     imgThirdItem26.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView26");
                 } else {
                     imgThirdItem26.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView27) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem27.setVisibility(View.GONE);
                 imgFirstItem27.setImageResource(R.drawable.none);
                 imgSecondItem27.setVisibility(View.GONE);
@@ -2134,10 +2356,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView27.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView27");
                 } else {
                     mImageView27.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView27");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -2146,6 +2368,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem27.setImageBitmap(bitmapFirstItems);
                     imgFirstItem27.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView27");
                 } else {
                     imgFirstItem27.setImageResource(R.drawable.none);
 
@@ -2158,6 +2381,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem27.setImageBitmap(bitmapSecondItems);
                     imgSecondItem27.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView27");
                 } else {
                     imgSecondItem27.setImageResource(R.drawable.none);
 
@@ -2170,13 +2394,14 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem27.setImageBitmap(bitmapThirdItems);
                     imgThirdItem27.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView27");
                 } else {
                     imgThirdItem27.setImageResource(R.drawable.none);
 
                 }
             }
         } else if (selectedImageViewId == R.id.imageView28) {
-            if(query==""){
+            if (query == "") {
                 imgFirstItem28.setVisibility(View.GONE);
                 imgFirstItem28.setImageResource(R.drawable.none);
                 imgSecondItem28.setVisibility(View.GONE);
@@ -2195,10 +2420,10 @@ readJsonFile();
                 Bitmap bitmapChampionImage = GetChampionImageByName(query);
                 if (bitmapChampionImage != null) {
                     mImageView28.setImageBitmap(bitmapChampionImage);
-
+                    AddChampionDescription(query, "imageView28");
                 } else {
                     mImageView28.setImageResource(R.drawable.none);
-
+                    RemoveChampionDescription("imageView28");
                 }
 
             } else if (!champImg.getConstantState().equals(imgDefault.getConstantState())
@@ -2207,6 +2432,7 @@ readJsonFile();
                 if (bitmapFirstItems != null) {
                     imgFirstItem28.setImageBitmap(bitmapFirstItems);
                     imgFirstItem28.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView28");
                 } else {
                     imgFirstItem28.setImageResource(R.drawable.none);
 
@@ -2219,6 +2445,7 @@ readJsonFile();
                 if (bitmapSecondItems != null) {
                     imgSecondItem28.setImageBitmap(bitmapSecondItems);
                     imgSecondItem28.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView28");
                 } else {
                     imgSecondItem28.setImageResource(R.drawable.none);
 
@@ -2231,12 +2458,38 @@ readJsonFile();
                 if (bitmapThirdItems != null) {
                     imgThirdItem28.setImageBitmap(bitmapThirdItems);
                     imgThirdItem28.setVisibility(View.VISIBLE);
+                    AddItemEachChampionDescription(query, "imageView28");
                 } else {
                     imgThirdItem28.setImageResource(R.drawable.none);
 
                 }
             }
         }
+        editTextView.setText("");
+        editTextView.setVisibility(View.GONE);
+    }
 
+    public void submit(View view) {
+        String nameOfTeam = teamName.getText().toString();
+        myDB.addTeampComp(nameOfTeam);
+        readDataTeampComp();
+        int count = teamCompList.size();
+        String teamCompID = teamCompList.get(count - 1).getTeamCompId();
+        for (int i = 0; i < newTeamCompDesc.size(); i++) {
+            newTeamCompDesc.get(i).setTeamCompID(teamCompID);
+        }
+        for (int i = 0; i < newTeamCompDesc.size(); i++) {
+            myDB.addChampionDescription(
+                    newTeamCompDesc.get(i).getTeamCompID(),
+                    newTeamCompDesc.get(i).getChampionPlaceID(),
+                    newTeamCompDesc.get(i).getChampionName(),
+                    newTeamCompDesc.get(i).getFirstItemName(),
+                    newTeamCompDesc.get(i).getSecondItemName(),
+                    newTeamCompDesc.get(i).getThirdItemName());
+
+        }
+        Intent intent = new Intent(this, ShowTeamList.class);
+
+        startActivity(intent);
     }
 }

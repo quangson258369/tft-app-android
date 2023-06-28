@@ -15,7 +15,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "ad": "10" },
     "isshadow": false
   },
   {
@@ -34,7 +33,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "as": "10" },
     "isshadow": false
   },
   {
@@ -53,7 +51,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "armor": "20" },
     "isshadow": false
   },
   {
@@ -72,7 +69,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "magicresist": "20" },
     "isshadow": false
   },
   {
@@ -91,7 +87,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "ap": "10" },
     "isshadow": false
   },
   {
@@ -110,7 +105,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "mana": "15" },
     "isshadow": false
   },
   {
@@ -129,7 +123,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -143,7 +136,6 @@
     "specialstatus": null,
     "effects": [],
     "isunique": false,
-    "effectsnew": {},
     "isshadow": false
   },
   {
@@ -166,10 +158,7 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "critchance": "35",
-      "ad": "30"
-    },
+
     "isshadow": false
   },
   {
@@ -192,10 +181,7 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "ad": "10",
-      "armor": "20"
-    },
+
     "isshadow": false
   },
   {
@@ -218,10 +204,7 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "20",
-      "magicresist": "20"
-    },
+
     "isshadow": false
   },
   {
@@ -244,10 +227,7 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "10",
-      "ap": "10"
-    },
+
     "isshadow": false
   },
   {
@@ -274,11 +254,7 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "10",
-      "mana": "15",
-      "ap": "15"
-    },
+
     "isshadow": false
   },
   {
@@ -301,10 +277,7 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "10",
-      "health": "250"
-    },
+
     "isshadow": false
   },
   {
@@ -323,7 +296,7 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "health": "150" },
+
     "isshadow": false
   },
   {
@@ -342,7 +315,7 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "as": "55" },
+
     "isshadow": false
   },
   {
@@ -369,11 +342,7 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "as": "10",
-      "magicresist": "20",
-      "ad": "20"
-    },
+
     "isshadow": false
   },
   {
@@ -396,10 +365,7 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ap": "10",
-      "as": "10"
-    },
+
     "isshadow": false
   },
   {
@@ -426,11 +392,7 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "as": "10",
-      "mana": "15",
-      "ap": "15"
-    },
+
     "isshadow": false
   },
   {
@@ -453,10 +415,7 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "as": "10",
-      "health": "150"
-    },
+
     "isshadow": false
   },
   {
@@ -479,10 +438,7 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "armor": "30",
-      "magicresist": "30"
-    },
+
     "isshadow": false
   },
   {
@@ -505,10 +461,7 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ap": "10",
-      "armor": "20"
-    },
+
     "isshadow": false
   },
   {
@@ -531,10 +484,7 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "armor": "20",
-      "mana": "45"
-    },
+
     "isshadow": false
   },
   {
@@ -557,10 +507,7 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "armor": "20",
-      "health": "250"
-    },
+
     "isshadow": false
   },
   {
@@ -579,7 +526,7 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "ap": "10" },
+
     "isshadow": false
   },
   {
@@ -598,7 +545,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "magicresist": "70" },
     "isshadow": false
   },
   {
@@ -621,10 +567,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ap": "10",
-      "magicresist": "20"
-    },
     "isshadow": false
   },
   {
@@ -647,10 +589,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "magicresist": "20",
-      "mana": "30"
-    },
     "isshadow": false
   },
   {
@@ -677,11 +615,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "health": "150",
-      "magicresist": "20",
-      "as": "15"
-    },
     "isshadow": false
   },
   {
@@ -700,7 +633,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "mana": "15" },
     "isshadow": false
   },
   {
@@ -719,7 +651,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "ap": "70" },
     "isshadow": false
   },
   {
@@ -742,10 +673,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ap": "20",
-      "mana": "30"
-    },
     "isshadow": false
   },
   {
@@ -768,10 +695,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "ap": "20",
-      "health": "150"
-    },
     "isshadow": false
   },
   {
@@ -794,10 +717,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "ap": "10",
-      "mana": "40"
-    },
     "isshadow": false
   },
   {
@@ -820,10 +739,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "health": "150",
-      "mana": "15"
-    },
     "isshadow": false
   },
   {
@@ -842,7 +757,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "magicresist": "20" },
     "isshadow": false
   },
   {
@@ -861,7 +775,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "health": "800" },
     "isshadow": false
   },
   {
@@ -880,7 +793,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -894,7 +806,6 @@
     "specialstatus": null,
     "effects": [],
     "isunique": false,
-    "effectsnew": {},
     "isshadow": false
   },
   {
@@ -913,7 +824,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "critchance": "20" },
     "isshadow": false
   },
   {
@@ -936,10 +846,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "armor": "20",
-      "health": "250"
-    },
     "isshadow": false
   },
   {
@@ -966,11 +872,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "magicresist": "30",
-      "critchance": "20",
-      "as": "30"
-    },
     "isshadow": false
   },
   {
@@ -993,10 +894,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ap": "25",
-      "critchance": "35"
-    },
     "isshadow": false
   },
   {
@@ -1019,10 +916,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "critchance": "20",
-      "mana": "15"
-    },
     "isshadow": false
   },
   {
@@ -1053,12 +946,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "health": "150",
-      "critchance": "20",
-      "ad": "20",
-      "ap": "20"
-    },
     "isshadow": false
   },
   {
@@ -1077,7 +964,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "critchance": "40" },
     "isshadow": false
   },
   {
@@ -1096,7 +982,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "ad": "66" },
     "isshadow": false
   },
   {
@@ -1123,11 +1008,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ap": "20",
-      "ad": "30",
-      "as": "10"
-    },
     "isshadow": false
   },
   {
@@ -1154,11 +1034,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "as": "10",
-      "critchance": "20",
-      "ad": "10"
-    },
     "isshadow": false
   },
   {
@@ -1181,10 +1056,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "as": "10",
-      "armor": "20"
-    },
     "isshadow": false
   },
   {
@@ -1203,7 +1074,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "armor": "70" },
     "isshadow": false
   },
   {
@@ -1217,7 +1087,6 @@
     "specialstatus": 3,
     "effects": [],
     "isunique": false,
-    "effectsnew": {},
     "isshadow": false
   },
   {
@@ -1231,7 +1100,6 @@
     "specialstatus": 3,
     "effects": [],
     "isunique": false,
-    "effectsnew": {},
     "isshadow": false
   },
   {
@@ -1245,7 +1113,6 @@
     "specialstatus": 3,
     "effects": [],
     "isunique": false,
-    "effectsnew": {},
     "isshadow": false
   },
   {
@@ -1259,7 +1126,6 @@
     "specialstatus": 3,
     "effects": [],
     "isunique": false,
-    "effectsnew": {},
     "isshadow": false
   },
   {
@@ -1273,7 +1139,6 @@
     "specialstatus": 3,
     "effects": [],
     "isunique": false,
-    "effectsnew": {},
     "isshadow": false
   },
   {
@@ -1292,7 +1157,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "ad": "120" },
     "isshadow": true
   },
   {
@@ -1319,11 +1183,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ap": "40",
-      "ad": "50",
-      "as": "10"
-    },
     "isshadow": true
   },
   {
@@ -1346,10 +1205,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "10",
-      "ap": "40"
-    },
     "isshadow": true
   },
   {
@@ -1376,11 +1231,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "10",
-      "mana": "15",
-      "ap": "50"
-    },
     "isshadow": true
   },
   {
@@ -1403,10 +1253,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "ad": "30",
-      "armor": "30"
-    },
     "isshadow": true
   },
   {
@@ -1429,10 +1275,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "40",
-      "magicresist": "20"
-    },
     "isshadow": true
   },
   {
@@ -1455,10 +1297,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "10",
-      "health": "150"
-    },
     "isshadow": true
   },
   {
@@ -1481,10 +1319,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "ad": "55",
-      "critchance": "75"
-    },
     "isshadow": true
   },
   {
@@ -1503,7 +1337,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "as": "125" },
     "isshadow": true
   },
   {
@@ -1526,10 +1359,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ap": "10",
-      "as": "25"
-    },
     "isshadow": true
   },
   {
@@ -1556,11 +1385,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "as": "10",
-      "mana": "15",
-      "ap": "40"
-    },
     "isshadow": true
   },
   {
@@ -1583,10 +1407,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "as": "30",
-      "armor": "30"
-    },
     "isshadow": true
   },
   {
@@ -1613,11 +1433,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "20",
-      "as": "20",
-      "magicresist": "20"
-    },
     "isshadow": true
   },
   {
@@ -1640,10 +1455,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "as": "10",
-      "health": "150"
-    },
     "isshadow": true
   },
   {
@@ -1670,11 +1481,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "as": "10",
-      "critchance": "55",
-      "ad": "35"
-    },
     "isshadow": true
   },
   {
@@ -1693,7 +1499,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "ap": "125" },
     "isshadow": true
   },
   {
@@ -1716,10 +1521,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ap": "50",
-      "mana": "30"
-    },
     "isshadow": true
   },
   {
@@ -1742,10 +1543,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ap": "10",
-      "armor": "20"
-    },
     "isshadow": true
   },
   {
@@ -1768,10 +1565,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ap": "10",
-      "magicresist": "20"
-    },
     "isshadow": true
   },
   {
@@ -1794,10 +1587,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "ap": "45",
-      "health": "150"
-    },
     "isshadow": true
   },
   {
@@ -1820,10 +1609,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ap": "50",
-      "critchance": "75"
-    },
     "isshadow": true
   },
   {
@@ -1846,10 +1631,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "ap": "50",
-      "mana": "40"
-    },
     "isshadow": true
   },
   {
@@ -1872,10 +1653,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "armor": "20",
-      "mana": "60"
-    },
     "isshadow": true
   },
   {
@@ -1898,10 +1675,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "magicresist": "20",
-      "mana": "15"
-    },
     "isshadow": true
   },
   {
@@ -1924,10 +1697,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "health": "300",
-      "mana": "15"
-    },
     "isshadow": true
   },
   {
@@ -1950,10 +1719,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "critchance": "20",
-      "mana": "15"
-    },
     "isshadow": true
   },
   {
@@ -1972,7 +1737,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "armor": "120" },
     "isshadow": true
   },
   {
@@ -1995,10 +1759,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "armor": "20",
-      "magicresist": "20"
-    },
     "isshadow": true
   },
   {
@@ -2021,10 +1781,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "armor": "20",
-      "health": "350"
-    },
     "isshadow": true
   },
   {
@@ -2047,10 +1803,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "armor": "20",
-      "critchance": "20"
-    },
     "isshadow": true
   },
   {
@@ -2069,7 +1821,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "magicresist": "140" },
     "isshadow": true
   },
   {
@@ -2092,10 +1843,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "health": "150",
-      "magicresist": "20"
-    },
     "isshadow": true
   },
   {
@@ -2122,11 +1869,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": {
-      "as": "70",
-      "magicresist": "40",
-      "critchance": "40"
-    },
     "isshadow": true
   },
   {
@@ -2145,7 +1887,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "health": "1300" },
     "isshadow": true
   },
   {
@@ -2176,12 +1917,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "40",
-      "critchance": "20",
-      "ap": "40",
-      "health": "150"
-    },
     "isshadow": true
   },
   {
@@ -2200,7 +1935,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "critchance": "40" },
     "isshadow": true
   },
   {
@@ -2214,7 +1948,6 @@
     "specialstatus": 3,
     "effects": [],
     "isunique": false,
-    "effectsnew": {},
     "isshadow": false
   },
   {
@@ -2233,7 +1966,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -2252,7 +1984,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "armor": "20" },
     "isshadow": false
   },
   {
@@ -2271,7 +2002,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -2290,7 +2020,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -2309,7 +2038,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -2328,7 +2056,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -2347,7 +2074,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "critchance": "20" },
     "isshadow": false
   },
   {
@@ -2366,7 +2092,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -2385,7 +2110,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "as": "10" },
     "isshadow": false
   },
   {
@@ -2404,7 +2128,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -2423,7 +2146,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -2442,7 +2164,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -2461,7 +2182,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -2480,7 +2200,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -2499,7 +2218,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -2522,10 +2240,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "health": "250",
-      "magicresist": "25"
-    },
     "isshadow": false
   },
   {
@@ -2552,11 +2266,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "10",
-      "as": "30",
-      "armor": "30"
-    },
     "isshadow": false
   },
   {
@@ -2579,10 +2288,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "armor": "25",
-      "health": "150"
-    },
     "isshadow": false
   },
   {
@@ -2625,15 +2330,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "25",
-      "ap": "25",
-      "as": "25",
-      "armor": "25",
-      "magicresist": "25",
-      "health": "25",
-      "mana": "25"
-    },
     "isshadow": false
   },
   {
@@ -2660,11 +2356,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "15",
-      "as": "15",
-      "mana": "30"
-    },
     "isshadow": false
   },
   {
@@ -2687,10 +2378,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "25",
-      "health": "250"
-    },
     "isshadow": false
   },
   {
@@ -2709,7 +2396,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -2736,11 +2422,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "health": "150",
-      "mana": "15",
-      "armor": "25"
-    },
     "isshadow": false
   },
   {
@@ -2763,10 +2444,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "20",
-      "critchance": "30"
-    },
     "isshadow": false
   },
   {
@@ -2793,11 +2470,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "armor": "30",
-      "magicresist": "30",
-      "ap": "30"
-    },
     "isshadow": false
   },
   {
@@ -2824,11 +2496,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ap": "20",
-      "ad": "30",
-      "as": "20"
-    },
     "isshadow": false
   },
   {
@@ -2851,10 +2518,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "critchance": "20",
-      "mana": "15"
-    },
     "isshadow": false
   },
   {
@@ -2877,10 +2540,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "armor": "20",
-      "as": "10"
-    },
     "isshadow": false
   },
   {
@@ -2903,10 +2562,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "20",
-      "mana": "45"
-    },
     "isshadow": false
   },
   {
@@ -2933,11 +2588,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "health": "250",
-      "armor": "20",
-      "critchance": "20"
-    },
     "isshadow": false
   },
   {
@@ -2960,10 +2610,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "armor": "20",
-      "health": "300"
-    },
     "isshadow": false
   },
   {
@@ -2982,7 +2628,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": { "health": "900" },
     "isshadow": false
   },
   {
@@ -3005,10 +2650,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ap": "10",
-      "magicresist": "20"
-    },
     "isshadow": false
   },
   {
@@ -3031,10 +2672,6 @@
       }
     ],
     "isunique": false,
-    "effectsnew": {
-      "ad": "30",
-      "magicresist": "20"
-    },
     "isshadow": false
   },
   {
@@ -3048,7 +2685,6 @@
     "specialstatus": null,
     "effects": [],
     "isunique": true,
-    "effectsnew": {},
     "isshadow": false
   },
   {
@@ -3067,7 +2703,6 @@
       }
     ],
     "isunique": true,
-    "effectsnew": { "health": "150" },
     "isshadow": false
   },
   {
@@ -3081,7 +2716,6 @@
     "specialstatus": 3,
     "effects": [],
     "isunique": false,
-    "effectsnew": {},
     "isshadow": false
   }
 ]

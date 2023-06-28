@@ -1613,30 +1613,58 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView"
+    <Button
+        android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginEnd="326dp"
-        android:layout_marginBottom="400dp"
-        android:hint="Team Comp Name"
-        android:textColor="#221F1F"
-        android:textColorHint="#ECE4E4"
+        android:layout_marginStart="161dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="72dp"
+        android:onClick="submit"
+        android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <SearchView
-        android:id="@+id/searchView"
+    <EditText
+        android:id="@+id/TeamCompName"
+        android:layout_width="236dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="102dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name Of Team Comp"
+        app:layout_constraintBottom_toTopOf="@+id/submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <AutoCompleteTextView
+        android:id="@+id/searchText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView"
         android:background="#EADDDD"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_suggestion"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
