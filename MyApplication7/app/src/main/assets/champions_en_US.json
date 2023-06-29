@@ -105,7 +105,7 @@
     "name": "ashe",
     "tier": "b",
     "cost": 1,
-    "origin": "set8_infiniteam",
+    "origin": "set8_lasercorps",
     "classunit": "set8_quickdraw",
     "health": "500 / 900 / 1620",
     "mana": "50.0",
@@ -122,7 +122,7 @@
     "statusdescriptions": [],
     "costreal": 1,
     "origins": [
-      "set8_infiniteam"
+      "set8_lasercorps"
     ],
     "classes": [
       "set8_quickdraw"
@@ -332,7 +332,7 @@
     "name": "ezreal",
     "tier": "c",
     "cost": 2,
-    "origin": "set8_underground,set8_harallel",
+    "origin": "set8_underground,set8_parallel",
     "classunit": "set8_quickdraw",
     "health": "550 / 990 / 1782",
     "mana": "55.0",
@@ -350,7 +350,7 @@
     "costreal": 2,
     "origins": [
       "set8_underground",
-      "set8_harallel"
+      "set8_parallel"
     ],
     "classes": [
       "set8_quickdraw"
@@ -365,7 +365,7 @@
     "name": "ultimate ezreal",
     "tier": "s",
     "cost": 5,
-    "origin": "set8_lasercorps,set8_harallel",
+    "origin": "set8_lasercorps,set8_parallel",
     "classunit": "set8_quickdraw",
     "health": "800 / 1440 / 2592",
     "mana": "150.0",
@@ -383,7 +383,7 @@
     "costreal": 5,
     "origins": [
       "set8_lasercorps",
-      "set8_harallel"
+      "set8_parallel"
     ],
     "classes": [
       "set8_quickdraw"
@@ -1014,7 +1014,7 @@
     "name": "mordekaiser",
     "tier": "s",
     "cost": 5,
-    "origin": "set8_infiniteam",
+    "origin": "set8_lasercorps",
     "classunit": "set8_ace",
     "health": "1200 / 2160 / 3888",
     "mana": "150.0",
@@ -1031,7 +1031,7 @@
     "statusdescriptions": [],
     "costreal": 5,
     "origins": [
-      "set8_infiniteam"
+      "set8_lasercorps"
     ],
     "classes": [
       "set8_ace"
@@ -1368,7 +1368,7 @@
     "name": "renekton",
     "tier": "c",
     "cost": 1,
-    "origin": "set8_infiniteam",
+    "origin": "set8_lasercorps",
     "classunit": "set8_brawler",
     "health": "650 / 1170 / 2106",
     "mana": "50.0",
@@ -1385,7 +1385,7 @@
     "statusdescriptions": [],
     "costreal": 1,
     "origins": [
-      "set8_infiniteam"
+      "set8_lasercorps"
     ],
     "classes": [
       "set8_brawler"
@@ -1791,7 +1791,7 @@
     "name": "warwick",
     "tier": "a",
     "cost": 4,
-    "origin": "set8_admin,set8_infiniteam",
+    "origin": "set8_admin,set8_lasercorps",
     "classunit": "set8_brawler",
     "health": "950 / 1710 / 3078",
     "mana": "90.0",
@@ -1809,7 +1809,7 @@
     "costreal": 4,
     "origins": [
       "set8_admin",
-      "set8_infiniteam"
+      "set8_lasercorps"
     ],
     "classes": [
       "set8_brawler"
@@ -1856,7 +1856,7 @@
     "name": "yasuo",
     "tier": "b",
     "cost": 2,
-    "origin": "set8_infiniteam",
+    "origin": "set8_lasercorps",
     "classunit": "set8_duelist",
     "health": "750 / 1350 / 2430",
     "mana": "70.0",
@@ -1873,7 +1873,7 @@
     "statusdescriptions": [],
     "costreal": 2,
     "origins": [
-      "set8_infiniteam"
+      "set8_lasercorps"
     ],
     "classes": [
       "set8_duelist"
