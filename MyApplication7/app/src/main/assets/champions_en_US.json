@@ -1202,8 +1202,8 @@
     "attack_damage_value": 0
   },
   {
-    "id": "tft8_phantheon",
-    "name": "phantheon",
+    "id": "tft8_pantheon",
+    "name": "pantheon",
     "tier": "b",
     "cost": 1,
     "origin": "set8_lasercorps",

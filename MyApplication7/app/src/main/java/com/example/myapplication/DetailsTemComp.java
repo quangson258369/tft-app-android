@@ -11,4 +11,6 @@ public class DetailsTemComp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_tem_comp);
     }
+
+
 }
