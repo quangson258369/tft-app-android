@@ -380,7 +380,7 @@
     ]
   },
   {
-    "synergyId": "set8_undergroundthe",
+    "synergyId": "set8_underground",
     "name": "Underground",
     "description": "The Underground must sneak through the sewers after each player combat and crack 10 locks to open a vault. When the vault opens, you may choose to take the loot now, or attempt another heist for even better rewards.",
     "type": "origin",

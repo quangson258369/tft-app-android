@@ -122,4 +122,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return cursor;
     }
+    void updateTeamCompData(String id, String name){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(TABLE1_COLUMN_NameOfTeamComp, name);
+        long result=db.update(TABLE1_NAME,cv,"TeamCompID=?",new String[]{id});
+        if(result==-1){
+            Toast.makeText(context,"Failed to update",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context,"Successfully update",Toast.LENGTH_SHORT).show();
+
+        }
+    }
+     void deleteChampionDescription(String TeamCompID){
+         SQLiteDatabase db = this.getWritableDatabase();
+         long result=db.delete(TABLE2_NAME,"TeamCompID=?",new String[]{TeamCompID});
+         if(result==-1){
+             Toast.makeText(context,"Failed to update",Toast.LENGTH_SHORT).show();
+         }
+         else{
+             Toast.makeText(context,"Successfully update",Toast.LENGTH_SHORT).show();
+         }
+     }
+    void deleteTeamComp(String TeamCompID){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result=db.delete(TABLE1_NAME,"TeamCompID=?",new String[]{TeamCompID});
+        if(result==-1){
+            Toast.makeText(context,"Failed to update",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context,"Successfully update",Toast.LENGTH_SHORT).show();
+
+        }
+    }
 }

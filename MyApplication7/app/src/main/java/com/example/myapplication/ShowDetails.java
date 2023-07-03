@@ -1,9 +1,9 @@
 package com.example.myapplication;
 
+import static java.util.ResourceBundle.getBundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -16,18 +16,21 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Adapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.myapplication.Models.Champion;
+import com.example.myapplication.Models.ChampionCompUse;
 import com.example.myapplication.Models.ChampionDescription;
 import com.example.myapplication.Models.Item;
+import com.example.myapplication.Models.ListDataCompShow;
 import com.example.myapplication.Models.Suggestion;
+import com.example.myapplication.Models.Synergy;
+import com.example.myapplication.Models.SynergyActive;
+import com.example.myapplication.Models.SynergyLevel;
 import com.example.myapplication.Models.TeamComp;
 import com.example.myapplication.adapter.Suggestion_Adapter;
 import com.google.gson.Gson;
@@ -41,7 +44,19 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class ShowDetails extends AppCompatActivity implements View.OnClickListener {
+
+    private List<Champion> ListChampions= new ArrayList<>();
+    private List<Item> ListItems= new ArrayList<>();
+    private final List<Synergy> synergyList = new ArrayList<>();
+    private List<SynergyActive> synergyActives= new ArrayList<>();
+
+    private List<ChampionCompUse> championCompUseList= new ArrayList<>();
+    private List<TeamComp> teamCompList = new ArrayList<>();
+    private List<ChampionDescription> champDes = new ArrayList<>();
+    private TeamComp team = new TeamComp();
+    private DatabaseHelper myDB;
+
     public ImageView mImageView;
     public ImageView mImageView2;
     public ImageView mImageView3;
@@ -70,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ImageView mImageView26;
     public ImageView mImageView27;
     public ImageView mImageView28;
+
     private SearchView searchView;
     private ImageView imgFirstItem;
     private ImageView imgSecondItem;
@@ -182,29 +198,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView imgFirstItem28;
     private ImageView imgSecondItem28;
     private ImageView imgThirdItem28;
+
     private int selectedImageViewId = 0;
     private static final long DOUBLE_CLICK_TIME_DELTA = 300;
     private boolean isSearchViewVisible = false;
     private long lastClickTime = 0;
-    private List<TeamComp> teamCompList;
-    private List<ChampionDescription> champDes;
-    private TeamComp newTeamComposition = new TeamComp();
-    private List<ChampionDescription> newTeamCompDesc = new ArrayList<ChampionDescription>();
-    private DatabaseHelper myDB;
-    private List<String> items = new ArrayList<String>();
-    private EditText teamName;
+
     private Suggestion_Adapter Sadapter;
     private List<Suggestion> suggestions= new ArrayList<Suggestion>();
     private RecyclerView rcvlistView;
     private AutoCompleteTextView editTextView;
+    private EditText teamName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_show_details);
+        myDB = new DatabaseHelper(ShowDetails.this);
+        readJsonFile();
+        readDataTeampComp();
+        readDataChampionDes();
+        bindingView();
+        bindingAction();
+        Bundle bundle = getIntent().getExtras();
+        if (bundle == null) {
+            return;
+        }
+        String teamComp = (String) bundle.get("teamComp");
+        for (int i = 0; i < teamCompList.size(); i++) {
+            if (teamCompList.get(i).getTeamCompId().equals(teamComp)) {
+                team = teamCompList.get(i);
+            }
+        }
+        teamName.setText(team.getNameOfTeamComp());
+        ShowTeamComp(team);
+        rcvlistView = findViewById(R.id.rcv_suggestion);
+        editTextView = findViewById(R.id.searchText);
+        editTextView.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
+        editTextView.setSingleLine(true);
 
 
+    }
 
-
+    private void bindingView() {
         teamName = findViewById(R.id.TeamCompName);
         mImageView = findViewById(R.id.imageView);
         mImageView2 = findViewById(R.id.imageView2);
@@ -348,6 +383,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imgSecondItem28 = findViewById(R.id.imgSecondItem28);
         imgThirdItem28 = findViewById(R.id.imgThirdItem28);
 
+    }
+
+    private void bindingAction() {
         mImageView.setOnClickListener(this);
         mImageView2.setOnClickListener(this);
         mImageView3.setOnClickListener(this);
@@ -376,35 +414,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mImageView26.setOnClickListener(this);
         mImageView27.setOnClickListener(this);
         mImageView28.setOnClickListener(this);
-
-
-        teamCompList = new ArrayList<>();
-        champDes = new ArrayList<>();
-        myDB = new DatabaseHelper(MainActivity.this);
-        readJsonFile();
-        readDataChampionDes();
-        readDataTeampComp();
-
-        rcvlistView = findViewById(R.id.rcv_suggestion);
-         editTextView = findViewById(R.id.searchText);
-        editTextView.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
-        editTextView.setSingleLine(true);
     }
-
-
-    private List<Champion> ListChampions= new ArrayList<>();
-    private List<Item> ListItems= new ArrayList<>();
-
     private void readJsonFile() {
         try {
             // Read the JSON file from the assets folder
             InputStream inputStream = getAssets().open("champions_en_US.json");
             InputStream inputStream2 = getAssets().open("items_en_US.json");
+            InputStream inputStream3 = getAssets().open("synergies_en_US.json");
             // Check if the inputStream is null
             if (inputStream != null) {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
                 BufferedReader reader2 = new BufferedReader(new InputStreamReader(inputStream2));
-
+                BufferedReader reader3 = new BufferedReader(new InputStreamReader(inputStream3));
                 // Use Gson to parse the JSON data into objects
                 Gson gson = new Gson();
 
@@ -413,17 +434,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }.getType();
                 Type listType2 = new TypeToken<List<Item>>() {
                 }.getType();
+                Type listType3 = new TypeToken<List<Synergy>>() {
+                }.getType();
                 // Parse the JSON data into a list of Champion objects
                 List<Champion> championList = gson.fromJson(reader, listType);
 
                 ListChampions = championList;
 
                 ListItems = gson.fromJson(reader2, listType2);
-                // Now you have the extracted data in the championList
-                // You can use it as needed
-                // ...
+                List<Synergy> synergyData = gson.fromJson(reader3, listType3);
+                List<Synergy> synergies = synergyData;
+                for (Synergy s : synergies) {
+                    // Access duelist properties
+                    String synergyId = s.getSynergyId();
+                    String name = s.getName();
+                    String description = s.getDescription();
+                    String type = s.getType();
+                    String tier = s.getTier();
 
-                // Close the input stream
+                    // Access synergyLevels list
+                    List<SynergyLevel> synergyLevels = s.getSynergyLevels();
+
+                    Synergy synergy = new Synergy(synergyId, name, description, type, tier, synergyLevels);
+                    synergyList.add(synergy);
+                }
+                int total = synergyList.size();
                 inputStream.close();
             } else {
                 // Handle the case when the inputStream is null
@@ -454,12 +489,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()) {
-                String teamCompId = cursor.getString(0);
-                String ChampName = cursor.getString(1);
+                String teamCompId = cursor.getString(1);
                 String ChampionPlaceID = cursor.getString(2);
-                String FirstItemName = cursor.getString(3);
-                String SecondItemName = cursor.getString(4);
-                String ThirdItemName = cursor.getString(5);
+                String ChampName = cursor.getString(3);
+                String FirstItemName = cursor.getString(4);
+                String SecondItemName = cursor.getString(5);
+                String ThirdItemName = cursor.getString(6);
                 ChampionDescription description =
                         new ChampionDescription(teamCompId, ChampName, ChampionPlaceID, FirstItemName, SecondItemName, ThirdItemName);
                 champDes.add(description);
@@ -501,32 +536,805 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return null;
     }
 
-    public void AddChampionDescription(String name, String placeId) {
-        ChampionDescription desc = new ChampionDescription();
-        desc.setChampionName(name);
-        desc.setChampionPlaceID(placeId);
-        desc.setTeamCompID("");
-        desc.setFirstItemName("");
-        desc.setSecondItemName("");
-        desc.setThirdItemName("");
-        newTeamCompDesc.add(desc);
-    }
+    private void ShowTeamComp(TeamComp teamComp) {
 
-
-    public void AddItemEachChampionDescription(String itemName, String placeID) {
-        for (int i = 0; i < newTeamCompDesc.size(); i++) {
-            if (newTeamCompDesc.get(i).getChampionPlaceID().equals(placeID)) {
-                if (newTeamCompDesc.get(i).getFirstItemName().equals("") ) {
-                    newTeamCompDesc.get(i).setFirstItemName(itemName);
-                } else if (!newTeamCompDesc.get(i).getFirstItemName().equals("")) {
-                    newTeamCompDesc.get(i).setSecondItemName(itemName);
-                } else if (!newTeamCompDesc.get(i).getFirstItemName().equals("")  && !newTeamCompDesc.get(i).getSecondItemName().equals("")) {
-                    newTeamCompDesc.get(i).setThirdItemName(itemName);
-                }
+        for (int i = 0; i < champDes.size(); i++) {
+            if (champDes.get(i).getTeamCompID().equals(teamComp.getTeamCompId())) {
+                AddCurrentDescription(champDes.get(i));
+                ShowChampionDetails(champDes.get(i));
             }
         }
     }
 
+    private void ShowChampionDetails(ChampionDescription desc) {
+        if (desc.getChampionPlaceID().equals("imageView")){
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem.setImageBitmap(bitmapItemFirst);
+                imgSecondItem.setImageBitmap(bitmapItemSecond);
+                imgThirdItem.setImageBitmap(bitmapItemThird);
+                imgFirstItem.setVisibility(View.VISIBLE);
+                imgSecondItem.setVisibility(View.VISIBLE);
+                imgThirdItem.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem.setImageBitmap(bitmapItemFirst);
+                imgSecondItem.setImageBitmap(bitmapItemSecond);
+                imgFirstItem.setVisibility(View.VISIBLE);
+                imgSecondItem.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem.setImageBitmap(bitmapItemFirst);
+                imgFirstItem.setVisibility(View.VISIBLE);
+            }
+
+
+
+        } else if (desc.getChampionPlaceID().equals("imageView2")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView2.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem2.setImageBitmap(bitmapItemFirst);
+                imgSecondItem2.setImageBitmap(bitmapItemSecond);
+                imgThirdItem2.setImageBitmap(bitmapItemThird);
+                imgFirstItem2.setVisibility(View.VISIBLE);
+                imgSecondItem2.setVisibility(View.VISIBLE);
+                imgThirdItem2.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem2.setImageBitmap(bitmapItemFirst);
+                imgSecondItem2.setImageBitmap(bitmapItemSecond);
+                imgFirstItem2.setVisibility(View.VISIBLE);
+                imgSecondItem2.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem2.setImageBitmap(bitmapItemFirst);
+                imgFirstItem2.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView3")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView3.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem3.setImageBitmap(bitmapItemFirst);
+                imgSecondItem3.setImageBitmap(bitmapItemSecond);
+                imgThirdItem3.setImageBitmap(bitmapItemThird);
+                imgFirstItem3.setVisibility(View.VISIBLE);
+                imgSecondItem3.setVisibility(View.VISIBLE);
+                imgThirdItem3.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem3.setImageBitmap(bitmapItemFirst);
+                imgSecondItem3.setImageBitmap(bitmapItemSecond);
+                imgFirstItem3.setVisibility(View.VISIBLE);
+                imgSecondItem3.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem3.setImageBitmap(bitmapItemFirst);
+                imgFirstItem3.setVisibility(View.VISIBLE);
+            }
+
+        }
+        else if (desc.getChampionPlaceID().equals("imageView4")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView4.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem4.setImageBitmap(bitmapItemFirst);
+                imgSecondItem4.setImageBitmap(bitmapItemSecond);
+                imgThirdItem4.setImageBitmap(bitmapItemThird);
+                imgFirstItem4.setVisibility(View.VISIBLE);
+                imgSecondItem4.setVisibility(View.VISIBLE);
+                imgThirdItem4.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem4.setImageBitmap(bitmapItemFirst);
+                imgSecondItem4.setImageBitmap(bitmapItemSecond);
+                imgFirstItem4.setVisibility(View.VISIBLE);
+                imgSecondItem4.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem4.setImageBitmap(bitmapItemFirst);
+                imgFirstItem4.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView5")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView5.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem5.setImageBitmap(bitmapItemFirst);
+                imgSecondItem5.setImageBitmap(bitmapItemSecond);
+                imgThirdItem5.setImageBitmap(bitmapItemThird);
+                imgFirstItem5.setVisibility(View.VISIBLE);
+                imgSecondItem5.setVisibility(View.VISIBLE);
+                imgThirdItem5.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem5.setImageBitmap(bitmapItemFirst);
+                imgSecondItem5.setImageBitmap(bitmapItemSecond);
+                imgFirstItem5.setVisibility(View.VISIBLE);
+                imgSecondItem5.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem5.setImageBitmap(bitmapItemFirst);
+                imgFirstItem5.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView6")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView6.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem6.setImageBitmap(bitmapItemFirst);
+                imgSecondItem6.setImageBitmap(bitmapItemSecond);
+                imgThirdItem6.setImageBitmap(bitmapItemThird);
+                imgFirstItem6.setVisibility(View.VISIBLE);
+                imgSecondItem6.setVisibility(View.VISIBLE);
+                imgThirdItem6.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem6.setImageBitmap(bitmapItemFirst);
+                imgSecondItem6.setImageBitmap(bitmapItemSecond);
+                imgFirstItem6.setVisibility(View.VISIBLE);
+                imgSecondItem6.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem6.setImageBitmap(bitmapItemFirst);
+                imgFirstItem6.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView7")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView7.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem7.setImageBitmap(bitmapItemFirst);
+                imgSecondItem7.setImageBitmap(bitmapItemSecond);
+                imgThirdItem7.setImageBitmap(bitmapItemThird);
+                imgFirstItem7.setVisibility(View.VISIBLE);
+                imgSecondItem7.setVisibility(View.VISIBLE);
+                imgThirdItem7.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem7.setImageBitmap(bitmapItemFirst);
+                imgSecondItem7.setImageBitmap(bitmapItemSecond);
+                imgFirstItem7.setVisibility(View.VISIBLE);
+                imgSecondItem7.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem7.setImageBitmap(bitmapItemFirst);
+                imgFirstItem7.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView8")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView8.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem8.setImageBitmap(bitmapItemFirst);
+                imgSecondItem8.setImageBitmap(bitmapItemSecond);
+                imgThirdItem8.setImageBitmap(bitmapItemThird);
+                imgFirstItem8.setVisibility(View.VISIBLE);
+                imgSecondItem8.setVisibility(View.VISIBLE);
+                imgThirdItem8.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem8.setImageBitmap(bitmapItemFirst);
+                imgSecondItem8.setImageBitmap(bitmapItemSecond);
+                imgFirstItem8.setVisibility(View.VISIBLE);
+                imgSecondItem8.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem8.setImageBitmap(bitmapItemFirst);
+                imgFirstItem8.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView9")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView9.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem9.setImageBitmap(bitmapItemFirst);
+                imgSecondItem9.setImageBitmap(bitmapItemSecond);
+                imgThirdItem9.setImageBitmap(bitmapItemThird);
+                imgFirstItem9.setVisibility(View.VISIBLE);
+                imgSecondItem9.setVisibility(View.VISIBLE);
+                imgThirdItem9.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem9.setImageBitmap(bitmapItemFirst);
+                imgSecondItem9.setImageBitmap(bitmapItemSecond);
+                imgFirstItem9.setVisibility(View.VISIBLE);
+                imgSecondItem9.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem9.setImageBitmap(bitmapItemFirst);
+                imgFirstItem9.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView10")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView10.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem10.setImageBitmap(bitmapItemFirst);
+                imgSecondItem10.setImageBitmap(bitmapItemSecond);
+                imgThirdItem10.setImageBitmap(bitmapItemThird);
+                imgFirstItem10.setVisibility(View.VISIBLE);
+                imgSecondItem10.setVisibility(View.VISIBLE);
+                imgThirdItem10.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem10.setImageBitmap(bitmapItemFirst);
+                imgSecondItem10.setImageBitmap(bitmapItemSecond);
+                imgFirstItem10.setVisibility(View.VISIBLE);
+                imgSecondItem10.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem10.setImageBitmap(bitmapItemFirst);
+                imgFirstItem10.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView11")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView11.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem11.setImageBitmap(bitmapItemFirst);
+                imgSecondItem11.setImageBitmap(bitmapItemSecond);
+                imgThirdItem11.setImageBitmap(bitmapItemThird);
+                imgFirstItem11.setVisibility(View.VISIBLE);
+                imgSecondItem11.setVisibility(View.VISIBLE);
+                imgThirdItem11.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem11.setImageBitmap(bitmapItemFirst);
+                imgSecondItem11.setImageBitmap(bitmapItemSecond);
+                imgFirstItem11.setVisibility(View.VISIBLE);
+                imgSecondItem11.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem11.setImageBitmap(bitmapItemFirst);
+                imgFirstItem11.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView12")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView12.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem12.setImageBitmap(bitmapItemFirst);
+                imgSecondItem12.setImageBitmap(bitmapItemSecond);
+                imgThirdItem12.setImageBitmap(bitmapItemThird);
+                imgFirstItem12.setVisibility(View.VISIBLE);
+                imgSecondItem12.setVisibility(View.VISIBLE);
+                imgThirdItem12.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem12.setImageBitmap(bitmapItemFirst);
+                imgSecondItem12.setImageBitmap(bitmapItemSecond);
+                imgFirstItem12.setVisibility(View.VISIBLE);
+                imgSecondItem12.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem12.setImageBitmap(bitmapItemFirst);
+                imgFirstItem12.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView13")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView13.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem13.setImageBitmap(bitmapItemFirst);
+                imgSecondItem13.setImageBitmap(bitmapItemSecond);
+                imgThirdItem13.setImageBitmap(bitmapItemThird);
+                imgFirstItem13.setVisibility(View.VISIBLE);
+                imgSecondItem13.setVisibility(View.VISIBLE);
+                imgThirdItem13.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem13.setImageBitmap(bitmapItemFirst);
+                imgSecondItem13.setImageBitmap(bitmapItemSecond);
+                imgFirstItem13.setVisibility(View.VISIBLE);
+                imgSecondItem13.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem13.setImageBitmap(bitmapItemFirst);
+                imgFirstItem13.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView14")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView14.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem14.setImageBitmap(bitmapItemFirst);
+                imgSecondItem14.setImageBitmap(bitmapItemSecond);
+                imgThirdItem14.setImageBitmap(bitmapItemThird);
+                imgFirstItem14.setVisibility(View.VISIBLE);
+                imgSecondItem14.setVisibility(View.VISIBLE);
+                imgThirdItem14.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem14.setImageBitmap(bitmapItemFirst);
+                imgSecondItem14.setImageBitmap(bitmapItemSecond);
+                imgFirstItem14.setVisibility(View.VISIBLE);
+                imgSecondItem14.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem14.setImageBitmap(bitmapItemFirst);
+                imgFirstItem14.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView15")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView15.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem15.setImageBitmap(bitmapItemFirst);
+                imgSecondItem15.setImageBitmap(bitmapItemSecond);
+                imgThirdItem15.setImageBitmap(bitmapItemThird);
+                imgFirstItem15.setVisibility(View.VISIBLE);
+                imgSecondItem15.setVisibility(View.VISIBLE);
+                imgThirdItem15.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem15.setImageBitmap(bitmapItemFirst);
+                imgSecondItem15.setImageBitmap(bitmapItemSecond);
+                imgFirstItem15.setVisibility(View.VISIBLE);
+                imgSecondItem15.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem15.setImageBitmap(bitmapItemFirst);
+                imgFirstItem15.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView16")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView16.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem16.setImageBitmap(bitmapItemFirst);
+                imgSecondItem16.setImageBitmap(bitmapItemSecond);
+                imgThirdItem16.setImageBitmap(bitmapItemThird);
+                imgFirstItem16.setVisibility(View.VISIBLE);
+                imgSecondItem16.setVisibility(View.VISIBLE);
+                imgThirdItem16.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem16.setImageBitmap(bitmapItemFirst);
+                imgSecondItem16.setImageBitmap(bitmapItemSecond);
+                imgFirstItem16.setVisibility(View.VISIBLE);
+                imgSecondItem16.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem16.setImageBitmap(bitmapItemFirst);
+                imgFirstItem16.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView17")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView17.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem17.setImageBitmap(bitmapItemFirst);
+                imgSecondItem17.setImageBitmap(bitmapItemSecond);
+                imgThirdItem17.setImageBitmap(bitmapItemThird);
+                imgFirstItem17.setVisibility(View.VISIBLE);
+                imgSecondItem17.setVisibility(View.VISIBLE);
+                imgThirdItem17.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem17.setImageBitmap(bitmapItemFirst);
+                imgSecondItem17.setImageBitmap(bitmapItemSecond);
+                imgFirstItem17.setVisibility(View.VISIBLE);
+                imgSecondItem17.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem.setImageBitmap(bitmapItemFirst);
+                imgFirstItem.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView18")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView18.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem18.setImageBitmap(bitmapItemFirst);
+                imgSecondItem18.setImageBitmap(bitmapItemSecond);
+                imgThirdItem18.setImageBitmap(bitmapItemThird);
+                imgFirstItem18.setVisibility(View.VISIBLE);
+                imgSecondItem18.setVisibility(View.VISIBLE);
+                imgThirdItem18.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem18.setImageBitmap(bitmapItemFirst);
+                imgSecondItem18.setImageBitmap(bitmapItemSecond);
+                imgFirstItem18.setVisibility(View.VISIBLE);
+                imgSecondItem18.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem18.setImageBitmap(bitmapItemFirst);
+                imgFirstItem18.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView19")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView19.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem19.setImageBitmap(bitmapItemFirst);
+                imgSecondItem19.setImageBitmap(bitmapItemSecond);
+                imgThirdItem19.setImageBitmap(bitmapItemThird);
+                imgFirstItem19.setVisibility(View.VISIBLE);
+                imgSecondItem19.setVisibility(View.VISIBLE);
+                imgThirdItem19.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem19.setImageBitmap(bitmapItemFirst);
+                imgSecondItem19.setImageBitmap(bitmapItemSecond);
+                imgFirstItem19.setVisibility(View.VISIBLE);
+                imgSecondItem19.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem19.setImageBitmap(bitmapItemFirst);
+                imgFirstItem19.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView20")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView20.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem20.setImageBitmap(bitmapItemFirst);
+                imgSecondItem20.setImageBitmap(bitmapItemSecond);
+                imgThirdItem20.setImageBitmap(bitmapItemThird);
+                imgFirstItem20.setVisibility(View.VISIBLE);
+                imgSecondItem20.setVisibility(View.VISIBLE);
+                imgThirdItem20.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem20.setImageBitmap(bitmapItemFirst);
+                imgSecondItem20.setImageBitmap(bitmapItemSecond);
+                imgFirstItem20.setVisibility(View.VISIBLE);
+                imgSecondItem20.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem20.setImageBitmap(bitmapItemFirst);
+                imgFirstItem20.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView21")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView21.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem21.setImageBitmap(bitmapItemFirst);
+                imgSecondItem21.setImageBitmap(bitmapItemSecond);
+                imgThirdItem21.setImageBitmap(bitmapItemThird);
+                imgFirstItem21.setVisibility(View.VISIBLE);
+                imgSecondItem21.setVisibility(View.VISIBLE);
+                imgThirdItem21.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem21.setImageBitmap(bitmapItemFirst);
+                imgSecondItem21.setImageBitmap(bitmapItemSecond);
+                imgFirstItem21.setVisibility(View.VISIBLE);
+                imgSecondItem21.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem21.setImageBitmap(bitmapItemFirst);
+                imgFirstItem21.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView22")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView22.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem22.setImageBitmap(bitmapItemFirst);
+                imgSecondItem22.setImageBitmap(bitmapItemSecond);
+                imgThirdItem22.setImageBitmap(bitmapItemThird);
+                imgFirstItem22.setVisibility(View.VISIBLE);
+                imgSecondItem22.setVisibility(View.VISIBLE);
+                imgThirdItem22.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem22.setImageBitmap(bitmapItemFirst);
+                imgSecondItem22.setImageBitmap(bitmapItemSecond);
+                imgFirstItem22.setVisibility(View.VISIBLE);
+                imgSecondItem22.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem22.setImageBitmap(bitmapItemFirst);
+                imgFirstItem22.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView23")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView23.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem23.setImageBitmap(bitmapItemFirst);
+                imgSecondItem23.setImageBitmap(bitmapItemSecond);
+                imgThirdItem23.setImageBitmap(bitmapItemThird);
+                imgFirstItem23.setVisibility(View.VISIBLE);
+                imgSecondItem23.setVisibility(View.VISIBLE);
+                imgThirdItem23.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem23.setImageBitmap(bitmapItemFirst);
+                imgSecondItem23.setImageBitmap(bitmapItemSecond);
+                imgFirstItem23.setVisibility(View.VISIBLE);
+                imgSecondItem23.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem23.setImageBitmap(bitmapItemFirst);
+                imgFirstItem23.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView24")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView24.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem24.setImageBitmap(bitmapItemFirst);
+                imgSecondItem24.setImageBitmap(bitmapItemSecond);
+                imgThirdItem24.setImageBitmap(bitmapItemThird);
+                imgFirstItem24.setVisibility(View.VISIBLE);
+                imgSecondItem24.setVisibility(View.VISIBLE);
+                imgThirdItem24.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem24.setImageBitmap(bitmapItemFirst);
+                imgSecondItem24.setImageBitmap(bitmapItemSecond);
+                imgFirstItem24.setVisibility(View.VISIBLE);
+                imgSecondItem24.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem24.setImageBitmap(bitmapItemFirst);
+                imgFirstItem24.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView25")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView25.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem25.setImageBitmap(bitmapItemFirst);
+                imgSecondItem25.setImageBitmap(bitmapItemSecond);
+                imgThirdItem25.setImageBitmap(bitmapItemThird);
+                imgFirstItem25.setVisibility(View.VISIBLE);
+                imgSecondItem25.setVisibility(View.VISIBLE);
+                imgThirdItem25.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem25.setImageBitmap(bitmapItemFirst);
+                imgSecondItem25.setImageBitmap(bitmapItemSecond);
+                imgFirstItem25.setVisibility(View.VISIBLE);
+                imgSecondItem25.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem25.setImageBitmap(bitmapItemFirst);
+                imgFirstItem25.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView26")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView26.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem26.setImageBitmap(bitmapItemFirst);
+                imgSecondItem26.setImageBitmap(bitmapItemSecond);
+                imgThirdItem26.setImageBitmap(bitmapItemThird);
+                imgFirstItem26.setVisibility(View.VISIBLE);
+                imgSecondItem26.setVisibility(View.VISIBLE);
+                imgThirdItem26.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem26.setImageBitmap(bitmapItemFirst);
+                imgSecondItem26.setImageBitmap(bitmapItemSecond);
+                imgFirstItem26.setVisibility(View.VISIBLE);
+                imgSecondItem26.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem26.setImageBitmap(bitmapItemFirst);
+                imgFirstItem26.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView27")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView27.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem27.setImageBitmap(bitmapItemFirst);
+                imgSecondItem27.setImageBitmap(bitmapItemSecond);
+                imgThirdItem27.setImageBitmap(bitmapItemThird);
+                imgFirstItem27.setVisibility(View.VISIBLE);
+                imgSecondItem27.setVisibility(View.VISIBLE);
+                imgThirdItem27.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem27.setImageBitmap(bitmapItemFirst);
+                imgSecondItem27.setImageBitmap(bitmapItemSecond);
+                imgFirstItem27.setVisibility(View.VISIBLE);
+                imgSecondItem27.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem27.setImageBitmap(bitmapItemFirst);
+                imgFirstItem27.setVisibility(View.VISIBLE);
+            }
+        }
+        else if (desc.getChampionPlaceID().equals("imageView28")) {
+            Bitmap bitmapChampion =GetChampionImageByName(desc.getChampionName());
+            Bitmap bitmapItemFirst=GetItemByName(desc.getFirstItemName());
+            Bitmap bitmapItemSecond=GetItemByName(desc.getSecondItemName());
+            Bitmap bitmapItemThird=GetItemByName(desc.getThirdItemName());
+            if(bitmapChampion!=null){
+                mImageView28.setImageBitmap(bitmapChampion);
+            }
+            if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird!=null){
+                imgFirstItem28.setImageBitmap(bitmapItemFirst);
+                imgSecondItem28.setImageBitmap(bitmapItemSecond);
+                imgThirdItem28.setImageBitmap(bitmapItemThird);
+                imgFirstItem28.setVisibility(View.VISIBLE);
+                imgSecondItem28.setVisibility(View.VISIBLE);
+                imgThirdItem28.setVisibility(View.VISIBLE);
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond!=null && bitmapItemThird==null){
+                imgFirstItem28.setImageBitmap(bitmapItemFirst);
+                imgSecondItem28.setImageBitmap(bitmapItemSecond);
+                imgFirstItem28.setVisibility(View.VISIBLE);
+                imgSecondItem28.setVisibility(View.VISIBLE);
+
+            }
+            else if(bitmapItemFirst!=null && bitmapItemSecond==null && bitmapItemThird==null){
+                imgFirstItem28.setImageBitmap(bitmapItemFirst);
+                imgFirstItem28.setVisibility(View.VISIBLE);
+            }
+        }
+    }
 
     public void RemoveChampionDescription(String placeId) {
         for (int i = 0; i < newTeamCompDesc.size(); i++) {
@@ -535,7 +1343,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
-
     public void onClick(View v) {
         long clickTime = System.currentTimeMillis();
         int viewId = v.getId();
@@ -590,11 +1397,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         editTextView.setVisibility(View.GONE);
                         return false;
                     }
-                    );
+            );
 
         }
 
-        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
+        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout2);
         constraintLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -625,29 +1432,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
-
     public void conditionFilter(List<Champion>championList,List<Item>itemList,String type){
         List<Suggestion>suggestionList = new ArrayList<Suggestion>();
-       if(type.equals("champion")){
-          for(Champion item : championList){
+        if(type.equals("champion")){
+            for(Champion item : championList){
 
-           Bitmap championImg= GetChampionImageByName(item.getName());
-           Suggestion suggestion = new Suggestion(championImg,item.getName());
-           suggestionList.add(suggestion);
-          }
-       }
-       else{
-           for(Item item : itemList){
-               if(item.getEffects().size() > 0){
-                   Bitmap itemImg=GetItemByName(item.getName());
-                   Suggestion suggestion = new Suggestion(itemImg,item.getName());
-                   suggestionList.add(suggestion);
-               }
+                Bitmap championImg= GetChampionImageByName(item.getName());
+                Suggestion suggestion = new Suggestion(championImg,item.getName());
+                suggestionList.add(suggestion);
+            }
+        }
+        else{
+            for(Item item : itemList){
+                if(item.getEffects().size() > 0){
+                    Bitmap itemImg=GetItemByName(item.getName());
+                    Suggestion suggestion = new Suggestion(itemImg,item.getName());
+                    suggestionList.add(suggestion);
+                }
 
-           }
-       }
-       Suggestion_Adapter adapter = new Suggestion_Adapter(this,suggestionList);
-       editTextView.setAdapter(adapter);
+            }
+        }
+        Suggestion_Adapter adapter = new Suggestion_Adapter(this,suggestionList);
+        editTextView.setAdapter(adapter);
     }
     public boolean isCHampion(int id) {
         ImageView chamionImg=findViewById(id);
@@ -659,8 +1465,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return false;
     }
 
+    private TeamComp newTeamComposition = new TeamComp();
+    private List<ChampionDescription> newTeamCompDesc = new ArrayList<ChampionDescription>();
+    public void AddChampionDescription(String name, String placeId) {
+        ChampionDescription desc = new ChampionDescription();
+        desc.setChampionName(name);
+        desc.setChampionPlaceID(placeId);
+        desc.setTeamCompID("");
+        desc.setFirstItemName("");
+        desc.setSecondItemName("");
+        desc.setThirdItemName("");
+        newTeamCompDesc.add(desc);
+    }
+    public void AddCurrentDescription(ChampionDescription current) {
+        ChampionDescription desc = new ChampionDescription();
+        desc.setChampionName(current.getChampionName());
+        desc.setChampionPlaceID(current.getChampionPlaceID());
+        if(current.getFirstItemName()!=null) {
+            desc.setFirstItemName(current.getFirstItemName());
+        }
+        if(current.getSecondItemName()!=null) {
+            desc.setSecondItemName(current.getSecondItemName());
+        }
+        if(current.getThirdItemName()!=null) {
+            desc.setThirdItemName(current.getThirdItemName());
+        }
+        desc.setTeamCompID("");
 
-    private void performSearch(String query) {
+        newTeamCompDesc.add(desc);
+    }
+    public void AddItemEachChampionDescription(String itemName, String placeID) {
+        for (int i = 0; i < newTeamCompDesc.size(); i++) {
+            if (newTeamCompDesc.get(i).getChampionPlaceID().equals(placeID)) {
+                if (newTeamCompDesc.get(i).getFirstItemName().equals("") ) {
+                    newTeamCompDesc.get(i).setFirstItemName(itemName);
+                } else if (!newTeamCompDesc.get(i).getFirstItemName().equals("")) {
+                    newTeamCompDesc.get(i).setSecondItemName(itemName);
+                } else if (!newTeamCompDesc.get(i).getFirstItemName().equals("")  && !newTeamCompDesc.get(i).getSecondItemName().equals("")) {
+                    newTeamCompDesc.get(i).setThirdItemName(itemName);
+                }
+            }
+        }
+    }
+    private void performSearch(String query)  {
 
         String search = "tft8_" + query;
 
@@ -2468,13 +3315,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editTextView.setText("");
         editTextView.setVisibility(View.GONE);
     }
-
     public void submit(View view) {
         String nameOfTeam = teamName.getText().toString();
-        myDB.addTeampComp(nameOfTeam);
+        myDB.updateTeamCompData(team.getTeamCompId(),nameOfTeam);
+        myDB.deleteChampionDescription(team.getTeamCompId());
         readDataTeampComp();
         int count = teamCompList.size();
-        String teamCompID = teamCompList.get(count - 1).getTeamCompId();
+        String teamCompID = team.getTeamCompId();
         for (int i = 0; i < newTeamCompDesc.size(); i++) {
             newTeamCompDesc.get(i).setTeamCompID(teamCompID);
         }
@@ -2490,6 +3337,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         Intent intent = new Intent(this, ShowTeamList.class);
 
+        startActivity(intent);
+    }
+    public void delete(View view) {
+        myDB.deleteTeamComp(team.getTeamCompId());
+        myDB.deleteChampionDescription(team.getTeamCompId());
+        Intent intent = new Intent(this, ShowTeamList.class);
         startActivity(intent);
     }
 }

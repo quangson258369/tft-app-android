@@ -2,7 +2,9 @@ package com.example.myapplication.Models;
 
 import android.graphics.Bitmap;
 
-public class SynergyActive {
+import java.io.Serializable;
+
+public class SynergyActive implements Serializable {
     private String nameOfSynergyActive;
     private int activeCount;
     public int style;

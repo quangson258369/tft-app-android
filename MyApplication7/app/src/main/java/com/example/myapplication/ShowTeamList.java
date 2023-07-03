@@ -12,6 +12,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.example.myapplication.Models.Champion;
@@ -41,12 +43,12 @@ public class ShowTeamList extends AppCompatActivity {
     private RecyclerView rcvTeamComp;
 
     private TeamComp_Adapter teamComp_adapter;
-    private List<Champion> ListChampions;
-    private List<Item> ListItems;
+    private List<Champion> ListChampions= new ArrayList<>();
+    private List<Item> ListItems= new ArrayList<>();
     private List<Synergy> synergyList = new ArrayList<>();
-    private List<SynergyActive> synergyActives;
+    private List<SynergyActive> synergyActives=new ArrayList<>();
 
-    private List<ChampionCompUse> championCompUseList;
+    private List<ChampionCompUse> championCompUseList= new ArrayList<>();
     private List<TeamComp> teamCompList = new ArrayList<>();
     private List<ChampionDescription> champDes = new ArrayList<>();
     private DatabaseHelper myDB;
@@ -64,7 +66,8 @@ public class ShowTeamList extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
          rcvTeamComp.setLayoutManager(linearLayoutManager);
 
-        teamComp_adapter.setData(this, getListData());
+        teamComp_adapter.setData(this, getListData()
+        );
         int count=getListData().size();
         rcvTeamComp.setAdapter(teamComp_adapter);
 
@@ -338,6 +341,7 @@ public class ShowTeamList extends AppCompatActivity {
         List<ListDataCompShow> listDataCompShows = new ArrayList<>();
         for (int i = 0; i < teamCompList.size(); i++) {
             ListDataCompShow dataCompShow = new ListDataCompShow();
+            dataCompShow.setTeamCompID(teamCompList.get(i).getTeamCompId());
             dataCompShow.setTeamCompName(teamCompList.get(i).getNameOfTeamComp());
             List<ChampionDescription> championDescriptions = championDescription("" + teamCompList.get(i).getTeamCompId());
             List<ChampionCompUse> championCompUses = championCompUseList(championDescriptions);
@@ -348,4 +352,6 @@ public class ShowTeamList extends AppCompatActivity {
         }
         return listDataCompShows;
     }
+
+
 }

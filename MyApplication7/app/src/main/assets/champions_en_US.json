@@ -1434,7 +1434,7 @@
     "tier": "b",
     "cost": 4,
     "origin": "set8_underground",
-    "classunit": "set8_quickdraw,set8_ace",
+    "classunit": "set8_sureshot,set8_ace",
     "health": "700 / 1260 / 2268",
     "mana": "65",
     "startingmana": 0,
@@ -1453,7 +1453,7 @@
       "set8_underground"
     ],
     "classes": [
-      "set8_quickdraw",
+      "set8_sureshot",
       "set8_ace"
     ],
     "tierorder": 3,
