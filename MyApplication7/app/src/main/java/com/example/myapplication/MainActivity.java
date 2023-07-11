@@ -518,9 +518,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (newTeamCompDesc.get(i).getChampionPlaceID().equals(placeID)) {
                 if (newTeamCompDesc.get(i).getFirstItemName().equals("") ) {
                     newTeamCompDesc.get(i).setFirstItemName(itemName);
-                } else if (!newTeamCompDesc.get(i).getFirstItemName().equals("")) {
+                } else if (!newTeamCompDesc.get(i).getFirstItemName().equals("") && newTeamCompDesc.get(i).getSecondItemName().equals("")) {
                     newTeamCompDesc.get(i).setSecondItemName(itemName);
-                } else if (!newTeamCompDesc.get(i).getFirstItemName().equals("")  && !newTeamCompDesc.get(i).getSecondItemName().equals("")) {
+                } else if (!newTeamCompDesc.get(i).getFirstItemName().equals("")  && !newTeamCompDesc.get(i).getSecondItemName().equals("") && newTeamCompDesc.get(i).getThirdItemName().equals("")) {
                     newTeamCompDesc.get(i).setThirdItemName(itemName);
                 }
             }
