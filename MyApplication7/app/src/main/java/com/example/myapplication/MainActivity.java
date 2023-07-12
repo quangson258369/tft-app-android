@@ -194,15 +194,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private List<String> items = new ArrayList<String>();
     private EditText teamName;
     private Suggestion_Adapter Sadapter;
-    private List<Suggestion> suggestions= new ArrayList<Suggestion>();
+    private List<Suggestion> suggestions = new ArrayList<Suggestion>();
     private RecyclerView rcvlistView;
     private AutoCompleteTextView editTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
 
 
         teamName = findViewById(R.id.TeamCompName);
@@ -386,14 +385,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         readDataTeampComp();
 
         rcvlistView = findViewById(R.id.rcv_suggestion);
-         editTextView = findViewById(R.id.searchText);
+        editTextView = findViewById(R.id.searchText);
         editTextView.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
         editTextView.setSingleLine(true);
     }
 
 
-    private List<Champion> ListChampions= new ArrayList<>();
-    private List<Item> ListItems= new ArrayList<>();
+    private List<Champion> ListChampions = new ArrayList<>();
+    private List<Item> ListItems = new ArrayList<>();
 
     private void readJsonFile() {
         try {
@@ -516,17 +515,60 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void AddItemEachChampionDescription(String itemName, String placeID) {
         for (int i = 0; i < newTeamCompDesc.size(); i++) {
             if (newTeamCompDesc.get(i).getChampionPlaceID().equals(placeID)) {
-                if (newTeamCompDesc.get(i).getFirstItemName().equals("") ) {
+                if (newTeamCompDesc.get(i).getFirstItemName().equals("")) {
                     newTeamCompDesc.get(i).setFirstItemName(itemName);
                 } else if (!newTeamCompDesc.get(i).getFirstItemName().equals("") && newTeamCompDesc.get(i).getSecondItemName().equals("")) {
-                    newTeamCompDesc.get(i).setSecondItemName(itemName);
-                } else if (!newTeamCompDesc.get(i).getFirstItemName().equals("")  && !newTeamCompDesc.get(i).getSecondItemName().equals("") && newTeamCompDesc.get(i).getThirdItemName().equals("")) {
-                    newTeamCompDesc.get(i).setThirdItemName(itemName);
+                    if (newTeamCompDesc.get(i).getFirstItemName().equals(itemName) && checkUnique(itemName)) {
+                        Toast.makeText(this,"this item is unique and can be add one",Toast.LENGTH_SHORT).show();
+                    } else {
+                        newTeamCompDesc.get(i).setSecondItemName(itemName);
+                    }
+                } else if (!newTeamCompDesc.get(i).getFirstItemName().equals("") && !newTeamCompDesc.get(i).getSecondItemName().equals("") && newTeamCompDesc.get(i).getThirdItemName().equals("")) {
+                    if (newTeamCompDesc.get(i).getFirstItemName().equals(itemName) && checkUnique(itemName)) {
+                        Toast.makeText(this,"this item is unique and can be add one",Toast.LENGTH_SHORT).show();
+                    } else if(newTeamCompDesc.get(i).getSecondItemName().equals(itemName) && checkUnique(itemName)){
+                        Toast.makeText(this,"this item is unique and can be add one",Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        newTeamCompDesc.get(i).setThirdItemName(itemName);
+                    }
+
                 }
             }
         }
     }
+public boolean confirmShowItem(String itemName, String placeID) {
+    for (int i = 0; i < newTeamCompDesc.size(); i++) {
+        if (!newTeamCompDesc.get(i).getFirstItemName().equals("") && newTeamCompDesc.get(i).getSecondItemName().equals("")) {
+            if (newTeamCompDesc.get(i).getFirstItemName().equals(itemName) && checkUnique(itemName)) {
+                return false;
+            } else {
+                return true;
+            }
+        } else if (!newTeamCompDesc.get(i).getFirstItemName().equals("") && !newTeamCompDesc.get(i).getSecondItemName().equals("") && newTeamCompDesc.get(i).getThirdItemName().equals("")) {
+            if (newTeamCompDesc.get(i).getFirstItemName().equals(itemName) && checkUnique(itemName)) {
+                return false;
+            } else if (newTeamCompDesc.get(i).getSecondItemName().equals(itemName) && checkUnique(itemName)) {
+                return false;
+            }
+            else{
+                return true;
+            }
 
+        }
+    }
+    return true;
+}
+    public boolean checkUnique(String itemName) {
+        for (int i = 0; i < ListItems.size(); i++) {
+            if (ListItems.get(i).getName().equals(itemName)) {
+                if (ListItems.get(i).isIsunique()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     public void RemoveChampionDescription(String placeId) {
         for (int i = 0; i < newTeamCompDesc.size(); i++) {
@@ -569,12 +611,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             lastClickTime = clickTime;
 
             selectedImageViewId = viewId;
-            boolean check= isCHampion(selectedImageViewId);
-            if(check) {
-                conditionFilter(ListChampions,ListItems,"champion");
-            }
-            else{
-                conditionFilter(ListChampions,ListItems,"item");
+            boolean check = isCHampion(selectedImageViewId);
+            if (check) {
+                conditionFilter(ListChampions, ListItems, "champion");
+            } else {
+                conditionFilter(ListChampions, ListItems, "item");
             }
             editTextView.setVisibility(View.VISIBLE);
 
@@ -590,7 +631,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         editTextView.setVisibility(View.GONE);
                         return false;
                     }
-                    );
+            );
 
         }
 
@@ -626,34 +667,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    public void conditionFilter(List<Champion>championList,List<Item>itemList,String type){
-        List<Suggestion>suggestionList = new ArrayList<Suggestion>();
-       if(type.equals("champion")){
-          for(Champion item : championList){
+    public void conditionFilter(List<Champion> championList, List<Item> itemList, String type) {
+        List<Suggestion> suggestionList = new ArrayList<Suggestion>();
+        if (type.equals("champion")) {
+            for (Champion item : championList) {
 
-           Bitmap championImg= GetChampionImageByName(item.getName());
-           Suggestion suggestion = new Suggestion(championImg,item.getName());
-           suggestionList.add(suggestion);
-          }
-       }
-       else{
-           for(Item item : itemList){
-               if(item.getEffects().size() > 0){
-                   Bitmap itemImg=GetItemByName(item.getName());
-                   Suggestion suggestion = new Suggestion(itemImg,item.getName());
-                   suggestionList.add(suggestion);
-               }
+                Bitmap championImg = GetChampionImageByName(item.getName());
+                Suggestion suggestion = new Suggestion(championImg, item.getName());
+                suggestionList.add(suggestion);
+            }
+        } else {
+            for (Item item : itemList) {
+                if (item.getEffects().size() > 0) {
+                    Bitmap itemImg = GetItemByName(item.getName());
+                    Suggestion suggestion = new Suggestion(itemImg, item.getName());
+                    suggestionList.add(suggestion);
+                }
 
-           }
-       }
-       Suggestion_Adapter adapter = new Suggestion_Adapter(this,suggestionList);
-       editTextView.setAdapter(adapter);
+            }
+        }
+        Suggestion_Adapter adapter = new Suggestion_Adapter(this, suggestionList);
+        editTextView.setAdapter(adapter);
     }
+
     public boolean isCHampion(int id) {
-        ImageView chamionImg=findViewById(id);
-        Drawable chamimg= chamionImg.getDrawable();
+        ImageView chamionImg = findViewById(id);
+        Drawable chamimg = chamionImg.getDrawable();
         Drawable imgDefault = getDrawable(R.drawable.none);
-        if(chamimg.getConstantState().equals(imgDefault.getConstantState())){
+        if (chamimg.getConstantState().equals(imgDefault.getConstantState())) {
             return true;
         }
         return false;
@@ -711,9 +752,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem.setVisibility(View.VISIBLE);
-                    imgSecondItem.setImageBitmap(bitmapSecondItems);
                     AddItemEachChampionDescription(query, "imageView");
+                    if(confirmShowItem(query, "imageView")){
+                        imgSecondItem.setVisibility(View.VISIBLE);
+                        imgSecondItem.setImageBitmap(bitmapSecondItems);
+                    }
+
+
 
                 } else {
                     imgSecondItem.setImageResource(R.drawable.none);
@@ -725,9 +770,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem.setVisibility(View.VISIBLE);
-                    imgThirdItem.setImageBitmap(bitmapThirdItems);
                     AddItemEachChampionDescription(query, "imageView");
+                    if(confirmShowItem(query, "imageView")){
+                        imgThirdItem.setVisibility(View.VISIBLE);
+                        imgThirdItem.setImageBitmap(bitmapThirdItems);
+                    }
+                    imgThirdItem.setImageResource(R.drawable.none);
+
 
                 } else {
                     imgThirdItem.setImageResource(R.drawable.none);
@@ -779,9 +828,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem2.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem2.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView2");
+                    if (confirmShowItem(query, "imageView2"))
+                    {
+                        imgSecondItem2.setVisibility(View.VISIBLE);
+                        imgSecondItem2.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem2.setImageResource(R.drawable.none);
 
@@ -792,9 +845,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem2.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem2.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView2");
+                    if (confirmShowItem(query, "imageView2"))
+                    {
+                        imgThirdItem2.setVisibility(View.VISIBLE);
+                        imgThirdItem2.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem2.setImageResource(R.drawable.none);
 
@@ -843,9 +900,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem3.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem3.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView3");
+                    if (confirmShowItem(query, "imageView3"))
+                    {
+                        imgSecondItem3.setVisibility(View.VISIBLE);
+                        imgSecondItem3.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem3.setImageResource(R.drawable.none);
 
@@ -856,9 +917,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem3.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem3.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView3");
+                    if (confirmShowItem(query, "imageView3"))
+                    {
+                        imgThirdItem3.setVisibility(View.VISIBLE);
+                        imgThirdItem3.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem3.setImageResource(R.drawable.none);
 
@@ -907,9 +972,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem4.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem4.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView4");
+                    if (confirmShowItem(query, "imageView4"))
+                    {
+                        imgSecondItem4.setVisibility(View.VISIBLE);
+                        imgSecondItem4.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem4.setImageResource(R.drawable.none);
 
@@ -920,9 +989,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem4.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem4.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView4");
+                    if (confirmShowItem(query, "imageView4"))
+                    {
+                        imgThirdItem4.setVisibility(View.VISIBLE);
+                        imgThirdItem4.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem4.setImageResource(R.drawable.none);
 
@@ -971,9 +1044,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem5.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem5.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView5");
+                    if (confirmShowItem(query, "imageView5"))
+                    {
+                        imgSecondItem5.setVisibility(View.VISIBLE);
+                        imgSecondItem5.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem5.setImageResource(R.drawable.none);
 
@@ -984,9 +1061,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem5.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem5.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView5");
+                    if (confirmShowItem(query, "imageView5"))
+                    {
+                        imgThirdItem5.setVisibility(View.VISIBLE);
+                        imgThirdItem5.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem5.setImageResource(R.drawable.none);
 
@@ -1035,9 +1116,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem6.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem6.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView6");
+                    if (confirmShowItem(query, "imageView6"))
+                    {
+                        imgSecondItem6.setVisibility(View.VISIBLE);
+                        imgSecondItem6.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem6.setImageResource(R.drawable.none);
 
@@ -1048,9 +1133,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem6.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem6.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView6");
+                    if (confirmShowItem(query, "imageView6"))
+                    {
+                        imgThirdItem6.setVisibility(View.VISIBLE);
+                        imgThirdItem6.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem6.setImageResource(R.drawable.none);
 
@@ -1099,9 +1188,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem7.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem7.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView7");
+                    if (confirmShowItem(query, "imageView7"))
+                    {
+                        imgSecondItem7.setVisibility(View.VISIBLE);
+                        imgSecondItem7.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem7.setImageResource(R.drawable.none);
 
@@ -1112,9 +1205,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem7.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem7.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView7");
+                    if (confirmShowItem(query, "imageView7"))
+                    {
+                        imgThirdItem7.setVisibility(View.VISIBLE);
+                        imgThirdItem7.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem7.setImageResource(R.drawable.none);
 
@@ -1162,9 +1259,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem8.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem8.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView8");
+                    if (confirmShowItem(query, "imageView8"))
+                    {
+                        imgSecondItem8.setVisibility(View.VISIBLE);
+                        imgSecondItem8.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem8.setImageResource(R.drawable.none);
 
@@ -1175,9 +1276,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem8.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem8.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView8");
+                    if (confirmShowItem(query, "imageView8"))
+                    {
+                        imgThirdItem8.setVisibility(View.VISIBLE);
+                        imgThirdItem8.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem8.setImageResource(R.drawable.none);
 
@@ -1226,9 +1331,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem9.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem9.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView9");
+                    if (confirmShowItem(query, "imageView9"))
+                    {
+                        imgSecondItem9.setVisibility(View.VISIBLE);
+                        imgSecondItem9.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem9.setImageResource(R.drawable.none);
 
@@ -1239,9 +1348,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem9.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem9.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView9");
+                    if (confirmShowItem(query, "imageView9"))
+                    {
+                        imgThirdItem9.setVisibility(View.VISIBLE);
+                        imgThirdItem9.setImageBitmap(bitmapThirdItems);
+                    } imgThirdItem9.setImageResource(R.drawable.none);
 
                 } else {
                     imgThirdItem9.setImageResource(R.drawable.none);
@@ -1291,9 +1403,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem10.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem10.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView10");
+                    if (confirmShowItem(query, "imageView10"))
+                    {
+                        imgSecondItem10.setVisibility(View.VISIBLE);
+                        imgSecondItem10.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem10.setImageResource(R.drawable.none);
 
@@ -1304,9 +1420,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem10.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem10.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView10");
+                    if (confirmShowItem(query, "imageView10"))
+                    {
+                        imgThirdItem10.setVisibility(View.VISIBLE);
+                        imgThirdItem10.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem10.setImageResource(R.drawable.none);
 
@@ -1355,9 +1475,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem11.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem11.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView11");
+                    if (confirmShowItem(query, "imageView11"))
+                    {
+                        imgSecondItem11.setVisibility(View.VISIBLE);
+                        imgSecondItem11.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem11.setImageResource(R.drawable.none);
 
@@ -1368,9 +1492,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem11.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem11.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView11");
+                    if (confirmShowItem(query, "imageView11"))
+                    {
+                        imgThirdItem11.setVisibility(View.VISIBLE);
+                        imgThirdItem11.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem11.setImageResource(R.drawable.none);
 
@@ -1419,9 +1547,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem12.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem12.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView12");
+                    if (confirmShowItem(query, "imageView12"))
+                    {
+                        imgSecondItem12.setVisibility(View.VISIBLE);
+                        imgSecondItem12.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem12.setImageResource(R.drawable.none);
 
@@ -1432,9 +1564,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem12.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem12.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView12");
+                    if (confirmShowItem(query, "imageView12"))
+                    {
+                        imgThirdItem12.setVisibility(View.VISIBLE);
+                        imgThirdItem12.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem12.setImageResource(R.drawable.none);
 
@@ -1483,9 +1619,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem13.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem13.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView13");
+                    if (confirmShowItem(query, "imageView13"))
+                    {
+                        imgSecondItem13.setVisibility(View.VISIBLE);
+                        imgSecondItem13.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem13.setImageResource(R.drawable.none);
 
@@ -1496,9 +1636,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem13.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem13.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView13");
+                    if (confirmShowItem(query, "imageView13"))
+                    {
+                        imgThirdItem13.setVisibility(View.VISIBLE);
+                        imgThirdItem13.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem13.setImageResource(R.drawable.none);
 
@@ -1547,9 +1691,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem14.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem14.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView14");
+                    if (confirmShowItem(query, "imageView14"))
+                    {
+                        imgSecondItem14.setVisibility(View.VISIBLE);
+                        imgSecondItem14.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem14.setImageResource(R.drawable.none);
 
@@ -1560,9 +1708,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem14.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem14.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView14");
+                    if (confirmShowItem(query, "imageView14"))
+                    {
+                        imgThirdItem14.setVisibility(View.VISIBLE);
+                        imgThirdItem14.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem14.setImageResource(R.drawable.none);
 
@@ -1611,9 +1763,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem15.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem15.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView15");
+                    if (confirmShowItem(query, "imageView15"))
+                    {
+                        imgSecondItem15.setVisibility(View.VISIBLE);
+                        imgSecondItem15.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem15.setImageResource(R.drawable.none);
 
@@ -1624,9 +1780,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem15.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem15.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView15");
+                    if (confirmShowItem(query, "imageView15"))
+                    {
+                        imgThirdItem15.setVisibility(View.VISIBLE);
+                        imgThirdItem15.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem15.setImageResource(R.drawable.none);
 
@@ -1675,9 +1835,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem16.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem16.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView16");
+                    if (confirmShowItem(query, "imageView16"))
+                    {
+                        imgSecondItem16.setVisibility(View.VISIBLE);
+                        imgSecondItem16.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem16.setImageResource(R.drawable.none);
 
@@ -1688,9 +1852,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem16.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem16.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView16");
+                    if (confirmShowItem(query, "imageView16"))
+                    {
+                        imgThirdItem16.setVisibility(View.VISIBLE);
+                        imgThirdItem16.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem16.setImageResource(R.drawable.none);
 
@@ -1739,9 +1907,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem17.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem17.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView17");
+                    if (confirmShowItem(query, "imageView17"))
+                    {
+                        imgSecondItem17.setVisibility(View.VISIBLE);
+                        imgSecondItem17.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem17.setImageResource(R.drawable.none);
 
@@ -1752,9 +1924,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem17.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem17.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView17");
+                    if (confirmShowItem(query, "imageView17"))
+                    {
+                        imgThirdItem17.setVisibility(View.VISIBLE);
+                        imgThirdItem17.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem17.setImageResource(R.drawable.none);
 
@@ -1803,9 +1979,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem18.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem18.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView18");
+                    if (confirmShowItem(query, "imageView18"))
+                    {
+                        imgSecondItem18.setVisibility(View.VISIBLE);
+                        imgSecondItem18.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem18.setImageResource(R.drawable.none);
 
@@ -1816,9 +1996,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem18.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem18.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView18");
+                    if (confirmShowItem(query, "imageView18"))
+                    {
+                        imgThirdItem18.setVisibility(View.VISIBLE);
+                        imgThirdItem18.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem18.setImageResource(R.drawable.none);
 
@@ -1867,9 +2051,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem19.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem19.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView19");
+                    if (confirmShowItem(query, "imageView19"))
+                    {
+                        imgSecondItem19.setVisibility(View.VISIBLE);
+                        imgSecondItem19.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem19.setImageResource(R.drawable.none);
 
@@ -1880,9 +2068,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem19.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem19.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView19");
+                    if (confirmShowItem(query, "imageView19"))
+                    {
+                        imgThirdItem19.setVisibility(View.VISIBLE);
+                        imgThirdItem19.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem19.setImageResource(R.drawable.none);
 
@@ -1931,9 +2123,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem20.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem20.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView20");
+                    if (confirmShowItem(query, "imageView20"))
+                    {
+                        imgSecondItem20.setVisibility(View.VISIBLE);
+                        imgSecondItem20.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem20.setImageResource(R.drawable.none);
 
@@ -1944,9 +2140,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem20.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem20.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView20");
+                    if (confirmShowItem(query, "imageView20"))
+                    {
+                        imgThirdItem20.setVisibility(View.VISIBLE);
+                        imgThirdItem20.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem20.setImageResource(R.drawable.none);
 
@@ -1995,9 +2195,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem21.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem21.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView21");
+                    if (confirmShowItem(query, "imageView21"))
+                    {
+                        imgSecondItem21.setVisibility(View.VISIBLE);
+                        imgSecondItem21.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem21.setImageResource(R.drawable.none);
 
@@ -2008,9 +2212,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem21.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem21.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView21");
+                    if (confirmShowItem(query, "imageView21"))
+                    {
+                        imgThirdItem21.setVisibility(View.VISIBLE);
+                        imgThirdItem21.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem21.setImageResource(R.drawable.none);
 
@@ -2059,9 +2267,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem22.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem22.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView22");
+                    if (confirmShowItem(query, "imageView22"))
+                    {
+                        imgSecondItem22.setVisibility(View.VISIBLE);
+                        imgSecondItem22.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem22.setImageResource(R.drawable.none);
 
@@ -2072,9 +2284,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem22.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem22.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView22");
+                    if (confirmShowItem(query, "imageView22"))
+                    {
+                        imgThirdItem22.setVisibility(View.VISIBLE);
+                        imgThirdItem22.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem22.setImageResource(R.drawable.none);
 
@@ -2123,9 +2339,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem23.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem23.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView23");
+                    if (confirmShowItem(query, "imageView23"))
+                    {
+                        imgSecondItem23.setVisibility(View.VISIBLE);
+                        imgSecondItem23.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem23.setImageResource(R.drawable.none);
 
@@ -2136,9 +2356,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem23.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem23.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView23");
+                    if (confirmShowItem(query, "imageView23"))
+                    {
+                        imgThirdItem23.setVisibility(View.VISIBLE);
+                        imgThirdItem23.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem23.setImageResource(R.drawable.none);
 
@@ -2187,9 +2411,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem24.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem24.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView24");
+                    if (confirmShowItem(query, "imageView24"))
+                    {
+                        imgSecondItem24.setVisibility(View.VISIBLE);
+                        imgSecondItem24.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem24.setImageResource(R.drawable.none);
 
@@ -2200,9 +2428,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem24.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem24.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView24");
+                    if (confirmShowItem(query, "imageView24"))
+                    {
+                        imgThirdItem24.setVisibility(View.VISIBLE);
+                        imgThirdItem24.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem24.setImageResource(R.drawable.none);
 
@@ -2251,9 +2483,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem25.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem25.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView25");
+                    if (confirmShowItem(query, "imageView25"))
+                    {
+                        imgSecondItem25.setVisibility(View.VISIBLE);
+                        imgSecondItem25.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem25.setImageResource(R.drawable.none);
 
@@ -2264,9 +2500,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem25.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem25.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView25");
+                    if (confirmShowItem(query, "imageView25"))
+                    {
+                        imgThirdItem25.setVisibility(View.VISIBLE);
+                        imgThirdItem25.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem25.setImageResource(R.drawable.none);
 
@@ -2315,9 +2555,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem26.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem26.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView26");
+                    if (confirmShowItem(query, "imageView26"))
+                    {
+                        imgSecondItem26.setVisibility(View.VISIBLE);
+                        imgSecondItem26.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem26.setImageResource(R.drawable.none);
 
@@ -2328,9 +2572,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem26.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem26.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView26");
+                    if (confirmShowItem(query, "imageView26"))
+                    {
+                        imgThirdItem26.setVisibility(View.VISIBLE);
+                        imgThirdItem26.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem26.setImageResource(R.drawable.none);
 
@@ -2379,9 +2627,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem27.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem27.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView27");
+                    if (confirmShowItem(query, "imageView27"))
+                    {
+                        imgSecondItem27.setVisibility(View.VISIBLE);
+                        imgSecondItem27.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem27.setImageResource(R.drawable.none);
 
@@ -2392,9 +2644,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem27.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem27.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView27");
+                    if (confirmShowItem(query, "imageView27"))
+                    {
+                        imgThirdItem27.setVisibility(View.VISIBLE);
+                        imgThirdItem27.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem27.setImageResource(R.drawable.none);
 
@@ -2443,9 +2699,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Bitmap bitmapSecondItems = GetItemByName(query);
                 if (bitmapSecondItems != null) {
-                    imgSecondItem28.setImageBitmap(bitmapSecondItems);
-                    imgSecondItem28.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView28");
+                    if (confirmShowItem(query, "imageView28"))
+                    {
+                        imgSecondItem28.setVisibility(View.VISIBLE);
+                        imgSecondItem28.setImageBitmap(bitmapSecondItems);
+                    }
+
                 } else {
                     imgSecondItem28.setImageResource(R.drawable.none);
 
@@ -2456,9 +2716,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     && itemLast.getConstantState().equals(imgDefault.getConstantState())) {
                 Bitmap bitmapThirdItems = GetItemByName(query);
                 if (bitmapThirdItems != null) {
-                    imgThirdItem28.setImageBitmap(bitmapThirdItems);
-                    imgThirdItem28.setVisibility(View.VISIBLE);
                     AddItemEachChampionDescription(query, "imageView28");
+                    if (confirmShowItem(query, "imageView28"))
+                    {
+                        imgThirdItem28.setVisibility(View.VISIBLE);
+                        imgThirdItem28.setImageBitmap(bitmapThirdItems);
+                    }
+
                 } else {
                     imgThirdItem28.setImageResource(R.drawable.none);
 

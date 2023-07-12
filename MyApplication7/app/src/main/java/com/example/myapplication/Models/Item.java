@@ -12,6 +12,9 @@ public class Item {
     private String trait;
     private int specialstatus;
     private List<ItemEffect> effects;
+    private boolean isunique;
+
+    private boolean isshadow;
 
     public List<String> getFrom() {
         return from;
@@ -37,9 +40,6 @@ public class Item {
         this.specialstatus = specialstatus;
     }
 
-    private boolean isUnique;
-
-    private boolean isShadow;
 
     public String getId() {
         return id;
@@ -89,22 +89,20 @@ public class Item {
         this.effects = effects;
     }
 
-    public boolean isUnique() {
-        return isUnique;
+    public boolean isIsunique() {
+        return isunique;
     }
 
-    public void setUnique(boolean unique) {
-        isUnique = unique;
+    public void setIsunique(boolean isunique) {
+        this.isunique = isunique;
     }
 
-
-
-    public boolean isShadow() {
-        return isShadow;
+    public boolean isIsshadow() {
+        return isshadow;
     }
 
-    public void setShadow(boolean shadow) {
-        isShadow = shadow;
+    public void setIsshadow(boolean isshadow) {
+        this.isshadow = isshadow;
     }
 }
 
