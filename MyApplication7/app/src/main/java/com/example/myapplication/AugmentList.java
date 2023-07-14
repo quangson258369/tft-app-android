@@ -36,22 +36,7 @@ public class AugmentList extends AppCompatActivity {
 
     private RecyclerView rcvAugment;
     private Augment_Adapter aug_Adapter;
-
-    private Button btn_level1;
-
-    private Button btn_level2;
-
-    private Button btn_level3;
-
-    private Button btn_heros;
-
-    public static final int action_level1 = 1000032;
-
-    public static final int action_level2 = 1000034;
-
-    public static final int action_level3 = 1000015;
-
-
+    
     private List<Augment> ListAugments = new ArrayList<>();
 
     Intent intent;
@@ -64,14 +49,6 @@ public class AugmentList extends AppCompatActivity {
         readJsonFile();
 
         rcvAugment = findViewById(R.id.rcv_augment);
-
-//        btn_level1 = findViewById(R.id.btn_level1);
-//
-//        btn_level2 = findViewById(R.id.btn_level2);
-//
-//        btn_level3 = findViewById(R.id.btn_level3);
-//
-//        btn_heros = findViewById(R.id.btn_heros);
 
         aug_Adapter = new Augment_Adapter(this);
 
@@ -105,29 +82,6 @@ public class AugmentList extends AppCompatActivity {
             return true;
         });
 
-//        btn_level2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                aug_Adapter.setData(getListAugmentsByLevel(2));
-//                rcvAugment.setAdapter(aug_Adapter);
-//            }
-//        });
-////
-//        btn_level3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                aug_Adapter.setData(getListAugmentsByLevel(3));
-//                rcvAugment.setAdapter(aug_Adapter);
-//            }
-//        });
-//
-//        btn_heros.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                aug_Adapter.setData(getListAugmentsByLevel(4));
-//                rcvAugment.setAdapter(aug_Adapter);
-//            }
-//        });
     }
 
 
