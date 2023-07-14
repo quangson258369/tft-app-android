@@ -3,18 +3,18 @@
     "id": "tft8_aatrox",
     "name": "aatrox",
     "tier": "a",
-    "cost": 4,
+    "cost": "4",
     "origin": "set8_threat",
     "classunit": "",
     "health": "1100 / 1980 / 3564",
     "mana": "75",
-    "startingmana": 0,
+    "startingmana": "0",
     "attackdamage": "60 / 108 / 194",
     "attackspeed": "0.8",
     "dps": "48 / 86 / 155",
-    "attackrange": 1,
-    "armor": 60,
-    "magicresist": 60,
+    "attackrange": "1",
+    "armor": "60",
+    "magicresist": "60",
     "items": [
       "tft_item_redemption",
       "tft_item_redbuff",
@@ -23,17 +23,17 @@
     "abilityName": "soul crush",
     "abilitydescription": "aatrox sucks the soul of nearby enemies dealing 220 / 330 / 1200 magic damage and gaining 30 / 30 / 66% of his max hp  maximum health. he then unleashes his demonic form for the rest of combat, rehlacing his shell with the darkin blade.the darkin blade: aatrox leaps up and slams his greatsword down on his target, dealing 220 / 330 / 1200 magic damage to all enemies hit and healing himself for 300 / 350 / 800 health.",
     "statusdescriptions": [],
-    "costreal": 4,
+    "costreal": "4",
     "origins": [
       "set8_threat"
     ],
     "classes": [
       ""
     ],
-    "tierorder": 2,
-    "health_value": 1100,
-    "dps_value": 48,
-    "attack_damage_value": 60
+    "tierorder": "2",
+    "health_value": "1100",
+    "dps_value": "48",
+    "attack_damage_value": "60"
   },
   {
     "id": "tft8_alistar",

@@ -1,10 +1,14 @@
 package com.example.myapplication.Models;
 
 import android.graphics.Bitmap;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
 
 import java.io.Serializable;
 
-public class ChampionCompUse implements Serializable {
+public class ChampionCompUse{
 
     public String nameChampion;
     public Bitmap ChampionBitmap;
@@ -30,4 +34,6 @@ public class ChampionCompUse implements Serializable {
     public void setChampionBitmap(Bitmap championBitmap) {
         ChampionBitmap = championBitmap;
     }
+
+
 }

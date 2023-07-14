@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="0dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@color/car_ui_ripple_color">
+
+            <RelativeLayout
+                android:layout_width="294dp"
+                android:layout_height="63dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp">
+
+                <ImageView
+                    android:id="@+id/imgChampion"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/shape_stroke_color_accent"
+                    android:foreground="@drawable/ripple_background"
+                    android:src="@drawable/none" />
+
+                <TextView
+                    android:id="@+id/tvNameChamp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/imgChampion"
+                    android:textStyle="bold"
+                    android:text="Champion"></TextView>
+
+
+                <TextView
+                    android:id="@+id/tvOrigin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvNameChamp"
+                    android:layout_toRightOf="@id/imgChampion"
+                    android:textStyle="bold"
+                    android:text="Toc"></TextView>
+
+                <TextView
+                    android:id="@+id/tvSynergy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvOrigin"
+                    android:layout_toRightOf="@id/imgChampion"
+                    android:textStyle="bold"
+                    android:text="He"></TextView>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/imgItem1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="120dp"
+                android:background="@drawable/shape_stroke_color_accent"
+                android:foreground="@drawable/ripple_background"
+                android:src="@drawable/none" />
+
+            <ImageView
+                android:id="@+id/imgItem2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="170dp"
+                android:layout_marginTop="120dp"
+                android:background="@drawable/shape_stroke_color_accent"
+                android:foreground="@drawable/ripple_background"
+                android:src="@drawable/none" />
+
+            <ImageView
+                android:id="@+id/imgItem3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="330dp"
+                android:layout_marginTop="120dp"
+                android:background="@drawable/shape_stroke_color_accent"
+                android:foreground="@drawable/ripple_background"
+                android:src="@drawable/none" />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+            <TextView
+                android:id="@+id/nangluong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NĂNG LƯỢNG"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/tvNangLuong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="140"
+                android:layout_below="@+id/nangluong"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="60dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/mau"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MÁU"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="200dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/tvMau"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1000/1800/3240"
+                android:layout_below="@+id/mau"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="160dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/satthuong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SÁT THƯƠNG"
+                android:layout_below="@+id/tvMau"
+                android:layout_marginLeft="170dp"
+                android:layout_marginTop="5dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/tvSatThuong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="60/108/194"
+                android:layout_below="@+id/satthuong"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="175dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/dps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DPS"
+                android:layout_below="@+id/tvSatThuong"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="5dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/tvDps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="36/65/117"
+                android:layout_below="@+id/dps"
+                android:layout_marginLeft="175dp"
+                android:layout_marginTop="5dp"
+                ></TextView>
+
+
+            <TextView
+                android:id="@+id/nlkhoidau"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="N.L KHỞI ĐẦU"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="300dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/tvNLKhoiDau"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="70"
+                android:layout_below="@+id/nlkhoidau"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="330dp"
+                ></TextView>
+            <TextView
+                android:id="@+id/tocdodanh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TỐC ĐỘ ĐÁNH"
+                android:layout_below="@+id/tvNLKhoiDau"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="5dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/tvTocDoDanh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.6"
+                android:layout_below="@+id/tocdodanh"
+                android:layout_marginLeft="330dp"
+                android:layout_marginTop="5dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/khangphep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KHÁNG PHÉP"
+                android:layout_below="@+id/tvTocDoDanh"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="5dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/tvKhangPhep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="60"
+                android:layout_below="@+id/khangphep"
+                android:layout_marginLeft="330dp"
+                android:layout_marginTop="5dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/tamdanh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TẦM ĐÁNH"
+                android:layout_below="@+id/tvNangLuong"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="5dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/tvTamDanh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="70"
+                android:layout_below="@+id/tamdanh"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/giap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GIÁP"
+                android:layout_below="@+id/tvTamDanh"
+                android:layout_marginLeft="55dp"
+                android:layout_marginTop="5dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/tvGiap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/giap"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp"
+                android:text="70"></TextView>
+
+
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kỹ Năng"
+            android:layout_marginLeft="10dp"></TextView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="190dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvSkillName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:text="Skill"></TextView>
+
+            <ImageView
+                android:id="@+id/imgSkill"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/shape_stroke_color_accent"
+                android:foreground="@drawable/ripple_background"
+                android:src="@drawable/none" />
+
+            <TextView
+                android:id="@+id/tvSkillDes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="35dp"
+                android:text="Skill----------"></TextView>
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Tộc Hệ"-->
+<!--            android:layout_marginLeft="10dp"></TextView>-->
+
+<!--        <FrameLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="160dp">-->
+
+
+
+<!--        </FrameLayout>-->
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

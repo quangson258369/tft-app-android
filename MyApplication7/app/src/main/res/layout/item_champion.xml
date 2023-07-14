@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp">
-    <FrameLayout android:id="@+id/flItem" android:layout_width="wrap_content" android:layout_height="wrap_content">
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp">
+    <FrameLayout
+        android:id="@+id/flItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/imgBaseItem"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_margin="6dp"
             android:background="@drawable/shape_stroke_color_accent"
             android:foreground="@drawable/ripple_background"
             android:src="@drawable/none" />
+
+        <TextView
+            android:id="@+id/tvChampName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imgBaseItem"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:text="Champion"></TextView>
+        </RelativeLayout>
     </FrameLayout>
+
+
 </LinearLayout>

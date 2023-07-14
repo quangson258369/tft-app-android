@@ -9,8 +9,6 @@
     android:background="#4B4A4C"
     tools:context=".DetailsTemComp">
 
-
-
     <com.example.myapplication.HexagonImageView
         android:id="@+id/imageView"
         android:layout_width="40dp"

@@ -1,8 +1,14 @@
 package com.example.myapplication.Models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class Champion {
+public class Champion{
     private String id;
     private String name;
     private String tier;
@@ -29,6 +35,9 @@ public class Champion {
     private int health_value;
     private int dps_value;
     private int attack_damage_value;
+
+    public Champion() {
+    }
 
     // Getters and setters
     public String getId() {
@@ -238,4 +247,5 @@ public class Champion {
     public void setAttack_damage_value(int attack_damage_value) {
         this.attack_damage_value = attack_damage_value;
     }
+
 }

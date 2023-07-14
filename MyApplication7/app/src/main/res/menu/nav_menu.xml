@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+
+    <group
+        android:checkableBehavior="single"
+        >
+        <item
+            android:id="@+id/nav_champion"
+            android:icon="@drawable/spartan_helmet"
+            android:title="Tướng"
+            ></item>
+
+        <item
+            android:id="@+id/nav_item"
+            android:icon="@drawable/piercing_sword"
+            android:title="Trang Bị"></item>
+
+        <item
+            android:id="@+id/nav_add_team"
+            android:icon="@drawable/piercing_sword"
+            android:title="Tạo Đội Hình"></item>
+
+        <item
+            android:id="@+id/nav_view_team"
+            android:icon="@drawable/piercing_sword"
+            android:title="Xem Đội Hình"></item>
+
+        <item
+            android:id="@+id/nav_augments"
+            android:icon="@drawable/piercing_sword"
+            android:title="Lõi"></item>
+    </group>
+</menu>
