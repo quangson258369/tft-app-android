@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="action_level1">Silver</string>
+    <string name="action_level2">Gold</string>
+    <string name="action_level3">Prismatic</string>
+    <string name="action_level4">Heros</string>
 </resources>

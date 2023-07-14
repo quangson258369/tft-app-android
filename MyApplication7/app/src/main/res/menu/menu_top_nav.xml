@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_level1"
+        android:title="@string/action_level1"
+        android:icon="@drawable/shape_synergies_silver"/>
+
+    <item android:id="@+id/action_level2"
+        android:title="@string/action_level2"
+        android:icon="@drawable/shape_synergies_gold"/>
+
+    <item android:id="@+id/action_level3"
+        android:title="@string/action_level3"
+        android:icon="@drawable/shape_synergies_chronic"/>
+
+    <item android:id="@+id/action_level4"
+        android:title="@string/action_level4"
+        android:icon="@drawable/shape_synergies_chronic"/>
+</menu>

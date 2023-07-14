@@ -18,12 +18,14 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Adapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.example.myapplication.Models.Augment;
 import com.example.myapplication.Models.Champion;
 import com.example.myapplication.Models.ChampionDescription;
 import com.example.myapplication.Models.Item;
@@ -42,6 +44,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    public Button btnAugments;
     public ImageView mImageView;
     public ImageView mImageView2;
     public ImageView mImageView3;
@@ -197,11 +200,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private List<Suggestion> suggestions= new ArrayList<Suggestion>();
     private RecyclerView rcvlistView;
     private AutoCompleteTextView editTextView;
+
+    private Button BtnAugments;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btnAugments = findViewById(R.id.btnAugments);
 
 
 
@@ -348,6 +354,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imgSecondItem28 = findViewById(R.id.imgSecondItem28);
         imgThirdItem28 = findViewById(R.id.imgThirdItem28);
 
+
         mImageView.setOnClickListener(this);
         mImageView2.setOnClickListener(this);
         mImageView3.setOnClickListener(this);
@@ -389,8 +396,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          editTextView = findViewById(R.id.searchText);
         editTextView.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
         editTextView.setSingleLine(true);
+
+        BtnAugments = (Button) findViewById(R.id.btnAugments);
+
+        BtnAugments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAugments();
+            }
+        });
     }
 
+    private List<Augment> ListAugments = new ArrayList<>();
+
+
+    public void openAugments(){
+        Intent intent = new Intent(this, AugmentList.class);
+        startActivity(intent);
+    }
 
     private List<Champion> ListChampions= new ArrayList<>();
     private List<Item> ListItems= new ArrayList<>();
@@ -400,10 +423,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Read the JSON file from the assets folder
             InputStream inputStream = getAssets().open("champions_en_US.json");
             InputStream inputStream2 = getAssets().open("items_en_US.json");
+            InputStream inputStream3 = getAssets().open("augments_en_US.json");
             // Check if the inputStream is null
             if (inputStream != null) {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
                 BufferedReader reader2 = new BufferedReader(new InputStreamReader(inputStream2));
+                BufferedReader reader3 = new BufferedReader(new InputStreamReader(inputStream3));
 
                 // Use Gson to parse the JSON data into objects
                 Gson gson = new Gson();
@@ -413,12 +438,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }.getType();
                 Type listType2 = new TypeToken<List<Item>>() {
                 }.getType();
+
+                Type listType3 = new TypeToken<List<Augment>>() {
+                }.getType();
+
                 // Parse the JSON data into a list of Champion objects
                 List<Champion> championList = gson.fromJson(reader, listType);
 
                 ListChampions = championList;
 
                 ListItems = gson.fromJson(reader2, listType2);
+
+                ListAugments = gson.fromJson(reader3, listType3);
                 // Now you have the extracted data in the championList
                 // You can use it as needed
                 // ...
