@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
+import android.widget.ImageView;
 import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -60,6 +61,24 @@ public class ItemManager extends AppCompatActivity  {
          Log.d("TAG",ListItemComp.get(1).getNameItem());
 
         item_adapter.setData(ListItemComp);
+        item_adapter.setOnItemClickListener(new Item_Adapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+               if(ListItems.get(position).getFrom()!=null){
+                   ImageView imageView1 = findViewById(R.id.imgBaseItem1);
+                   ImageView imageView2 = findViewById(R.id.imgBaseItem2);
+                   ImageView imageView3 = findViewById(R.id.imgBaseItem3);
+                   Bitmap bitmap1 = GetItemByName(ListItems.get(position).getId());
+                   Bitmap bitmap2 = GetItemByName(ListItems.get(position).getFrom().get(0));
+                   Bitmap bitmap3 = GetItemByName(ListItems.get(position).getFrom().get(1));
+                   imageView1.setImageBitmap(bitmap3);
+                   imageView2.setImageBitmap(bitmap2);
+                   imageView3.setImageBitmap(bitmap1);
+
+
+               }
+            }
+        });
         recyclerView.setAdapter(item_adapter);
 
     }
@@ -133,5 +152,20 @@ public class ItemManager extends AppCompatActivity  {
                 e.printStackTrace();
             }
         }
+    }
+    private Bitmap GetItemByName(String id) {
+        int count = ListItems.size();
+        for (int i = 0; i < count; i++) {
+                String ItemImage = "items/" + id + ".png";
+                try {
+                    InputStream inputStream = getAssets().open(ItemImage);
+                    Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                    return bitmap;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        return null;
     }
 }

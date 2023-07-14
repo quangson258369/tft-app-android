@@ -1,7 +1,7 @@
 [
   {
     "id": "tft_item_bfsword",
-    "name": "b.f. sword",
+    "name": "b.f.sword",
     "tier": "a",
     "description": " +10% attack damage",
     "from": null,
@@ -55,7 +55,7 @@
   },
   {
     "id": "tft_item_negatroncloak",
-    "name": "negatron cloak",
+    "name": "pro cloak",
     "tier": "c",
     "description": " +20 magic resist",
     "from": null,
@@ -111,7 +111,7 @@
     "id": "tft_item_giantsbelt",
     "name": "giant's belt",
     "tier": "b",
-    "description": "%i:scalehealth% +150 health",
+    "description": "+150 health",
     "from": null,
     "isbase": true,
     "trait": null,
@@ -303,7 +303,7 @@
     "id": "tft_item_rapidfirecannon",
     "name": "rapid firecannon",
     "tier": "b",
-    "description": "grant %i:scalerange% 1 bonus attack range and your attacks cannot miss.",
+    "description": "grant 1 bonus attack range and your attacks cannot miss.",
     "from": [ "tft_item_recurvebow", "tft_item_recurvebow" ],
     "isbase": false,
     "trait": null,
@@ -512,7 +512,7 @@
   },
   {
     "id": "tft_item_animasquademblemitem",
-    "name": "anima squad emblem",
+    "name": "animal squad emblem",
     "tier": "?",
     "description": "the holder gains the anima squad trait.[unique - only 1 per champion]",
     "from": [ "tft_item_needlesslylargerod", "tft_item_spatula" ],
@@ -1325,7 +1325,7 @@
     "id": "tft_item_rapidfirecannonradiant",
     "name": "rapid lightcannon",
     "tier": null,
-    "description": "grant %i:scalerange% 2 bonus attack range and your attacks cannot miss.",
+    "description": "grant 2 bonus attack range and your attacks cannot miss.",
     "from": [ "tft_item_recurvebow", "tft_item_recurvebow" ],
     "isbase": false,
     "trait": null,
@@ -1502,7 +1502,7 @@
     "isshadow": true
   },
   {
-    "id": "tft_item_archangelsstaffradiant",
+    "id": "tft_item_archangelsstaff",
     "name": "urf-angel's staff",
     "tier": null,
     "description": "combat start: gain  30 ability power every 4 seconds.",
@@ -1527,7 +1527,7 @@
     "id": "tft_item_locketoftheironsolariradiant",
     "name": "locket of targon prime",
     "tier": null,
-    "description": "combat start: shields the holder and allies within 3 hexes in the same row for 350/400/450 damage for 60 seconds.Your team gains %i:scalehealth% 200 health.[aura item]",
+    "description": "combat start: shields the holder and allies within 3 hexes in the same row for 350/400/450 damage for 60 seconds.Your team gains 200 health.[aura item]",
     "from": [ "tft_item_chainvest", "tft_item_needlesslylargerod" ],
     "isbase": false,
     "trait": null,

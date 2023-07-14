@@ -977,7 +977,7 @@
     "attack_damage_value": 60
   },
   {
-    "id": "tft8_missfortune",
+    "id": "tft8_missFortune",
     "name": "miss fortune",
     "tier": "a",
     "cost": 4,
