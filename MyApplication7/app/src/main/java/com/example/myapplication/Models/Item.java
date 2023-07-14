@@ -1,5 +1,7 @@
 package com.example.myapplication.Models;
 
+import android.graphics.Bitmap;
+
 import java.util.List;
 
 public class Item {

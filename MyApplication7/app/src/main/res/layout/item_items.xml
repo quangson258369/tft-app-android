@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <FrameLayout
+        android:id="@+id/FLitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewName"
+            android:text="Item name"
+            android:layout_toEndOf="@+id/imgBaseItem"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewDescription"
+                android:text="Description"
+                android:layout_below="@+id/textViewName"
+                android:layout_toEndOf="@+id/imgBaseItem"/>
+        <ImageView
+            android:id="@+id/imgBaseItem"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="6dp"
+            android:background="@drawable/shape_stroke_color_accent"
+            android:foreground="@drawable/ripple_background"
+            android:src="@drawable/none" />
+        </RelativeLayout>
+
+    </FrameLayout>
+</LinearLayout>
